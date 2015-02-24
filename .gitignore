@@ -1,17 +1,15 @@
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-/target
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
+.project
+.classpath
+.settings
+.springBeans
+.metadata
+.idea
+.externalToolBuilders
 rebel.xml
+target
+test-output
+/src/main/jasperreports/reports/*.jasper
 *.iml
+.idea/*
+!.idea/codeStyleSettings.xml
+!.idea/encodings.xml
