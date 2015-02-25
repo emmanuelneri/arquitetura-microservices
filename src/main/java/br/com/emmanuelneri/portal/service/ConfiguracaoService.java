@@ -7,4 +7,9 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class ConfiguracaoService extends GenericService<Configuracao> {
+
+    public Configuracao findConfiguracao() {
+        return findById(1L);
+    }
+
 }

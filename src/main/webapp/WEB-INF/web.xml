@@ -25,4 +25,13 @@
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
 
+    <filter>
+        <filter-name>ConfiguracaoFilter</filter-name>
+        <filter-class>br.com.emmanuelneri.portal.util.ConfiguracaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ConfiguracaoFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
