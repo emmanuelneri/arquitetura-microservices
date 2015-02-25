@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Portal</title>
+    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:panel header="Configuração">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome do Projeto"/>
+                <h:inputText value="#{configuracaoInicialController.configuracao.nomeProjeto}" />
+            </h:panelGrid>
+
+            <p:commandButton value="Salvar" action="#{configuracaoInicialController.salvar}" ajax="false"/>
+        </p:panel>
+
+    </h:form>
+</h:body>
+
+</html>
