@@ -1,17 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/commons/template.xhtml">
 
-<h:head>
-    <title>Portal</title>
-    <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-</h:head>
+    <ui:define name="conteudo">
 
-<h:body>
+        <h1>Portal</h1>
 
-    #{configuracaoController.configuracao.nomeProjeto}
+    </ui:define>
 
-</h:body>
-
-</html>
+</ui:composition>
