@@ -1,12 +1,12 @@
 #Requisitos
 - Postgres 9.3+
-- JBoss 7.1.1.Final
-- Java 7 
+- Wildfly 8.0.2.Final
+- Java 8
 
 # Configurando Projeto
-1 - Adicionar módulo Postgres no JBoss
-  - Adicionar jar do Posgres em  modules/org/postgresql
-  - Configurar módulo no standalone/configuration/standalone.xml
+1 - Adicionar módulo Postgres no Wildfly
+  - Adicionar jar do Posgres em  modules/system/layers/base/org/postgresql
+  - Configurar driver no standalone/configuration/standalone.xml
   
   ```
   <datasources>
@@ -16,7 +16,7 @@
  </datasources>
  ```
 
-2 - Configurar DataSource no JBoss
+2 - Configurar DataSource no Wildfly
   - Adicionar nova configuração de datasource
   
   ```
@@ -24,21 +24,10 @@
      <datasource jta="true" jndi-name="java:jboss/datasources/PortalDS" pool-name="PortalDS" enabled="true" use-java-context="true" use-ccm="true">
       <connection-url>jdbc:postgresql://localhost:5432/portal</connection-url>
       <driver>postgresql</driver>
-      <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
-      <pool>
-        <min-pool-size>5</min-pool-size>
-        <max-pool-size>30</max-pool-size>
-        <prefill>true</prefill>
-        <use-strict-min>false</use-strict-min>
-        <flush-strategy>FailingConnectionOnly</flush-strategy>
-      </pool>
       <security>
         <user-name>postgres</user-name>
         <password>postgres</password>
       </security>
-      <statement>
-        <prepared-statement-cache-size>32</prepared-statement-cache-size>
-      </statement>
     </datasource>
  </datasources>
  ```
