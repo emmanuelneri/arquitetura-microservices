@@ -9,11 +9,10 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
-
     <properties>
-        <hibernate.version>4.0.1.Final</hibernate.version>
-        <cdi.version>1.0-SP4</cdi.version>
-        <jsf.version>2.0.1.Final</jsf.version>
+        <hibernate.version>4.3.8.Final</hibernate.version>
+        <cdi.version>1.1</cdi.version>
+        <jsf.version>2.2.6</jsf.version>
         <primefaces.version>5.1</primefaces.version>
         <deltaspike.version>0.5</deltaspike.version>
         <shiro.version>1.2.3</shiro.version>
@@ -23,15 +22,15 @@
 
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
-            <artifactId>jboss-jsf-api_2.1_spec</artifactId>
+            <artifactId>jboss-jsf-api_2.2_spec</artifactId>
             <version>${jsf.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.jboss.spec.javax.servlet</groupId>
-            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
-            <version>1.0.1.Final</version>
+            <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+            <version>1.0.0.Final</version>
             <scope>provided</scope>
         </dependency>
 
@@ -44,16 +43,15 @@
 
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
-            <version>1.0.2.Final</version>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>1.0.0.Final</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -126,8 +124,6 @@
             <artifactId>guava</artifactId>
             <version>17.0</version>
         </dependency>
-
-
     </dependencies>
 
     <build>

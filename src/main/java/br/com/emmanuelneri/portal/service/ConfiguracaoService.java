@@ -3,9 +3,9 @@ package br.com.emmanuelneri.portal.service;
 import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.util.GenericService;
 
-import javax.ejb.Stateless;
+import javax.inject.Named;
 
-@Stateless
+@Named
 public class ConfiguracaoService extends GenericService<Configuracao> {
 
     public Configuracao findConfiguracao() {

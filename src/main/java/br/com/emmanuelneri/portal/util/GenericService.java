@@ -4,11 +4,9 @@ import com.google.common.collect.Iterables;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -40,18 +38,22 @@ public abstract class GenericService<T extends Model> implements Serializable {
         return createSession().createCriteria(type).list();
     }
 
+    @Transactional
     public void delete(T object) {
         this.entityManager.remove(object);
     }
 
+    @Transactional
     public void create(T object) {
         this.entityManager.persist(object);
     }
 
+    @Transactional
     public void update(T object) {
         this.entityManager.merge(object);
     }
 
+    @Transactional
     public void save(T object) {
         if (object.getId() == null) {
             this.entityManager.persist(object);

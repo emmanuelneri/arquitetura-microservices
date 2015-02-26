@@ -2,9 +2,9 @@ package br.com.emmanuelneri.portal.controller;
 
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.UsuarioService;
-import org.omnifaces.cdi.ViewScoped;
 
 import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
