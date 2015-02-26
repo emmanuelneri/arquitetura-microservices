@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.util;
 
+import com.google.common.collect.Iterables;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 
@@ -70,4 +71,9 @@ public abstract class GenericService<T extends Model> implements Serializable {
     protected Criteria getCriteria() {
         return createSession().createCriteria(type);
     }
+
+    protected T getResultOrNull(List<T> list) {
+        return Iterables.getFirst(list, null);
+    }
+
 }

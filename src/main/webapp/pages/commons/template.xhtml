@@ -13,12 +13,12 @@
 <h:body>
     <h:form>
         <h3>#{configuracaoController.configuracao.nomeProjeto}</h3>
-        <p:menubar>
-            <p:menuitem value="Home" action="index"/>
-            <p:submenu label="Cadastros">
-                <p:menuitem value="Cadastro Usuário" action="cadastro-usuario?faces-redirect=true"/>
-            </p:submenu>
-        </p:menubar>
+
+        <ul>
+            <li><h:outputLink value="#{request.contextPath}/pages/index.xhtml?faces-redirect=true">Home</h:outputLink></li>
+            <li><h:outputLink value="#{request.contextPath}/pages/cadastro-usuario.xhtml?faces-redirect=true">Cadastro Usuário</h:outputLink></li>
+            <li><h:outputLink value="#{request.contextPath}/sair">Sair</h:outputLink></li>
+        </ul>
     </h:form>
 
     <br />
