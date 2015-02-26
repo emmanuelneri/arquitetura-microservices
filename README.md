@@ -1,11 +1,9 @@
-# arquitetura-multi-modulos-Portal
-
-Requisitos
+#Requisitos
 - Postgres 9.3+
 - JBoss 7.1.1.Final
 - Java 7 
 
-
+# Configurando Projeto
 1 - Adicionar módulo Postgres no JBoss
   - Adicionar jar do Posgres em  modules/org/postgresql
   - Configurar módulo no standalone/configuration/standalone.xml
@@ -48,3 +46,13 @@ Requisitos
  
 3 - Criar o Banco
   - Criar um banco no postgres chamado "portal"
+  
+# Utilizando Aplicação
+
+1 - Logar no sistema
+- email: teste@gmail.com
+- senha: 123
+
+2 - Configurar Portal
+  - Inserir nome do projeto
+  
