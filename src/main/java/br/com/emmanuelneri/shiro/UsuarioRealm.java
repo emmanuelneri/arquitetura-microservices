@@ -1,7 +1,5 @@
 package br.com.emmanuelneri.shiro;
 
-import java.util.Arrays;
-
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.UsuarioService;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
@@ -16,6 +14,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
+
+import java.util.Arrays;
 
 public class UsuarioRealm extends AuthorizingRealm {
 
