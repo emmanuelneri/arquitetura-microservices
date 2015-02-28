@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
@@ -15,6 +16,13 @@
             <h:panelGrid columns="2">
                 <h:outputLabel value="Nome do Projeto"/>
                 <h:inputText value="#{configuracaoInicialController.configuracao.nomeProjeto}" />
+
+                <p:outputLabel value="Aplicações:" />
+                <p:selectManyCheckbox value="#{configuracaoInicialController.configuracao.aplicacoes}"
+                       converter="entityConverter">
+                    <f:selectItems value="#{configuracaoInicialController.aplicacoes}" var="aplicacao"
+                                   itemLabel="#{aplicacao.nome}" itemValue="#{aplicacao}" />
+                </p:selectManyCheckbox>
             </h:panelGrid>
 
             <p:commandButton value="Salvar" action="#{configuracaoInicialController.salvar}" ajax="false"/>

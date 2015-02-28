@@ -14,10 +14,18 @@
     <h:form>
         <h3>#{configuracaoController.configuracao.nomeProjeto}</h3>
 
+        <h3>Portal</h3>
         <ul>
             <li><h:outputLink value="#{request.contextPath}/pages/index.xhtml?faces-redirect=true">Home</h:outputLink></li>
             <li><h:outputLink value="#{request.contextPath}/pages/cadastro-usuario.xhtml?faces-redirect=true">Cadastro Usuário</h:outputLink></li>
             <li><h:outputLink value="#{request.contextPath}/sair">Sair</h:outputLink></li>
+        </ul>
+
+        <h3>Aplicações</h3>
+        <ul>
+            <ui:repeat value="#{configuracaoController.configuracao.aplicacoes}" var="aplicacao">
+                <li><h:commandLink value="#{aplicacao.nome}" action="#{menuController.redirectAplicacao(aplicacao)}"/></li>
+            </ui:repeat>
         </ul>
     </h:form>
 

@@ -2,7 +2,6 @@ package br.com.emmanuelneri.portal.controller;
 
 import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.service.ConfiguracaoService;
-import org.omnifaces.util.Faces;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
