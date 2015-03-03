@@ -28,7 +28,7 @@ public class MenuController {
         mapValores.put("chaveAplicacao", aplicacao.getChave());
 
         final String token = new JWTSigner("secret").sign(mapValores);
-        Faces.redirect(aplicacao.getUrl() + token);
+        Faces.redirect(aplicacao.getUrl()+"?token=%s&", token);
     }
 
     public Usuario getUsuario() {
