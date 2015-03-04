@@ -44,4 +44,12 @@
 
 2 - Configurar Portal
   - Inserir nome do projeto
+  - Selecionar Aplicações(Modulos) que estará disponível no menu
+  
+# Aplicações (Modulo)
+  Para cada aplicação configurado no Portal será criado um novo projeto
+
+  - Subir o projeto https://github.com/emmanuelneri/arquitetura-multi-modulos-Vendas
+  
+Obs: A configuração padrão do módulo de vendas está para acessar na porta 8080.
   
