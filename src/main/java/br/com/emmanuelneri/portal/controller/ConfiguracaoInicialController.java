@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.portal.controller;
 
-import br.com.emmanuelneri.portal.model.Aplicacao;
+import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Configuracao;
-import br.com.emmanuelneri.portal.service.AplicacaoService;
+import br.com.emmanuelneri.portal.service.ModuloService;
 import br.com.emmanuelneri.portal.service.ConfiguracaoService;
 
 import javax.annotation.PostConstruct;
@@ -17,18 +17,18 @@ import java.util.List;
 public class ConfiguracaoInicialController implements Serializable {
 
     private Configuracao configuracao;
-    private List<Aplicacao> aplicacoes;
+    private List<Modulo> modulos;
 
     @Inject
     private ConfiguracaoService configuracaoService;
 
     @Inject
-    private AplicacaoService aplicacaoService;
+    private ModuloService moduloService;
 
     @PostConstruct
     public void init() {
         this.configuracao = new Configuracao();
-        this.aplicacoes = this.aplicacaoService.findAll();
+        this.modulos = this.moduloService.findAll();
     }
 
     public String salvar() {
@@ -44,7 +44,7 @@ public class ConfiguracaoInicialController implements Serializable {
         this.configuracao = configuracao;
     }
 
-    public List<Aplicacao> getAplicacoes() {
-        return aplicacoes;
+    public List<Modulo> getModulos() {
+        return modulos;
     }
 }

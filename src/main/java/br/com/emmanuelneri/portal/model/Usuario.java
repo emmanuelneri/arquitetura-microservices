@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.menu.model.UsuarioMenu;
 import br.com.emmanuelneri.portal.util.Model;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
@@ -21,7 +22,7 @@ import javax.validation.constraints.NotNull;
 @NamedQueries(value = {
         @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email"),
 })
-public class Usuario implements Model<Long> {
+public class Usuario implements Model<Long>, UsuarioMenu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +40,12 @@ public class Usuario implements Model<Long> {
         return id;
     }
 
+    @Override
+    public String getNome() {
+        return email;
+    }
+
+    @Override
     public String getEmail() {
         return email;
     }

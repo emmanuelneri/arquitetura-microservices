@@ -70,5 +70,7 @@
     <orderEntry type="library" name="Maven: org.apache.deltaspike.core:deltaspike-core-impl:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:17.0" level="project" />
     <orderEntry type="library" name="Maven: com.auth0:java-jwt:2.0.1" level="project" />
+    <orderEntry type="library" name="Maven: br.com.emmanuelneri:arquitetura-multi-modulos-Menu:1.0-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.facelets:jsf-facelets:1.1.14" level="project" />
   </component>
 </module>

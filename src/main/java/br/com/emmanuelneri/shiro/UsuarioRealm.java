@@ -36,7 +36,7 @@ public class UsuarioRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        Usuario usuarioPrincipal = principals.oneByType(Usuario.class);
+        final Usuario usuarioPrincipal = principals.oneByType(Usuario.class);
         if (usuarioPrincipal == null) {
             throw new AuthorizationException("Invalid credentials");
         }

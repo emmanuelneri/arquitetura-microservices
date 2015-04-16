@@ -17,10 +17,10 @@
                 <h:inputText value="#{configuracaoInicialController.configuracao.nomeProjeto}" />
 
                 <p:outputLabel value="Aplicações:" />
-                <p:selectManyCheckbox value="#{configuracaoInicialController.configuracao.aplicacoes}"
+                <p:selectManyCheckbox value="#{configuracaoInicialController.configuracao.modulos}"
                        converter="entityConverter">
-                    <f:selectItems value="#{configuracaoInicialController.aplicacoes}" var="aplicacao"
-                                   itemLabel="#{aplicacao.nome}" itemValue="#{aplicacao}" />
+                    <f:selectItems value="#{configuracaoInicialController.modulos}" var="modulo"
+                                   itemLabel="#{modulo.nome}" itemValue="#{modulo}" />
                 </p:selectManyCheckbox>
             </h:panelGrid>
 

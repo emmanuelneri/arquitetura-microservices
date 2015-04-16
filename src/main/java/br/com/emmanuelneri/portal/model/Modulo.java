@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.menu.model.ModuloMenu;
 import br.com.emmanuelneri.portal.util.Model;
 
 import javax.persistence.Column;
@@ -13,9 +14,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(uniqueConstraints = {
-        @UniqueConstraint(name = "aplicacao_uk", columnNames ={"nome"})
+        @UniqueConstraint(name = "modulo_uk", columnNames ={"nome"})
 })
-public class Aplicacao implements Model<Long> {
+public class Modulo implements Model<Long>, ModuloMenu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,14 +38,17 @@ public class Aplicacao implements Model<Long> {
         return id;
     }
 
+    @Override
     public String getNome() {
         return nome;
     }
 
+    @Override
     public String getUrl() {
         return url;
     }
 
+    @Override
     public String getChave() {
         return chave;
     }

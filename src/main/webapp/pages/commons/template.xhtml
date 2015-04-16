@@ -2,37 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-        >
+      xmlns:menu="http://emmanuelneri.com.br">
 
 <h:head>
     <title>Portal</title>
     <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </h:head>
 
 <h:body>
-    <h:form>
-        <h3>#{configuracaoController.configuracao.nomeProjeto}</h3>
 
-        <h3>Portal</h3>
-        <ul>
-            <li><h:outputLink value="#{request.contextPath}/pages/index.xhtml?faces-redirect=true">Home</h:outputLink></li>
-            <li><h:outputLink value="#{request.contextPath}/pages/cadastro-usuario.xhtml?faces-redirect=true">Cadastro Usuário</h:outputLink></li>
-            <li><h:outputLink value="#{request.contextPath}/sair">Sair</h:outputLink></li>
-        </ul>
+    <menu:menu configuracao="#{configuracaoController.configuracao}"
+        usuario="#{utilController.usuario}" />
 
-        <h3>Aplicações</h3>
-        <ul>
-            <ui:repeat value="#{configuracaoController.configuracao.aplicacoes}" var="aplicacao">
-                <li><h:commandLink value="#{aplicacao.nome}" action="#{menuController.redirectAplicacao(aplicacao)}"/></li>
-            </ui:repeat>
-        </ul>
-    </h:form>
 
     <br />
 
-    <h:body>
-        <ui:insert name="conteudo" />
-    </h:body>
+    <ui:insert name="conteudo" />
 
 </h:body>
 
