@@ -4,24 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>br.com.emmanuelneri</groupId>
-    <artifactId>arquitetura-microservices</artifactId>
-    <packaging>pom</packaging>
-    <name>Arquitetura Microservices</name>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <artifactId>arquitetura-microservices</artifactId>
+        <groupId>br.com.emmanuelneri</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <properties>
-        <hibernate.version>4.3.8.Final</hibernate.version>
-        <cdi.version>1.1</cdi.version>
-        <jsf.version>2.2.6</jsf.version>
-        <primefaces.version>5.1</primefaces.version>
-        <deltaspike.version>1.2.1</deltaspike.version>
-        <shiro.version>1.2.3</shiro.version>
-        <guava.version>17.0</guava.version>
-        <jwt.version>2.0.1</jwt.version>
-        <omnifaces.version>1.8.1</omnifaces.version>
-        <pretty.version>3.3.3</pretty.version>
-    </properties>
+    <artifactId>vendas</artifactId>
+    <packaging>war</packaging>
+    <name>Vendas</name>
 
     <dependencies>
         <dependency>
@@ -107,7 +98,7 @@
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
-            <version>1.8.1</version>
+            <version>${omnifaces.version}</version>
         </dependency>
 
         <dependency>
@@ -130,13 +121,13 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>17.0</version>
+            <version>${guava.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>2.0.1</version>
+            <version>${jwt.version}</version>
         </dependency>
 
         <dependency>
@@ -146,37 +137,7 @@
         </dependency>
     </dependencies>
 
-    <modules>   
-        <module>portal</module>
-        <module>vendas</module>
-    </modules>
-
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>2.5</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>2.5</version>
-            </plugin>
-        </plugins>
+        <finalName>portal</finalName>
     </build>
 </project>

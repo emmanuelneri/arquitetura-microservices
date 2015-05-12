@@ -35,6 +35,9 @@ public class Usuario implements Model<Long>, UsuarioMenu {
     @NotNull
     private String senha;
 
+    @NotNull
+    private String nome;
+
     @Override
     public Long getId() {
         return id;
@@ -42,7 +45,7 @@ public class Usuario implements Model<Long>, UsuarioMenu {
 
     @Override
     public String getNome() {
-        return email;
+        return nome;
     }
 
     @Override
@@ -60,5 +63,9 @@ public class Usuario implements Model<Long>, UsuarioMenu {
 
     public void setSenha(String senha) {
         this.senha = new Sha256Hash(senha).toHex();
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }
