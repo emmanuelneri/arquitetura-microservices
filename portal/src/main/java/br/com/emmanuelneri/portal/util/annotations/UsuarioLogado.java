@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.portal.util;
+package br.com.emmanuelneri.portal.util.annotations;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

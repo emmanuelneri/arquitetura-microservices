@@ -1,8 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:menu="http://emmanuelneri.com.br">
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <title>Portal</title>
@@ -15,9 +14,26 @@
 
 <h:body>
 
-    <menu:menu configuracao="#{configuracaoController.configuracao}"
-        usuario="#{utilController.usuario}" />
-
+   <h:form id="formMenu">
+       <nav class="navbar navbar-fixed-top navbar-inverse">
+           <div class="container">
+               <div class="navbar-header">
+                   <a class="navbar-brand" href="#">#{utilController.configuracao.nomeProjeto}</a>
+               </div>
+               <div class="collapse navbar-collapse">
+                   <ul class="nav navbar-nav">
+                       <ui:repeat value="#{utilController.configuracao.modulos}" var="modulo">
+                           <li><h:commandLink value="#{modulo.nome}" action="#{utilController.redirectAplicacao(modulo)}"/></li>
+                       </ui:repeat>
+                   </ul>
+                   <ul class="nav navbar-nav navbar-right">
+                       <li><a href="#">#{utilController.usuario.email}</a></li>
+                       <li><a href="#">Sair</a></li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+   </h:form>
 
     <br />
 

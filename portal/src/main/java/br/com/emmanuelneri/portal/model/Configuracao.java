@@ -1,7 +1,5 @@
 package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.menu.model.ConfiguracaoMenu;
-import br.com.emmanuelneri.menu.model.ModuloMenu;
 import br.com.emmanuelneri.portal.util.Model;
 
 import javax.persistence.Column;
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Configuracao implements Model<Long>, ConfiguracaoMenu {
+public class Configuracao implements Model<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,17 +49,8 @@ public class Configuracao implements Model<Long>, ConfiguracaoMenu {
         return modulos;
     }
 
-    @Override
-    public List<ModuloMenu> getModulosMenu() {
-        return new ArrayList<>(modulos);
-    }
-
     public void setModulos(List<Modulo> modulos) {
         this.modulos = modulos;
     }
 
-    @Override
-    public String getNomeCliente() {
-        return nomeProjeto;
-    }
 }
