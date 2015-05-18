@@ -1,7 +1,6 @@
 package br.com.emmanuelneri.autenticacao;
 
-import br.com.emmanuelneri.vendas.model.Configuracao;
-import br.com.emmanuelneri.vendas.service.ConfiguracaoService;
+import br.com.emmanuelneri.vendas.util.ApplicationProperty;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -24,9 +23,7 @@ public class UsuarioRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         final UsuarioPortalToken usuarioPortalToken = (UsuarioPortalToken) authenticationToken;
 
-        final Configuracao configuracao = getCondiguracaoModulo();
-
-        if (usuarioPortalToken.getChaveAplicacao() != null && configuracao.getChaveAplicacao().equals(usuarioPortalToken.getChaveAplicacao())) {
+        if (usuarioPortalToken.getChaveAplicacao() != null && getAplicationProperty().getChaveAplicacao().equals(usuarioPortalToken.getChaveAplicacao())) {
             return new SimpleAuthenticationInfo(usuarioPortalToken.getUsuario(), usuarioPortalToken.getUsuario().getId(), getName());
         }
 
@@ -38,12 +35,8 @@ public class UsuarioRealm extends AuthorizingRealm {
         return new SimpleAuthorizationInfo(((Usuario) principal.getPrimaryPrincipal()).getRoles());
     }
 
-    public Configuracao getCondiguracaoModulo() {
-        return getConfiguracaoService().findById(1L);
-    }
-
-    ConfiguracaoService getConfiguracaoService() {
-        return BeanProvider.getContextualReference(ConfiguracaoService.class, false);
+    ApplicationProperty getAplicationProperty() {
+        return BeanProvider.getContextualReference(ApplicationProperty.class, false);
     }
 
 }

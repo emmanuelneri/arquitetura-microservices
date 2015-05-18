@@ -1,1 +1,0 @@
-insert into configuracao (id, nome_cliente, chave_aplicacao) values (nextval('configuracao_id_seq'), 'Vendas', 'SACRSC1234');

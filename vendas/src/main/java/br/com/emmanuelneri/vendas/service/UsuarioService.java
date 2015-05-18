@@ -2,9 +2,7 @@ package br.com.emmanuelneri.vendas.service;
 
 import br.com.emmanuelneri.autenticacao.Usuario;
 import br.com.emmanuelneri.autenticacao.UsuarioPortalToken;
-import br.com.emmanuelneri.vendas.model.Configuracao;
 import br.com.emmanuelneri.vendas.util.GenericService;
-import br.com.emmanuelneri.vendas.util.anotations.ConfiguracaoAplicacao;
 
 import javax.inject.Inject;
 import javax.inject.Named;

@@ -1,8 +1,6 @@
 package br.com.emmanuelneri.vendas.controller;
 
 import br.com.emmanuelneri.autenticacao.Usuario;
-import br.com.emmanuelneri.vendas.model.Configuracao;
-import br.com.emmanuelneri.vendas.util.anotations.ConfiguracaoAplicacao;
 import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
 
 import javax.enterprise.context.RequestScoped;
