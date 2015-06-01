@@ -50,9 +50,11 @@
   Para cada aplicação será um subprojeto no projeto arquitetura-microservices
   
   1 - portal: É aplicação central, onde terá as funcionalidades que são comuns entre todas aplicações
+    
     - acesso: http://localhost:8080/portal/login.xhtml
      
   2 - vendas: É aplicação responsável por realizar os pedidos
+    
     - acesso: http://localhost:8080/vendas/auth/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGF2ZUFwbGljYWNhbyI6IlNBQ1JTQzEyMzQiLCJub21lIjoiVXN1YXJpbyAxIiwiaWQiOjEsIm1vZHVsb3MiOlt7ImlkIjoyLCJub21lIjoiVmVuZGFzIiwiY2hhdmUiOiJTQUNSU0MxMjM0IiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3ZlbmRhcy9hdXRoLyJ9XSwiZW1haWwiOiJ0ZXN0ZUBnbWFpbC5jb20ifQ.ZaJMB8B0BIUb-51f84zWdpxNbshJELZNf8twOrJJaDQ&
 
   
