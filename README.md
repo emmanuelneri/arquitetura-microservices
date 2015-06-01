@@ -32,24 +32,29 @@
  </datasources>
  ```
  Obs: O Datasource está configurado para acessar a porta padrão do Postgres e como usuário e senha "postgres"
+ Obs: será necessário criar um datasource para cadas aplicação, ex: PortalDS, VendasDS
  
 3 - Criar o Banco
   - Criar um banco no postgres chamado "portal"
   
 # Utilizando Aplicação
 
-1 - Logar no sistema
-- email: teste@gmail.com
-- senha: 123
+1 - Acessar o Portal
+- http://localhost:8080/portal/login.xhtml
 
-2 - Configurar Portal
-  - Inserir nome do projeto
-  - Selecionar Aplicações(Modulos) que estará disponível no menu
+2 - Logar no sistema
+  - email: teste@gmail.com
+  - senha: 123
   
 # Aplicações (Modulo)
-  Para cada aplicação configurado no Portal será criado um novo projeto
-
-  - Subir o projeto https://github.com/emmanuelneri/arquitetura-multi-modulos-Vendas
+  Para cada aplicação será um subprojeto no projeto arquitetura-microservices
   
-Obs: A configuração padrão do módulo de vendas está para acessar na porta 8080.
+  1 - portal: É aplicação central, onde terá as funcionalidades que são comuns entre todas aplicações
+    
+    - acesso: http://localhost:8080/portal/login.xhtml
+     
+  2 - vendas: É aplicação responsável por realizar os pedidos
+    
+    - acesso: http://localhost:8080/vendas/auth/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGF2ZUFwbGljYWNhbyI6IlNBQ1JTQzEyMzQiLCJub21lIjoiVXN1YXJpbyAxIiwiaWQiOjEsIm1vZHVsb3MiOlt7ImlkIjoyLCJub21lIjoiVmVuZGFzIiwiY2hhdmUiOiJTQUNSU0MxMjM0IiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3ZlbmRhcy9hdXRoLyJ9XSwiZW1haWwiOiJ0ZXN0ZUBnbWFpbC5jb20ifQ.ZaJMB8B0BIUb-51f84zWdpxNbshJELZNf8twOrJJaDQ&
+
   
