@@ -53,4 +53,10 @@ public class Configuracao implements Model<Long> {
         this.modulos = modulos;
     }
 
+    public void adicionarModuloPortal() {
+        if(!modulos.contains(Modulo.PORTAL)) {
+            modulos.add(Modulo.PORTAL);
+        }
+    }
+
 }

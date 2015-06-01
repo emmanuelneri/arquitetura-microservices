@@ -49,15 +49,6 @@
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 
-    <filter>
-        <filter-name>ConfiguracaoFilter</filter-name>
-        <filter-class>br.com.emmanuelneri.portal.util.ConfiguracaoFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>ConfiguracaoFilter</filter-name>
-        <url-pattern>/pages/*</url-pattern>
-    </filter-mapping>
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

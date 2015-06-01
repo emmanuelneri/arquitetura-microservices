@@ -14,6 +14,7 @@ public final class TokenUsuarioUtil {
         mapValores.put("email", usuarioMenu.getEmail());
         mapValores.put("id", usuarioMenu.getId());
         mapValores.put("nome", usuarioMenu.getNome());
+        mapValores.put("modulos", usuarioMenu.getModulos());
         mapValores.put("chaveAplicacao", moduloMenu.getChave());
 
         return new JWTSigner("secret").sign(mapValores);

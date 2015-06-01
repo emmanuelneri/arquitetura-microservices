@@ -8,18 +8,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "usuario_uk", columnNames ={"email"})
 })
 @NamedQueries(value = {
-        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email"),
+        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u join fetch u.modulos m where u.email = :email"),
 })
 public class Usuario implements Model<Long> {
 
@@ -36,6 +43,12 @@ public class Usuario implements Model<Long> {
 
     @NotNull
     private String nome;
+
+    @ManyToMany
+    @JoinTable(name="usuario_modulo",
+            joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
+            inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
+    private List<Modulo> modulos = Collections.singletonList(Modulo.PORTAL);
 
     @Override
     public Long getId() {
@@ -64,5 +77,15 @@ public class Usuario implements Model<Long> {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Modulo> getModulos() {
+        return modulos;
+    }
+
+    public List<Modulo> getModulosMenu() {
+        List<Modulo> modulosMenu = modulos;
+        modulosMenu.remove(Modulo.PORTAL);
+        return modulos;
     }
 }

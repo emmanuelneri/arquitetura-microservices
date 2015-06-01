@@ -10,12 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 @Table(uniqueConstraints = {
         @UniqueConstraint(name = "modulo_uk", columnNames ={"nome"})
 })
 public class Modulo implements Model<Long> {
+
+    public static final Modulo PORTAL = new Modulo(1L, "Portal", "http://localhost:8080", "AAAAAAAA");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +35,23 @@ public class Modulo implements Model<Long> {
     @Column(length = 255)
     private String url;
 
+    protected Modulo() {
+
+    }
+
+    private Modulo(Long id, String nome, String chave, String url) {
+        this.id = id;
+        this.nome = nome;
+        this.chave = chave;
+        this.url = url;
+    }
+
+    public Modulo(String nome, String chave, String url) {
+        this.nome = nome;
+        this.chave = chave;
+        this.url = url;
+    }
+
     @Override
     public Long getId() {
         return id;
@@ -47,5 +67,19 @@ public class Modulo implements Model<Long> {
 
     public String getChave() {
         return chave;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Modulo modulo = (Modulo) o;
+        return Objects.equals(id, modulo.id) &&
+                Objects.equals(nome, modulo.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
