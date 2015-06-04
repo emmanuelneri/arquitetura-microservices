@@ -1,21 +1,28 @@
-package br.com.emmanuelneri.autenticacao;
+package br.com.emmanuelneri.vendas.model;
 
 
-import br.com.emmanuelneri.menu.model.UsuarioMenu;
 import br.com.emmanuelneri.vendas.util.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 @Entity
-public class Usuario implements Model<Long>, UsuarioMenu {
+public class Usuario implements Model<Long> {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Version
@@ -27,6 +34,12 @@ public class Usuario implements Model<Long>, UsuarioMenu {
     @NotNull
     private String nome;
 
+    @ManyToMany
+    @JoinTable(name="usuario_modulo",
+            joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
+            inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
+    private List<Modulo> modulos = new ArrayList<>();
+
     protected Usuario() {
     }
 
@@ -34,9 +47,9 @@ public class Usuario implements Model<Long>, UsuarioMenu {
         this.id = Long.valueOf((Integer) tokenMap.get("id"));
         this.email = (String) tokenMap.get("email");
         this.nome = (String) tokenMap.get("nome");
+//        this.modulos = (ArrayList<Modulo>) tokenMap.get("modulos");
     }
 
-    @Override
     public String getNome() {
         return nome;
     }
@@ -46,7 +59,6 @@ public class Usuario implements Model<Long>, UsuarioMenu {
         return id;
     }
 
-    @Override
     public String getEmail() {
         return email;
     }
@@ -57,5 +69,9 @@ public class Usuario implements Model<Long>, UsuarioMenu {
 
     public Set<String> getRoles() {
         return new HashSet<>();
+    }
+
+    public List<Modulo> getModulos() {
+        return modulos;
     }
 }

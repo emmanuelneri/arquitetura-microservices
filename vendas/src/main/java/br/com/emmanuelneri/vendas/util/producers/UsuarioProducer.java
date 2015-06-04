@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.util.producers;
 
-import br.com.emmanuelneri.autenticacao.Usuario;
+import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
 import org.apache.shiro.SecurityUtils;
 

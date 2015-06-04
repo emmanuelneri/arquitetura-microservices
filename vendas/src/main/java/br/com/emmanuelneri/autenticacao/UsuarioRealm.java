@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.autenticacao;
 
+import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;

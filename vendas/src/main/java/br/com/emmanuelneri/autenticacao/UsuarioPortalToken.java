@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.autenticacao;
 
+import br.com.emmanuelneri.vendas.model.Usuario;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
 import org.apache.shiro.authc.AuthenticationToken;
