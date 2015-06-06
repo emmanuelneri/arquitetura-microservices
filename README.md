@@ -36,6 +36,8 @@
  
 3 - Criar o Banco
   - Criar um banco no postgres chamado "portal"
+   
+4 - Configurar na IDE para fazer deploy de todos módulos, ex: Portal, Vendas, etc...   
   
 # Utilizando Aplicação
 
@@ -55,6 +57,6 @@
      
   2 - vendas: É aplicação responsável por realizar os pedidos
     
-    - acesso: http://localhost:8080/vendas/auth/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGF2ZUFwbGljYWNhbyI6IlNBQ1JTQzEyMzQiLCJub21lIjoiVXN1YXJpbyAxIiwiaWQiOjEsIm1vZHVsb3MiOlt7ImlkIjoyLCJub21lIjoiVmVuZGFzIiwiY2hhdmUiOiJTQUNSU0MxMjM0IiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3ZlbmRhcy9hdXRoLyJ9XSwiZW1haWwiOiJ0ZXN0ZUBnbWFpbC5jb20ifQ.ZaJMB8B0BIUb-51f84zWdpxNbshJELZNf8twOrJJaDQ&
+    - acesso: http://localhost:8080/vendas/auth/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGF2ZUFwbGljYWNhbyI6IlNBQ1JTQzEyMzQiLCJub21lIjoiVXN1YXJpbyAxIiwiaWQiOjEsImVtYWlsIjoidGVzdGVAZ21haWwuY29tIn0.ENJ2S8ePBMDbrV5LGeOTft9zzh9Zr1LS1IYS7RUu9H4&
 
   
