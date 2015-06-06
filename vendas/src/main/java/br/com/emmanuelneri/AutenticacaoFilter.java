@@ -32,7 +32,12 @@ public class AutenticacaoFilter implements Filter {
 
             if(!Strings.isNullOrEmpty(token)) {
                 final UsuarioPortalToken usuarioPortalToken = new UsuarioPortalToken(token);
-                usuarioService.atualizarUsuario(usuarioPortalToken);
+
+                try {
+                    usuarioService.atualizarUsuario(usuarioPortalToken.getUsuario().getEmail());
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
 
                 Subject subject = SecurityUtils.getSubject();
                 subject.login(usuarioPortalToken);

@@ -8,9 +8,15 @@ import javax.inject.Named;
 @Named
 public class UsuarioService extends GenericService<Usuario> {
 
-    public Usuario buscaParaLogin(String email) {
-        return getResultOrNull(getEntityManager().createNamedQuery("Usuario.findByEmail", Usuario.class)
+    public Usuario findCompletoByEmail(String email) {
+        return getResultOrNull(getEntityManager().createNamedQuery("Usuario.findCompletoByEmail", Usuario.class)
         .setParameter("email", email)
         .getResultList());
+    }
+
+    public Usuario findByEmail(String email) {
+        return getResultOrNull(getEntityManager().createNamedQuery("Usuario.findByEmail", Usuario.class)
+                .setParameter("email", email)
+                .getResultList());
     }
 }

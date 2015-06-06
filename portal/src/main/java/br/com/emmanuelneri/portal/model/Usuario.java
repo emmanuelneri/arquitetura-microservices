@@ -15,9 +15,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,13 +25,17 @@ import java.util.List;
         @UniqueConstraint(name = "usuario_uk", columnNames ={"email"})
 })
 @NamedQueries(value = {
-        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u join fetch u.modulos m where u.email = :email"),
+        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email"),
+        @NamedQuery(name = "Usuario.findCompletoByEmail", query = "select u from Usuario u join fetch u.modulos m where u.email = :email"),
 })
 public class Usuario implements Model<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Version
+    private long version;
 
     @NotNull
     @Column(length = 100)
@@ -87,5 +90,9 @@ public class Usuario implements Model<Long> {
         List<Modulo> modulosMenu = modulos;
         modulosMenu.remove(Modulo.PORTAL);
         return modulos;
+    }
+
+    public long getVersion() {
+        return version;
     }
 }

@@ -41,7 +41,7 @@ public class UsuarioRealm extends AuthorizingRealm {
             throw new AuthorizationException("Invalid credentials");
         }
 
-        final Usuario usuario = getUsuarioService().buscaParaLogin(usuarioPrincipal.getEmail());
+        final Usuario usuario = getUsuarioService().findCompletoByEmail(usuarioPrincipal.getEmail());
 
         if (usuario != null) {
             return new SimpleAuthorizationInfo();
@@ -56,7 +56,7 @@ public class UsuarioRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authToken;
 
         Usuario usuario = getUsuarioService()
-                .buscaParaLogin(token.getUsername());
+                .findCompletoByEmail(token.getUsername());
         if (usuario != null) {
             PrincipalCollection pc = createPrincipalCollection(usuario);
 

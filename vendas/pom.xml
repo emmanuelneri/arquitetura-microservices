@@ -132,6 +132,6 @@
     </dependencies>
 
     <build>
-        <finalName>portal</finalName>
+        <finalName>vendas</finalName>
     </build>
 </project>

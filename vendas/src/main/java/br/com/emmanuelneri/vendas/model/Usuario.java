@@ -47,7 +47,6 @@ public class Usuario implements Model<Long> {
         this.id = Long.valueOf((Integer) tokenMap.get("id"));
         this.email = (String) tokenMap.get("email");
         this.nome = (String) tokenMap.get("nome");
-//        this.modulos = (ArrayList<Modulo>) tokenMap.get("modulos");
     }
 
     public String getNome() {
