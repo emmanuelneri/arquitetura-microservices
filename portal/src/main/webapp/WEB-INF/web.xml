@@ -11,6 +11,10 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+    <context-param>
+        <param-name>com.ocpsoft.pretty.BASE_PACKAGES</param-name>
+        <param-value>br.com.emmanuelneri.portal.controller</param-value>
+    </context-param>
 
     <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
@@ -38,15 +42,17 @@
         <dispatcher>INCLUDE</dispatcher>
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
+
     <filter>
-        <filter-name>PrimeFaces FileUpload Filter</filter-name>
-        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
+        <filter-name>Pretty Filter</filter-name>
+        <filter-class>com.ocpsoft.pretty.PrettyFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>PrimeFaces FileUpload Filter</filter-name>
-        <servlet-name>Faces Servlet</servlet-name>
+        <filter-name>Pretty Filter</filter-name>
+        <url-pattern>/*</url-pattern>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>REQUEST</dispatcher>
+        <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
     <session-config>
