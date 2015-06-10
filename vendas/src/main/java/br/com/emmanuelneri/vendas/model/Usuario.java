@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class Usuario implements Model<Long> {
     @JoinTable(name="usuario_modulo",
             joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
             inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
+    @OrderBy(value = "id")
     private List<Modulo> modulos = new ArrayList<>();
 
     protected Usuario() {
@@ -71,6 +73,12 @@ public class Usuario implements Model<Long> {
     }
 
     public List<Modulo> getModulos() {
+        return modulos;
+    }
+
+    public List<Modulo> getModulosMenu() {
+        List<Modulo> modulosMenu = modulos;
+        modulosMenu.remove(Modulo.VENDAS);
         return modulos;
     }
 }

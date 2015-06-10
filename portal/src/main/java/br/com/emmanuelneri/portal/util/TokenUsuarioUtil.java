@@ -3,7 +3,13 @@ package br.com.emmanuelneri.portal.util;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
 import com.auth0.jwt.JWTSigner;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.JWTVerifyException;
 
+import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +23,10 @@ public final class TokenUsuarioUtil {
         mapValores.put("chaveAplicacao", moduloMenu.getChave());
 
         return new JWTSigner("secret").sign(mapValores);
+    }
+
+    public static Map<String, Object> getTokenMap(String token) throws SignatureException, NoSuchAlgorithmException, JWTVerifyException, InvalidKeyException, IOException {
+        return new JWTVerifier("secret").verify(token);
     }
 
 }

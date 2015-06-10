@@ -14,7 +14,7 @@ import java.util.Map;
 public final class UsuarioPortalToken implements AuthenticationToken {
 
     private final String chaveAplicacao;
-    private final Usuario usuario;
+    private Usuario usuario;
 
     public UsuarioPortalToken(String token) throws NoSuchAlgorithmException, SignatureException, JWTVerifyException, InvalidKeyException, IOException {
         final Map<String, Object> tokenMap = getTokenMap(token);
@@ -43,5 +43,9 @@ public final class UsuarioPortalToken implements AuthenticationToken {
 
     public String getChaveAplicacao() {
         return chaveAplicacao;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

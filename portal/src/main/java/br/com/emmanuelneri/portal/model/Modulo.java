@@ -18,7 +18,7 @@ import java.util.Objects;
 })
 public class Modulo implements Model<Long> {
 
-    public static final Modulo PORTAL = new Modulo(1L, "Portal", "http://localhost:8080", "AAAAAAAA");
+    public static final Modulo PORTAL = new Modulo(1L, "Portal", "P0RT4LL", "http://localhost:8080/portal/token/");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

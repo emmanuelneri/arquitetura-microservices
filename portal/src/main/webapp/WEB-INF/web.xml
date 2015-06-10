@@ -55,6 +55,15 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
+    <filter>
+        <filter-name>AutenticacaoFilter</filter-name>
+        <filter-class>br.com.emmanuelneri.autenticacao.AutenticacaoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutenticacaoFilter</filter-name>
+        <url-pattern>/token/*</url-pattern>
+    </filter-mapping>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

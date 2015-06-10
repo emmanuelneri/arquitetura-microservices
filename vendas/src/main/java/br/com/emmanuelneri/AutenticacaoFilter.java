@@ -1,6 +1,7 @@
 package br.com.emmanuelneri;
 
 import br.com.emmanuelneri.autenticacao.UsuarioPortalToken;
+import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.service.UsuarioService;
 import com.auth0.jwt.JWTVerifyException;
 import com.google.common.base.Strings;
@@ -34,7 +35,8 @@ public class AutenticacaoFilter implements Filter {
                 final UsuarioPortalToken usuarioPortalToken = new UsuarioPortalToken(token);
 
                 try {
-                    usuarioService.atualizarUsuario(usuarioPortalToken.getUsuario().getEmail());
+                    final Usuario usuario = usuarioService.atualizarUsuario(usuarioPortalToken.getUsuario().getEmail());
+                    usuarioPortalToken.setUsuario(usuario);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
