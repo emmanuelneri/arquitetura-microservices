@@ -18,7 +18,7 @@ import java.util.Objects;
 })
 public class Modulo implements Model<Long> {
 
-    public static final Modulo VENDAS = new Modulo(2L, "Vendas", "http://localhost:8080/vendas/auth/", "SACRSC1234");
+    public static final Modulo VENDAS = new Modulo(2L, "Vendas", "http://localhost:8080/cadastros/auth/", "SACRSC1234");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
