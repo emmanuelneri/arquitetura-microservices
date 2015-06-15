@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.client.WebTarget;
 
 @Named
-public class UsuarioService extends GenericService<Usuario> {
+public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Inject
     @ClientWs

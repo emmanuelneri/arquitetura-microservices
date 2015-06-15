@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/pages/commons/template.xhtml">
+
+<ui:define name="conteudo">
+
+    <h1>Cadastro de Cliente</h1>
+
+    <h:form id="form">
+        <p:panel header="Cadastro" id="panelCadastro">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome: "/>
+                <h:inputText value="#{clienteController.objeto.nome}" />
+
+                <h:outputLabel value="CPF / CNPJ: "/>
+                <h:inputText value="#{clienteController.objeto.cpfCnpj}" />
+            </h:panelGrid>
+
+            <p:commandButton value="Salvar" action="#{clienteController.salvar}"
+                             update="panelCadastro panelListagem" process="@this panelCadastro"/>
+        </p:panel>
+
+        <p:panel id="panelListagem" header="Listagem de Clientes">
+            <p:dataTable value="#{clienteController.lista}" var="cliente" paginator="true"
+                         rows="20">
+                <p:column headerText="Nome">
+                    <h:outputText value="#{cliente.nome}"/>
+                </p:column>
+                <p:column headerText="CPF / CNPJ">
+                    <h:outputText value="#{cliente.cpfCnpj}"/>
+                </p:column>
+                <p:column headerText="Opções">
+                    <p:commandButton value="Editar" action="#{clienteController.editar(cliente)}"
+                                     update=":form:panelCadastro" process="@this"/>
+                    <p:commandButton value="Excluir" action="#{clienteController.excluir(cliente)}"
+                                     update=":form:panelCadastro :form:panelListagem" process="@this"/>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

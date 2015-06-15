@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="/pages/commons/template.xhtml">
+
+    <ui:define name="conteudo">
+
+        <h1>Cadastro de Veículo</h1>
+
+        <h:form id="form">
+            <p:panel header="Cadastro" id="panelCadastro">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nome: "/>
+                    <h:inputText value="#{veiculoController.objeto.nome}" />
+
+                    <h:outputLabel value="Modelo: "/>
+                    <h:selectOneMenu value="#{veiculoController.objeto.modelo}"
+                                     converter="omnifaces.SelectItemsConverter">
+                        <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                        <f:selectItems value="#{veiculoController.modelos}" var="modelo"
+                                       itemValue="#{modelo}" itemLabel="#{modelo.nome}" />
+                        <f:ajax event="change" execute="@this" />
+                    </h:selectOneMenu>
+                </h:panelGrid>
+
+                <p:commandButton value="Salvar" action="#{veiculoController.salvar}"
+                                 update="panelCadastro panelListagem" process="@this panelCadastro"/>
+            </p:panel>
+
+            <p:panel id="panelListagem" header="Listagem de Veículos">
+                <p:dataTable value="#{veiculoController.lista}" var="veiculo" paginator="true"
+                        rows="20">
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{veiculo.nome}"/>
+                    </p:column>
+                    <p:column headerText="Modelo">
+                        <h:outputText value="#{veiculo.modelo.nome}"/>
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{veiculo.modelo.marca.descricao}"/>
+                    </p:column>
+                    <p:column headerText="Opções">
+                        <p:commandButton value="Editar" action="#{veiculoController.editar(veiculo)}"
+                                         update=":form:panelCadastro" process="@this"/>
+                        <p:commandButton value="Excluir" action="#{veiculoController.excluir(veiculo)}"
+                                         update=":form:panelCadastro :form:panelListagem" process="@this"/>
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

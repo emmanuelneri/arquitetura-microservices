@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
-public abstract class GenericService<T extends Model> implements Serializable {
+public abstract class GenericService<T extends Model<ID>, ID extends Serializable> implements Serializable {
 
     private Class<T> type;
 
