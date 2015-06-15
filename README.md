@@ -32,12 +32,12 @@
  </datasources>
  ```
  Obs: O Datasource está configurado para acessar a porta padrão do Postgres e como usuário e senha "postgres"
- Obs: será necessário criar um datasource para cadas aplicação, ex: PortalDS, VendasDS
+ Obs: será necessário criar um datasource para cadas aplicação, PortalDS, CadastrosDS, VendasDS e RelatoriosDS
  
 3 - Criar o Banco
-  - Criar um banco no postgres chamado "portal"
+  - Criar os bancos, no postgres, "portal", "cadastros", "venda", "relatorios"
    
-4 - Configurar na IDE para fazer deploy de todos módulos, ex: Portal, Vendas, etc...   
+4 - Configurar na IDE para fazer deploy de todos módulos, ex: Portal, Cadastros, Vendas e Relatorios 
   
 # Utilizando Aplicação
 
@@ -51,12 +51,15 @@
 # Aplicações (Modulo)
   Para cada aplicação será um subprojeto no projeto arquitetura-microservices
   
-  1 - portal: É aplicação central, onde terá as funcionalidades que são comuns entre todas aplicações
-    
-    - acesso: http://localhost:8080/portal/login.xhtml
-     
-  2 - vendas: É aplicação responsável por realizar os pedidos
-    
-    - acesso: http://localhost:8080/vendas/auth/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaGF2ZUFwbGljYWNhbyI6IlNBQ1JTQzEyMzQiLCJub21lIjoiVXN1YXJpbyAxIiwiaWQiOjEsImVtYWlsIjoidGVzdGVAZ21haWwuY29tIn0.ENJ2S8ePBMDbrV5LGeOTft9zzh9Zr1LS1IYS7RUu9H4&
+  1 - portal: É a aplicação central, onde terá as funcionalidades que são comuns entre todas aplicações
+
+  2 - cadastros: É a aplicação responsável por todos cadastros
+
+  3 - vendas: É a aplicação responsável por realizar os pedidos
+  
+  4 - relatorios: É a aplicação responsável por emitir os relatórios referente aos dados de cadastros e pedidos
+  
+  
+
 
   
