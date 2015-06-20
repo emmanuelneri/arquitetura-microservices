@@ -28,6 +28,18 @@ public class ApplicationProperty {
     @ConfigProperty(name = "ws.portal.senha")
     private String wsPortalSenha;
 
+    @Inject
+    @ConfigProperty(name = "ws.vendas.url")
+    private String wsVendasUrl;
+
+    @Inject
+    @ConfigProperty(name = "ws.vendas.email")
+    private String wsVendasEmail;
+
+    @Inject
+    @ConfigProperty(name = "ws.vendas.senha")
+    private String wsVendasSenha;
+
     public String getNomeProjeto() {
         return nomeProjeto;
     }
@@ -46,5 +58,17 @@ public class ApplicationProperty {
 
     public String getWsPortalSenha() {
         return wsPortalSenha;
+    }
+
+    public String getWsVendasEmail() {
+        return wsVendasEmail;
+    }
+
+    public String getWsVendasSenha() {
+        return wsVendasSenha;
+    }
+
+    public String getWsVendasUrl() {
+        return wsVendasUrl;
     }
 }

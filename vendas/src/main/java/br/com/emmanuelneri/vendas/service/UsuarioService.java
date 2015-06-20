@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.client.WebTarget;
 
 @Named
-public class UsuarioService extends GenericService<Usuario> {
+public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Inject
     @ClientWs
@@ -28,5 +28,11 @@ public class UsuarioService extends GenericService<Usuario> {
         save(usuarioPortal);
 
         return usuarioPortal;
+    }
+
+    public Usuario findByEmail(String email) {
+        return getResultOrNull(getEntityManager().createNamedQuery("Usuario.findByEmail", Usuario.class)
+                .setParameter("email", email)
+                .getResultList());
     }
 }

@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.shiro;
+package br.com.emmanuelneri.portal.shiro;
 
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;

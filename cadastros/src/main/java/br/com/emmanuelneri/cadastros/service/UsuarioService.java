@@ -2,7 +2,7 @@ package br.com.emmanuelneri.cadastros.service;
 
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import br.com.emmanuelneri.cadastros.util.GenericService;
-import br.com.emmanuelneri.cadastros.util.anotations.ClientWs;
+import br.com.emmanuelneri.cadastros.util.anotations.PortalClientWS;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,7 +13,7 @@ import javax.ws.rs.client.WebTarget;
 public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Inject
-    @ClientWs
+    @PortalClientWS
     private WebTarget webTarget;
 
     @Transactional

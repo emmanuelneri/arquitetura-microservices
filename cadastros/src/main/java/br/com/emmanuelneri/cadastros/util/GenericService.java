@@ -62,6 +62,14 @@ public abstract class GenericService<T extends Model<ID>, ID extends Serializabl
         }
     }
 
+    @Transactional
+    public void salvarEAtulizarModulo(T object) {
+        save(object);
+        atualizarModulo(object);
+    }
+
+    protected void atualizarModulo(T object){};
+
     protected Session createSession() {
         return (Session) this.entityManager.getDelegate();
     }
@@ -77,5 +85,4 @@ public abstract class GenericService<T extends Model<ID>, ID extends Serializabl
     protected T getResultOrNull(List<T> list) {
         return Iterables.getFirst(list, null);
     }
-
 }

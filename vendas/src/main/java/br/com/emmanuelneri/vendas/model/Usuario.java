@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OrderBy;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
@@ -20,6 +22,9 @@ import java.util.Map;
 import java.util.Set;
 
 @Entity
+@NamedQueries(value = {
+        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email")
+})
 public class Usuario implements Model<Long> {
 
     @Id

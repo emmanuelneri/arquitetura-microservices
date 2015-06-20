@@ -17,7 +17,7 @@ public abstract class AbstractCrudController<T extends Model> implements Seriali
 
     @SuppressWarnings("unchecked")
     public void salvar() {
-        getService().save(getObjeto());
+        getService().salvarEAtulizarModulo(getObjeto());
         buscar();
         inicializarObjeto();
         Messages.addInfo(null, getNomeCadastro() + " salvo com sucesso!");

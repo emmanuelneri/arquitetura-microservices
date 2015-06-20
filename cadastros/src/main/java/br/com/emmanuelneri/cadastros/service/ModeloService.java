@@ -1,19 +1,26 @@
 package br.com.emmanuelneri.cadastros.service;
 
 import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
 import br.com.emmanuelneri.cadastros.util.GenericService;
-import com.google.common.collect.Multimaps;
+import br.com.emmanuelneri.cadastros.util.anotations.VendasClientWS;
 
+import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.Collection;
-import java.util.Map;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 
 @Named
 public class ModeloService extends GenericService<Modelo, Long> {
 
-    public Map<Marca, Collection<Modelo>> findModelosPorMarca() {
-        return Multimaps.index(findAll(), Modelo::getMarca).asMap();
+    @Inject
+    @VendasClientWS
+    private WebTarget clientVendasWS;
+
+    @Override
+    protected void atualizarModulo(Modelo modelo) {
+        clientVendasWS.path("/cadastros/modelos/atualizar").queryParam("modelo", modelo)
+                .request().put(Entity.entity(modelo, MediaType.APPLICATION_JSON));
     }
 
 }

@@ -10,5 +10,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({METHOD, TYPE, FIELD})
-public @interface ClientWs {
+public @interface VendasClientWS {
 }

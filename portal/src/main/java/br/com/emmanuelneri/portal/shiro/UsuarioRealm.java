@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.shiro;
+package br.com.emmanuelneri.portal.shiro;
 
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.UsuarioService;
