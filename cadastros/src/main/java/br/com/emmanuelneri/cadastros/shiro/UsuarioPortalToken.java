@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.autenticacao;
+package br.com.emmanuelneri.cadastros.shiro;
 
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import com.auth0.jwt.JWTVerifier;

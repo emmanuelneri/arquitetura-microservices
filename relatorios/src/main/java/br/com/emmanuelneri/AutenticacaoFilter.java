@@ -1,6 +1,6 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.autenticacao.UsuarioPortalToken;
+import br.com.emmanuelneri.relatorios.shiro.UsuarioPortalToken;
 import br.com.emmanuelneri.relatorios.model.Usuario;
 import br.com.emmanuelneri.relatorios.service.UsuarioService;
 import com.auth0.jwt.JWTVerifyException;

@@ -1,7 +1,7 @@
-package br.com.emmanuelneri.autenticacao;
+package br.com.emmanuelneri.cadastros.shiro;
 
-import br.com.emmanuelneri.relatorios.model.Usuario;
-import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
+import br.com.emmanuelneri.cadastros.model.Usuario;
+import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
