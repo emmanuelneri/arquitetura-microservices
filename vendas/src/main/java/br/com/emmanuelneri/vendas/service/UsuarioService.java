@@ -19,7 +19,7 @@ public class UsuarioService extends GenericService<Usuario, Long> {
     @Transactional
     public Usuario atualizarUsuario(String email) {
         final Usuario usuarioPortal = webTarget.path("/usuario/buscar/").path(email).request().get(Usuario.class);
-        final Usuario usuarioBanco = findById(usuarioPortal.getId());
+        final Usuario usuarioBanco = findByEmail(email);
 
         if(usuarioBanco != null && usuarioBanco.getVersion() == usuarioPortal.getVersion()) {
             return usuarioBanco;

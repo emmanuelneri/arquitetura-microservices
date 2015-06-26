@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
-    <context-root>/vendas</context-root>
+    <context-root>/pedidos</context-root>
 </jboss-web>

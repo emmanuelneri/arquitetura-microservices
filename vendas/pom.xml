@@ -12,7 +12,7 @@
 
     <artifactId>vendas</artifactId>
     <packaging>war</packaging>
-    <name>Vendas</name>
+    <name>Pedidos</name>
 
     <dependencies>
         <dependency>
@@ -129,9 +129,15 @@
             <artifactId>java-jwt</artifactId>
             <version>${jwt.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>${omnifaces.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>vendas</finalName>
+        <finalName>pedidos</finalName>
     </build>
 </project>

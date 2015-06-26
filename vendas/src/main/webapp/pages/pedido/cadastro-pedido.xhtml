@@ -1,0 +1,161 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pretty="http://ocpsoft.com/prettyfaces"
+                template="/pages/commons/template.xhtml">
+
+    <ui:define name="conteudo">
+
+        <h1>Pedido</h1>
+
+        <h:form id="form">
+
+            <h:panelGroup id="panelPedido">
+                <div class="row">
+                    <div class="col-md-2">
+                        <h:outputLabel value="Data Criação: " />
+                        <h:outputText value="#{pedidoController.pedido.dataCriacao}">
+                            <f:converter converterId="localDateConverter" />
+                        </h:outputText>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h:outputLabel value="Situação: " />
+                        <h:outputText value="#{pedidoController.pedido.situacaoPedido.descricao}"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h:outputLabel value="Cliente" />
+                        <h:selectOneMenu value="#{pedidoController.pedido.cliente}" disabled="#{not pedidoController.podeEditarPedido}"
+                                         converter="omnifaces.SelectItemsConverter" styleClass="form-control">
+                            <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                            <f:selectItems value="#{pedidoController.clientes}" var="cliente"
+                                           itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
+                            <f:ajax event="change" execute="@this" />
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+            </h:panelGroup>
+
+            <p:panel header="Itens" style="margin-top: 10px">
+                <h:panelGroup layout="block" id="panelCadastroItem"
+                         rendered="#{pedidoController.podeEditarPedido}">
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h:outputLabel value="Marca" />
+                            <h:selectOneMenu value="#{pedidoController.marca}" styleClass="form-control"
+                                             converter="omnifaces.GenericEnumConverter"
+                                             required="true" requiredMessage="Selecione uma marca">
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                                <f:selectItems value="#{pedidoController.marcas}" var="marca"
+                                               itemValue="#{marca}" itemLabel="#{marca.descricao}" />
+                                <f:ajax event="change" execute="@this" render="comboModelo comboVeiculo"/>
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h:outputLabel value="Modelo" />
+                            <h:selectOneMenu id="comboModelo" value="#{pedidoController.modelo}" styleClass="form-control"
+                                             converter="omnifaces.SelectItemsConverter" disabled="#{pedidoController.marca == null}"
+                                             required="true" requiredMessage="Selecione um modelo">
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                                <f:selectItems value="#{pedidoController.modelos}" var="modelo"
+                                               itemValue="#{modelo}" itemLabel="#{modelo.nome}" />
+                                <f:ajax event="change" execute="@this" render="comboVeiculo" />
+                            </h:selectOneMenu>
+                        </div>
+
+                        <div class="col-md-2">
+                            <h:outputLabel value="Veículo" />
+                            <h:selectOneMenu id="comboVeiculo" value="#{pedidoController.veiculo}" styleClass="form-control"
+                                             converter="omnifaces.SelectItemsConverter"  disabled="#{pedidoController.modelo == null}"
+                                             required="true" requiredMessage="Selecione um veículo">
+                                <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
+                                <f:selectItems value="#{pedidoController.veiculos}" var="veiculo"
+                                               itemValue="#{veiculo}" itemLabel="#{veiculo.nome}" />
+                            </h:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 5px">
+                        <div class="col-md-2">
+                            <h:outputLabel value="Quantidade" />
+                            <h:inputText value="#{pedidoController.quantidade}"
+                                         required="true" requiredMessage="Informe uma quantidade"/>
+                         </div>
+
+                        <div class="col-md-2">
+                            <h:outputLabel value="Valor Unitário" />
+                            <h:inputText value="#{pedidoController.valorUnitario}"
+                                         required="true" requiredMessage="Informe o valor unitário" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2" style="margin-top: 5px">
+                            <p:commandLink value="Adicionar Item" styleClass="btn btn-default" action="#{pedidoController.adicionarItem}"
+                                    process="@this panelCadastroItem" update="tableItens panelCadastroItem"/>
+                            </div>
+                    </div>
+                </h:panelGroup>
+
+                <p:dataTable value="#{pedidoController.pedido.itens}" var="item" id="tableItens"
+                             emptyMessage="Não há itens cadastrados" style="margin-top: 10px">
+                    <p:column headerText="Veículo">
+                        <h:outputText value="#{item.veiculo.nome}"/>
+                    </p:column>
+                    <p:column headerText="Modelo">
+                        <h:outputText value="#{item.veiculo.modelo.nome}"/>
+                    </p:column>
+                    <p:column headerText="Marca">
+                        <h:outputText value="#{item.veiculo.modelo.marca.descricao}"/>
+                    </p:column>
+                    <p:column headerText="Valor Unitário">
+                        <h:outputText value="#{item.valorUnitario}">
+                            <f:convertNumber type="currency" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Quantidade">
+                        <h:outputText value="#{item.quantidade}"/>
+                    </p:column>
+                    <p:column headerText="Valor Total">
+                        <h:outputText value="#{item.valorTotal}">
+                            <f:convertNumber type="currency" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Ações">
+                        <p:commandButton value="Remover" action="#{pedidoController.removerItem(item)}"
+                                process="@this" update="tableItens" disabled="#{not pedidoController.podeEditarPedido}"/>
+                    </p:column>
+
+                    <p:columnGroup type="footer">
+                        <p:row>
+                            <p:column colspan="6" footerText="Total: " style="text-align: right"/>
+                            <p:column footerText="#{utilController.formtValor(pedidoController.pedido.valorTotal)}" />
+                        </p:row>
+                    </p:columnGroup>
+                </p:dataTable>
+            </p:panel>
+
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-6">
+                    <p:commandLink value="Salvar" action="#{pedidoController.salvar}" update="@form" process="@this panelPedido tableItens"
+                                   styleClass="btn btn-primary" rendered="#{pedidoController.podeEditarPedido}">
+                    </p:commandLink>
+                    <p:commandLink value="Finalizar" action="#{pedidoController.finalizar}" style="margin-left: 5px " update="@form" process="@this panelPedido tableItens"
+                                   styleClass="btn btn-success" rendered="#{pedidoController.podeFinalizarPedido and pedidoController.podeEditarPedido}">
+                    </p:commandLink>
+                    <pretty:link mappingId="consulta-pedido" styleClass="btn btn-default" style="margin-left: 5px ">
+                        Voltar
+                    </pretty:link>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

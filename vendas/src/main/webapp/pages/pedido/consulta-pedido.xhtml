@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pretty="http://ocpsoft.com/prettyfaces"
+                template="/pages/commons/template.xhtml">
+
+<ui:define name="conteudo">
+
+    <h1>Consulta de Pedidos</h1>
+
+    <h:form id="form">
+        <pretty:link mappingId="cadastro-pedido" styleClass="btn btn-primary">
+            Novo Pedido
+        </pretty:link>
+
+        <p:panel id="panelListagem" header="Listagem de Pedidos" style="margin-top: 10px">
+            <p:dataTable value="#{consultaPedidoController.pedidos}" var="pedido"
+                    emptyMessage="Não há pedidos cadastrados" paginator="true"
+                         rows="10" >
+                <p:column headerText="Cliente">
+                    <h:outputText value="#{pedido.cliente.nome}"/>
+                </p:column>
+                <p:column headerText="Situação">
+                    <h:outputText value="#{pedido.situacaoPedido.descricao}"/>
+                </p:column>
+                <p:column headerText="Valor Total">
+                    <h:outputText value="#{pedido.valorTotal}">
+                        <f:convertNumber type="currency"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Data Criação">
+                    <h:outputText value="#{pedido.dataCriacao}">
+                        <f:converter converterId="localDateConverter" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Data Finalizacão">
+                    <h:outputText value="#{pedido.dataFinalizacao}">
+                        <f:converter converterId="localDateConverter" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Opções">
+                    <pretty:link mappingId="editar-pedido" styleClass="btn btn-default">
+                        <f:param value="#{pedido.id}" />
+                        Visualizar
+                    </pretty:link>
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

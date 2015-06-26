@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -31,13 +32,21 @@
                         <li><a href="#">Sair</a></li>
                     </ul>
                 </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><h:commandLink value="Cadastro Pedido" action="pretty:cadastro-pedido" /></li>
+                        <li><h:commandLink value="Consulta Pedido" action="pretty:consulta-pedido" /></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </h:form>
 
     <br />
 
-    <h:body>
+    <h:body style="margin-top: 70px">
+        <p:growl autoUpdate="true"/>
+
         <ui:insert name="conteudo" />
     </h:body>
 

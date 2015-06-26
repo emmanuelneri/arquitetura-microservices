@@ -55,7 +55,7 @@ public class AutenticacaoFilter implements Filter {
 
     private void sendRedirect(ServletResponse servletResponse) throws IOException {
         final HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-        httpResponse.sendRedirect("/vendas/home");
+        httpResponse.sendRedirect("/pedidos/home");
     }
 
     @Override
