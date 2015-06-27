@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/pages/commons/template.xhtml">
+
+<ui:define name="conteudo">
+
+    <h1>Top Veículos</h1>
+
+    <h:form id="form">
+        <p:dataTable value="#{topVeiculosController.veiculos}" var="veiculo" paginator="true"
+                         rows="20" rowIndexVar="index">
+            <p:column>
+                <h:outputText value="#{index + 1}"/>
+            </p:column>
+            <p:column headerText="Nome" filterBy="#{veiculo.veiculo.nome}">
+                <h:outputText value="#{veiculo.veiculo.nome}"/>
+            </p:column>
+            <p:column headerText="Modelo" filterBy="#{veiculo.veiculo.modelo.nome}">
+                <h:outputText value="#{veiculo.veiculo.modelo.nome}"/>
+            </p:column>
+            <p:column headerText="Marca" filterBy="#{veiculo.veiculo.modelo.marca.descricao}">
+                <h:outputText value="#{veiculo.veiculo.modelo.marca.descricao}"/>
+            </p:column>
+            <p:column headerText="Quantidade de Veículos" style="text-align: center" sortBy="#{veiculo.quantidade}">
+                <h:outputText value="#{veiculo.quantidade}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+
+</ui:define>
+
+</ui:composition>

@@ -23,7 +23,7 @@ import java.util.Set;
 
 @Entity
 @NamedQueries(value = {
-        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u join fetch u.modulos m where u.email = :email")
+        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u left join fetch u.modulos m where u.email = :email")
 })
 public class Usuario implements Model<Long> {
 

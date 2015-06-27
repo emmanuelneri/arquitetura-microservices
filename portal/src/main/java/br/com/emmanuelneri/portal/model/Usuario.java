@@ -26,7 +26,7 @@ import java.util.List;
 })
 @NamedQueries(value = {
         @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email"),
-        @NamedQuery(name = "Usuario.findCompletoByEmail", query = "select u from Usuario u join fetch u.modulos m where u.email = :email"),
+        @NamedQuery(name = "Usuario.findCompletoByEmail", query = "select u from Usuario u left join fetch u.modulos m where u.email = :email"),
 })
 public class Usuario implements Model<Long> {
 
