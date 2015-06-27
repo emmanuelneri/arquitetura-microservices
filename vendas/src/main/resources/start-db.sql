@@ -3,7 +3,7 @@ insert into modulo (id, nome, url, chave) values (2, 'Cadastros', 'http://localh
 insert into modulo (id, nome, url, chave) values (3, 'Pedidos', 'http://localhost:8080/pedidos/auth/', 'SACRSC1234');
 insert into modulo (id, nome, url, chave) values (4, 'Relatórios', 'http://localhost:8080/relatorios/auth/', 'R3L4T0R10$');
 
-insert into usuario (id, email, nome, version) values (nextval('usuario_id_seq'), 'ws@gmail.com', 'WS', 1);
+insert into usuario (id, email, nome, version) values (2, 'ws@gmail.com', 'WS', 1);
 
 insert into cliente (id, nome, cpf_cnpj) values (nextval('cliente_id_seq'), 'Cliente 1', '9020930209320');
 insert into cliente (id, nome, cpf_cnpj) values (nextval('cliente_id_seq'), 'Cliente 2', '0909278738738');
