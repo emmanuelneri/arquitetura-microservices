@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.vendas.util;
 
-import br.com.emmanuelneri.vendas.model.Modulo;
-import br.com.emmanuelneri.vendas.model.Usuario;
+import br.com.emmanuelneri.vendas.shiro.ModuloVO;
+import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
 import com.auth0.jwt.JWTSigner;
 
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import java.util.Map;
 
 public final class TokenUsuarioUtil {
 
-    public static String createToken(Usuario usuarioMenu, Modulo moduloMenu) {
+    public static String createToken(UsuarioVO usuarioMenu, ModuloVO moduloMenu) {
         final Map<String, Object> mapValores = new HashMap<>();
         mapValores.put("email", usuarioMenu.getEmail());
         mapValores.put("id", usuarioMenu.getId());

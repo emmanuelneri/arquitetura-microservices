@@ -1,8 +1,3 @@
-insert into modulo (id, nome, url, chave) values (1, 'Portal', 'http://localhost:8080/portal/token/', 'P0RT4LL');
-insert into modulo (id, nome, url, chave) values (2, 'Cadastros', 'http://localhost:8080/cadastros/auth/', 'C4D4$TR0S');
-insert into modulo (id, nome, url, chave) values (3, 'Pedidos', 'http://localhost:8080/pedidos/auth/', 'SACRSC1234');
-insert into modulo (id, nome, url, chave) values (4, 'Relatórios', 'http://localhost:8080/relatorios/auth/', 'R3L4T0R10$');
-
 insert into cliente (id, nome, cpf_cnpj) values (nextval('cliente_id_seq'), 'Cliente 1', '9020930209320');
 insert into cliente (id, nome, cpf_cnpj) values (nextval('cliente_id_seq'), 'Cliente 2', '0909278738738');
 insert into cliente (id, nome, cpf_cnpj) values (nextval('cliente_id_seq'), 'Cliente 3', '8020930292887');
@@ -67,5 +62,3 @@ insert into veiculo (id, nome, id_modelo) values (nextval('veiculo_id_seq'), 'Cl
 insert into veiculo (id, nome, id_modelo) values (nextval('veiculo_id_seq'), 'Classe B', (select id from modelo where nome = 'Classe B'));
 insert into veiculo (id, nome, id_modelo) values (nextval('veiculo_id_seq'), 'Optima', (select id from modelo where nome = 'Optima'));
 insert into veiculo (id, nome, id_modelo) values (nextval('veiculo_id_seq'), 'Cadenza', (select id from modelo where nome = 'Cadenza'));
-
-SELECT setval('modulo_id_seq', (select max(id) from modulo));

@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.vendas.controller;
 
-import br.com.emmanuelneri.vendas.model.Modulo;
-import br.com.emmanuelneri.vendas.model.Usuario;
+import br.com.emmanuelneri.vendas.shiro.ModuloVO;
+import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
 import br.com.emmanuelneri.vendas.util.Constantes;
 import br.com.emmanuelneri.vendas.util.TokenUsuarioUtil;
@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.Locale;
 
 @Named
 @RequestScoped
@@ -23,12 +22,12 @@ public class UtilController {
 
     @Inject
     @UsuarioLogado
-    private Usuario usuario;
+    private UsuarioVO usuario;
 
     @Inject
     private ApplicationProperty configuracao;
 
-    public void redirectAplicacao(Modulo moduloMenu) throws IOException {
+    public void redirectAplicacao(ModuloVO moduloMenu) throws IOException {
         final String token = TokenUsuarioUtil.createToken(usuario, moduloMenu);
         Faces.redirect(moduloMenu.getUrl() + "?token=%s&", token);
     }
@@ -41,7 +40,7 @@ public class UtilController {
         return new DecimalFormat("'R$' #,###,##0.00", new DecimalFormatSymbols(Constantes.PT_BR));
     }
 
-    public Usuario getUsuario() {
+    public UsuarioVO getUsuario() {
         return usuario;
     }
 

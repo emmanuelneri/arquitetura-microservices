@@ -52,9 +52,8 @@ public class Pedido implements Model<Long> {
     private Cliente cliente;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @Column(name = "id_usuario")
+    private Long idUsuario;
 
     @NotNull
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -68,8 +67,8 @@ public class Pedido implements Model<Long> {
     public Pedido() {
     }
 
-    public Pedido(Usuario usuario) {
-        this.usuario = usuario;
+    public Pedido(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public void adicionarItem(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
@@ -120,12 +119,8 @@ public class Pedido implements Model<Long> {
         this.cliente = cliente;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public Long getIdUsuario() {
+        return idUsuario;
     }
 
     public List<ItemPedido> getItens() {

@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -87,9 +88,9 @@ public class Usuario implements Model<Long> {
     }
 
     public List<Modulo> getModulosMenu() {
-        List<Modulo> modulosMenu = modulos;
+        final List<Modulo> modulosMenu = new ArrayList<>(modulos);
         modulosMenu.remove(Modulo.PORTAL);
-        return modulos;
+        return modulosMenu;
     }
 
     public long getVersion() {

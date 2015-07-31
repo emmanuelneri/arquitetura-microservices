@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.cadastros.controller;
 
-import br.com.emmanuelneri.cadastros.model.Modulo;
-import br.com.emmanuelneri.cadastros.model.Usuario;
+import br.com.emmanuelneri.cadastros.shiro.ModuloVO;
+import br.com.emmanuelneri.cadastros.shiro.UsuarioVO;
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
 import br.com.emmanuelneri.cadastros.util.TokenUsuarioUtil;
 import br.com.emmanuelneri.cadastros.util.anotations.UsuarioLogado;
@@ -18,17 +18,17 @@ public class UtilController {
 
     @Inject
     @UsuarioLogado
-    private Usuario usuario;
+    private UsuarioVO usuario;
 
     @Inject
     private ApplicationProperty configuracao;
 
-    public void redirectAplicacao(Modulo moduloMenu) throws IOException {
+    public void redirectAplicacao(ModuloVO moduloMenu) throws IOException {
         final String token = TokenUsuarioUtil.createToken(usuario, moduloMenu);
         Faces.redirect(moduloMenu.getUrl() + "?token=%s&", token);
     }
 
-    public Usuario getUsuario() {
+    public UsuarioVO getUsuario() {
         return usuario;
     }
 

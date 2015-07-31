@@ -1,14 +1,11 @@
 package br.com.emmanuelneri;
 
 import br.com.emmanuelneri.relatorios.shiro.UsuarioPortalToken;
-import br.com.emmanuelneri.relatorios.model.Usuario;
-import br.com.emmanuelneri.relatorios.service.UsuarioService;
 import com.auth0.jwt.JWTVerifyException;
 import com.google.common.base.Strings;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
-import javax.inject.Inject;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -23,9 +20,6 @@ import java.security.SignatureException;
 
 public class AutenticacaoFilter implements Filter {
 
-    @Inject
-    private UsuarioService usuarioService;
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         try {
@@ -33,14 +27,6 @@ public class AutenticacaoFilter implements Filter {
 
             if(!Strings.isNullOrEmpty(token)) {
                 final UsuarioPortalToken usuarioPortalToken = new UsuarioPortalToken(token);
-
-                try {
-                    final Usuario usuario = usuarioService.atualizarUsuario(usuarioPortalToken.getUsuario().getEmail());
-                    usuarioPortalToken.setUsuario(usuario);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
                 Subject subject = SecurityUtils.getSubject();
                 subject.login(usuarioPortalToken);
                 sendRedirect(servletResponse);

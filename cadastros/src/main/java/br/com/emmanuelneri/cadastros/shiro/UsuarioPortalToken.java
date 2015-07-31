@@ -1,6 +1,5 @@
 package br.com.emmanuelneri.cadastros.shiro;
 
-import br.com.emmanuelneri.cadastros.model.Usuario;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -14,12 +13,12 @@ import java.util.Map;
 public final class UsuarioPortalToken implements AuthenticationToken {
 
     private final String chaveAplicacao;
-    private Usuario usuario;
+    private UsuarioVO usuario;
 
     public UsuarioPortalToken(String token) throws NoSuchAlgorithmException, SignatureException, JWTVerifyException, InvalidKeyException, IOException {
         final Map<String, Object> tokenMap = getTokenMap(token);
 
-        usuario = new Usuario(tokenMap);
+        usuario = new UsuarioVO(tokenMap);
         chaveAplicacao = (String) tokenMap.get("chaveAplicacao");
     }
 
@@ -37,15 +36,11 @@ public final class UsuarioPortalToken implements AuthenticationToken {
         return usuario.getId();
     }
 
-    public Usuario getUsuario() {
+    public UsuarioVO getUsuario() {
         return usuario;
     }
 
     public String getChaveAplicacao() {
         return chaveAplicacao;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 }
