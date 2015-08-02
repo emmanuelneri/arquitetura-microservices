@@ -1,9 +1,10 @@
 package br.com.emmanuelneri.vendas.shiro;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public final class ModuloVO {
+public final class ModuloVO implements Serializable{
 
     public static final String MODULO_CADASTRO = "Cadastros";
 

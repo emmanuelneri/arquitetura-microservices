@@ -76,7 +76,7 @@ public class PedidoController implements Serializable {
 
     @URLAction(mappingId = "cadastro-pedido", onPostback = false)
     public void initCadastro() {
-        pedido = new Pedido(0L);
+        pedido = new Pedido(usuario.getId());
         inicializarItem();
     }
 

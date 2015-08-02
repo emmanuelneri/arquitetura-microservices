@@ -1,12 +1,13 @@
 package br.com.emmanuelneri.vendas.shiro;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UsuarioVO {
+public class UsuarioVO implements Serializable {
 
     private final Long id;
     private final String email;
@@ -19,6 +20,12 @@ public class UsuarioVO {
         this.email = (String) tokenMap.get("email");
         this.nome = (String) tokenMap.get("nome");
         this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
+    }
+
+    public UsuarioVO(String email) {
+        this.email = email;
+        this.nome = email;
+        this.id = null;
     }
 
     private List<ModuloVO> getModulosToken(List<Map<String, String>> listaMapModulos) {
