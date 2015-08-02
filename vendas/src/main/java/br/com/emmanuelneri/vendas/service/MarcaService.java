@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.service;
 
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
+import br.com.emmanuelneri.vendas.vo.MarcaVo;
 
 import javax.inject.Named;
 import java.io.Serializable;
@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Named
-public class ClienteService implements Serializable {
+public class MarcaService implements Serializable {
 
-
-    public List<ClienteVo> findAll() {
+    public List<MarcaVo> findAll() {
         return new ArrayList<>();
     }
+
 }

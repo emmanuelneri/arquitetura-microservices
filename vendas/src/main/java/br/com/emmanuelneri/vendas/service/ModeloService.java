@@ -1,20 +1,26 @@
 package br.com.emmanuelneri.vendas.service;
 
 
-import br.com.emmanuelneri.vendas.model.Modelo;
-import br.com.emmanuelneri.vendas.model.enuns.Marca;
-import br.com.emmanuelneri.vendas.util.GenericService;
+import br.com.emmanuelneri.vendas.vo.MarcaVo;
+import br.com.emmanuelneri.vendas.vo.ModeloVo;
 import com.google.common.collect.Multimaps;
 
 import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Named
-public class ModeloService extends GenericService<Modelo, Long> {
+public class ModeloService implements Serializable {
 
-    public Map<Marca, Collection<Modelo>> findModelosPorMarca() {
-        return Multimaps.index(findAll(), Modelo::getMarca).asMap();
+    public Map<MarcaVo, Collection<ModeloVo>> findModelosPorMarca() {
+        return Multimaps.index(findAll(), ModeloVo::getMarca).asMap();
+    }
+
+    private List<ModeloVo> findAll() {
+        return new ArrayList<>();
     }
 
 }

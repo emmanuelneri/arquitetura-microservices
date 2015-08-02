@@ -1,14 +1,14 @@
-package br.com.emmanuelneri.relatorios.vo;
+package br.com.emmanuelneri.vendas.vo;
 
 import java.io.Serializable;
 
-public class ModeloVo implements Serializable {
+public class VeiculoVo implements Serializable {
 
     private Long id;
 
     private String nome;
 
-    private MarcaVo marca;
+    private ModeloVo modelo;
 
     public Long getId() {
         return id;
@@ -22,12 +22,11 @@ public class ModeloVo implements Serializable {
         this.nome = nome;
     }
 
-    public MarcaVo getMarca() {
-        return marca;
+    public ModeloVo getModelo() {
+        return modelo;
     }
 
-    public void setMarca(MarcaVo marca) {
-        this.marca = marca;
+    public void setModelo(ModeloVo modelo) {
+        this.modelo = modelo;
     }
-
 }

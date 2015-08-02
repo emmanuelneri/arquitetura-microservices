@@ -1,19 +1,17 @@
 package br.com.emmanuelneri.vendas.vo;
 
-import br.com.emmanuelneri.vendas.model.Veiculo;
-
 public final class VeiculoRankingVo {
 
-    private final Veiculo veiculo;
+    private final Long idVeiculo;
     private final Long quantidade;
 
-    public VeiculoRankingVo(Veiculo veiculo, Long quantidade) {
-        this.veiculo = veiculo;
+    public VeiculoRankingVo(Long idVeiculo, Long quantidade) {
+        this.idVeiculo = idVeiculo;
         this.quantidade = quantidade;
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public Long getIdVeiculo() {
+        return idVeiculo;
     }
 
     public Long getQuantidade() {

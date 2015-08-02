@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.relatorios.vo;
+package br.com.emmanuelneri.vendas.vo;
 
 import java.io.Serializable;
 

@@ -1,18 +1,19 @@
 package br.com.emmanuelneri.vendas.controller;
 
 import br.com.emmanuelneri.vendas.exception.ValidationException;
-import br.com.emmanuelneri.vendas.model.Cliente;
 import br.com.emmanuelneri.vendas.model.ItemPedido;
-import br.com.emmanuelneri.vendas.model.Modelo;
 import br.com.emmanuelneri.vendas.model.Pedido;
-import br.com.emmanuelneri.vendas.model.Veiculo;
-import br.com.emmanuelneri.vendas.model.enuns.Marca;
 import br.com.emmanuelneri.vendas.service.ClienteService;
+import br.com.emmanuelneri.vendas.service.MarcaService;
 import br.com.emmanuelneri.vendas.service.ModeloService;
 import br.com.emmanuelneri.vendas.service.PedidoService;
 import br.com.emmanuelneri.vendas.service.VeiculoService;
 import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
 import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
+import br.com.emmanuelneri.vendas.vo.ClienteVo;
+import br.com.emmanuelneri.vendas.vo.MarcaVo;
+import br.com.emmanuelneri.vendas.vo.ModeloVo;
+import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -38,15 +39,15 @@ import java.util.Map;
 })
 public class PedidoController implements Serializable {
 
-    private List<Cliente> clientes;
-    private List<Marca> marcas;
-    private Map<Marca, Collection<Modelo>> modeloPorMarca;
-    private Map<Modelo, Collection<Veiculo>> veiculosPorModelo;
+    private List<ClienteVo> clientes;
+    private List<MarcaVo> marcas;
+    private Map<MarcaVo, Collection<ModeloVo>> modeloPorMarca;
+    private Map<ModeloVo, Collection<VeiculoVo>> veiculosPorModelo;
 
     private Pedido pedido;
-    private Marca marca;
-    private Modelo modelo;
-    private Veiculo veiculo;
+    private MarcaVo marca;
+    private ModeloVo modelo;
+    private VeiculoVo veiculo;
 
     private BigDecimal valorUnitario;
     private int quantidade = 0;
@@ -68,6 +69,9 @@ public class PedidoController implements Serializable {
 
     @Inject
     private VeiculoService veiculoService;
+
+    @Inject
+    private MarcaService marcaService;
 
     @PostConstruct
     public void init() {
@@ -126,26 +130,26 @@ public class PedidoController implements Serializable {
 
     private void inicializarCombos() {
         clientes = clienteService.findAll();
-        marcas = Arrays.asList(Marca.values());
+        marcas = marcaService.findAll();
         modeloPorMarca = modeloService.findModelosPorMarca();
         veiculosPorModelo = veiculoService.findVeiculosPorModelo();
     }
 
-    public Collection<Modelo> getModelos() {
+    public Collection<ModeloVo> getModelos() {
         if(marca != null) {
             return modeloPorMarca.get(marca);
         }
         return Collections.emptyList();
     }
 
-    public Collection<Veiculo> getVeiculos() {
+    public Collection<VeiculoVo> getVeiculos() {
         if(modelo != null) {
             return veiculosPorModelo.get(modelo);
         }
         return Collections.emptyList();
     }
 
-    public List<Marca> getMarcas() {
+    public List<MarcaVo> getMarcas() {
         return marcas;
     }
 
@@ -165,31 +169,31 @@ public class PedidoController implements Serializable {
         this.pedido = pedido;
     }
 
-    public List<Cliente> getClientes() {
+    public List<ClienteVo> getClientes() {
         return clientes;
     }
 
-    public Marca getMarca() {
+    public MarcaVo getMarca() {
         return marca;
     }
 
-    public void setMarca(Marca marca) {
+    public void setMarca(MarcaVo marca) {
         this.marca = marca;
     }
 
-    public Modelo getModelo() {
+    public ModeloVo getModelo() {
         return modelo;
     }
 
-    public void setModelo(Modelo modelo) {
+    public void setModelo(ModeloVo modelo) {
         this.modelo = modelo;
     }
 
-    public Veiculo getVeiculo() {
+    public VeiculoVo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(Veiculo veiculo) {
+    public void setVeiculo(VeiculoVo veiculo) {
         this.veiculo = veiculo;
     }
 

@@ -1,19 +1,25 @@
 package br.com.emmanuelneri.vendas.service;
 
-import br.com.emmanuelneri.vendas.model.Modelo;
-import br.com.emmanuelneri.vendas.model.Veiculo;
-import br.com.emmanuelneri.vendas.util.GenericService;
+import br.com.emmanuelneri.vendas.vo.ModeloVo;
+import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 import com.google.common.collect.Multimaps;
 
 import javax.inject.Named;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Named
-public class VeiculoService extends GenericService<Veiculo, Long> {
+public class VeiculoService implements Serializable {
 
-    public Map<Modelo, Collection<Veiculo>> findVeiculosPorModelo() {
-        return Multimaps.index(findAll(), Veiculo::getModelo).asMap();
+    public Map<ModeloVo, Collection<VeiculoVo>> findVeiculosPorModelo() {
+        return Multimaps.index(findAll(), VeiculoVo::getModelo).asMap();
+    }
+
+    private List<VeiculoVo> findAll() {
+        return new ArrayList<>();
     }
 
 }

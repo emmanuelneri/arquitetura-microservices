@@ -2,6 +2,8 @@ package br.com.emmanuelneri.vendas.model;
 
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.vendas.util.Model;
+import br.com.emmanuelneri.vendas.vo.ClienteVo;
+import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,10 +15,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -26,8 +30,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id"),
-        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.vendas.vo.ClienteRankingVo(c, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.cliente c join p.itens i where p.situacaoPedido <> 'CANCELADO' group by c order by sum(i.valorTotal) desc"),
-        @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.vendas.vo.VeiculoRankingVo(v, count(i.quantidade)) from Pedido p join p.itens i join i.veiculo v where p.situacaoPedido <> 'CANCELADO' group by v order by count(i.quantidade) desc")
+        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.vendas.vo.ClienteRankingVo(p.idCliente, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.itens i where p.situacaoPedido <> 'CANCELADO' group by p.idCliente order by sum(i.valorTotal) desc"),
+        @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.vendas.vo.VeiculoRankingVo(i.idVeiculo, count(i.quantidade)) from Pedido p join p.itens i  where p.situacaoPedido <> 'CANCELADO' group by i.idVeiculo order by count(i.quantidade) desc")
 })
 public class Pedido implements Model<Long> {
 
@@ -47,9 +51,8 @@ public class Pedido implements Model<Long> {
     private BigDecimal valorTotal = BigDecimal.ZERO;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    @Column(name = "id_cliente")
+    private Long idCliente;
 
     @NotNull
     @Column(name = "id_usuario")
@@ -64,6 +67,9 @@ public class Pedido implements Model<Long> {
     @Enumerated(EnumType.STRING)
     private SituacaoPedido situacaoPedido = SituacaoPedido.ABERTO;
 
+    @Transient
+    private ClienteVo cliente;
+
     public Pedido() {
     }
 
@@ -71,7 +77,7 @@ public class Pedido implements Model<Long> {
         this.idUsuario = idUsuario;
     }
 
-    public void adicionarItem(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
+    public void adicionarItem(BigDecimal valorUnitario, int quantidade, VeiculoVo veiculo) {
         final ItemPedido itemPedido = new ItemPedido(valorUnitario, quantidade, veiculo);
         this.itens.add(itemPedido);
         this.valorTotal = this.valorTotal.add(itemPedido.getValorTotal());
@@ -80,6 +86,12 @@ public class Pedido implements Model<Long> {
     public void removerItem(ItemPedido itemPedido) {
         this.itens.remove(itemPedido);
         this.valorTotal = this.valorTotal.subtract(itemPedido.getValorTotal());
+    }
+
+    @PrePersist
+    @PreUpdate
+    protected void atualizarIdCliente() {
+        this.idCliente = cliente.getId();
     }
 
     @Override
@@ -111,11 +123,11 @@ public class Pedido implements Model<Long> {
         this.valorTotal = valorTotal;
     }
 
-    public Cliente getCliente() {
+    public ClienteVo getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(ClienteVo cliente) {
         this.cliente = cliente;
     }
 
