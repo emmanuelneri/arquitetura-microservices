@@ -1,7 +1,11 @@
 package br.com.emmanuelneri.vendas.vo;
 
-import java.io.Serializable;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+@JsonSerialize
 public class VeiculoVo implements Serializable {
 
     private Long id;
@@ -28,5 +32,18 @@ public class VeiculoVo implements Serializable {
 
     public void setModelo(ModeloVo modelo) {
         this.modelo = modelo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VeiculoVo veiculoVo = (VeiculoVo) o;
+        return Objects.equals(id, veiculoVo.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

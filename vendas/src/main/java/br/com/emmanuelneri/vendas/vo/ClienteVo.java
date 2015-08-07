@@ -1,7 +1,11 @@
 package br.com.emmanuelneri.vendas.vo;
 
-import java.io.Serializable;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
+import java.io.Serializable;
+import java.util.Objects;
+
+@JsonSerialize
 public class ClienteVo implements Serializable {
 
     private Long id;
@@ -32,5 +36,18 @@ public class ClienteVo implements Serializable {
 
     public void setCpfCnpj(String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClienteVo clienteVo = (ClienteVo) o;
+        return Objects.equals(id, clienteVo.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

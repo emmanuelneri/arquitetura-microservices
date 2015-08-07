@@ -77,6 +77,14 @@ public class ItemPedido implements Model<Long> {
         return veiculo;
     }
 
+    public void setVeiculo(VeiculoVo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Long getIdVeiculo() {
+        return idVeiculo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

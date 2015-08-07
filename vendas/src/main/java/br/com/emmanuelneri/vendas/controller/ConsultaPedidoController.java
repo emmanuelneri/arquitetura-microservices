@@ -26,7 +26,7 @@ public class ConsultaPedidoController implements Serializable {
 
     @URLAction(mappingId = "consulta-pedido", onPostback = false)
     public void initConsulta() {
-        pedidos = pedidoService.findAll();
+        pedidos = pedidoService.findAllCompleto();
     }
 
     public List<Pedido> getPedidos() {

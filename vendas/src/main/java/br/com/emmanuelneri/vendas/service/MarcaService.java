@@ -1,17 +1,16 @@
 package br.com.emmanuelneri.vendas.service;
 
+import br.com.emmanuelneri.vendas.util.GenericWsService;
 import br.com.emmanuelneri.vendas.vo.MarcaVo;
 
 import javax.inject.Named;
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Named
-public class MarcaService implements Serializable {
+public class MarcaService extends GenericWsService<MarcaVo> {
 
     public List<MarcaVo> findAll() {
-        return new ArrayList<>();
+        return getList("/marca/buscar/todos");
     }
 
 }

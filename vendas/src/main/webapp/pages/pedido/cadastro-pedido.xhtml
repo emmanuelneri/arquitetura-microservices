@@ -49,7 +49,7 @@
                         <div class="col-md-2">
                             <h:outputLabel value="Marca" />
                             <h:selectOneMenu value="#{pedidoController.marca}" styleClass="form-control"
-                                             converter="omnifaces.GenericEnumConverter"
+                                             converter="omnifaces.SelectItemsConverter"
                                              required="true" requiredMessage="Selecione uma marca">
                                 <f:selectItem itemLabel="Selecione" itemValue="#{null}"/>
                                 <f:selectItems value="#{pedidoController.marcas}" var="marca"

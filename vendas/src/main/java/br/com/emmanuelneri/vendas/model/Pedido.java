@@ -154,4 +154,8 @@ public class Pedido implements Model<Long> {
     public boolean isPedidoEditavel() {
         return getSituacaoPedido() == SituacaoPedido.ABERTO;
     }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
 }
