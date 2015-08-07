@@ -21,6 +21,12 @@ public class UsuarioVO {
         this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
     }
 
+    public UsuarioVO(String email) {
+        this.email = email;
+        this.nome = email;
+        this.id = null;
+    }
+
     private List<ModuloVO> getModulosToken(List<Map<String, String>> listaMapModulos) {
        return listaMapModulos.stream().map(mapModulo -> new ModuloVO(mapModulo.get("nome"),
                mapModulo.get("chave"), mapModulo.get("chave"))).collect(Collectors.toList());
