@@ -1,7 +1,10 @@
 package br.com.emmanuelneri.relatorios.vo;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+
 import java.io.Serializable;
 
+@JsonSerialize
 public class ClienteVo implements Serializable {
 
     private Long id;

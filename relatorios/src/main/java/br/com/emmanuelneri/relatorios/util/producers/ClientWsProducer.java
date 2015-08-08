@@ -27,7 +27,7 @@ public final class ClientWsProducer {
                 .queryParam("senha", configuracao.getWsPortalSenha());
     }
 
-    @Named("clientWs")
+    @Named("vendasClientWS")
     @Produces
     @VendasClientWS
     public WebTarget getClientVendas() {
