@@ -29,7 +29,7 @@ public class UsuarioVO {
 
     private List<ModuloVO> getModulosToken(List<Map<String, String>> listaMapModulos) {
        return listaMapModulos.stream().map(mapModulo -> new ModuloVO(mapModulo.get("nome"),
-               mapModulo.get("chave"), mapModulo.get("chave"))).collect(Collectors.toList());
+               mapModulo.get("chave"), mapModulo.get("url"))).collect(Collectors.toList());
     }
 
     public String getEmail() {
