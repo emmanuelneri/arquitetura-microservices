@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.relatorios.shiro;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class UsuarioVO {
     }
 
     public List<ModuloVO> getModulosMenu() {
-        List<ModuloVO> modulosMenu = modulos;
+        List<ModuloVO> modulosMenu = new ArrayList<>(modulos);
         modulosMenu.removeIf(moduloVO -> moduloVO.getNome().equals(ModuloVO.MODULO_CADASTRO));
         return modulos;
     }
