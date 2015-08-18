@@ -7,7 +7,7 @@
     <groupId>br.com.emmanuelneri</groupId>
     <artifactId>arquitetura-microservices</artifactId>
     <packaging>pom</packaging>
-    <name>Arquitetura Microservices</name>
+    <name>Arquitetura Microservices - Com Replicação de Base</name>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
