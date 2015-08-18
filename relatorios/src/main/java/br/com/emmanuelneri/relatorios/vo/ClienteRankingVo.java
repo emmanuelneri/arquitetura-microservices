@@ -5,9 +5,11 @@ import java.math.BigDecimal;
 
 public final class ClienteRankingVo implements Serializable {
 
-    private ClienteVo cliente;
+    private Long idCliente;
     private Long quantidadeVeiculo;
     private BigDecimal valorTotal;
+
+    private ClienteVo cliente;
 
     public ClienteVo getCliente() {
         return cliente;
@@ -31,5 +33,13 @@ public final class ClienteRankingVo implements Serializable {
 
     public void setValorTotal(BigDecimal valorTotal) {
         this.valorTotal = valorTotal;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
     }
 }

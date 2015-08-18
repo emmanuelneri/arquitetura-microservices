@@ -38,7 +38,7 @@ public class ApplicationProperty {
 
     @Inject
     @ConfigProperty(name = "ws.cadastro.senha")
-    private String wsCadastrpSenha;
+    private String wsCadastroSenha;
 
     public String getNomeProjeto() {
         return nomeProjeto;
@@ -69,6 +69,6 @@ public class ApplicationProperty {
     }
 
     public String getWsCadastroSenha() {
-        return wsCadastrpSenha;
+        return wsCadastroSenha;
     }
 }

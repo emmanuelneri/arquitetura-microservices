@@ -40,6 +40,18 @@ public class ApplicationProperty {
     @ConfigProperty(name = "ws.vendas.senha")
     private String wsVendasSenha;
 
+    @Inject
+    @ConfigProperty(name = "ws.cadastro.url")
+    private String wsCadastrolUrl;
+
+    @Inject
+    @ConfigProperty(name = "ws.cadastro.email")
+    private String wsCadastroEmail;
+
+    @Inject
+    @ConfigProperty(name = "ws.cadastro.senha")
+    private String wsCadastroSenha;
+
     public String getNomeProjeto() {
         return nomeProjeto;
     }
@@ -70,5 +82,17 @@ public class ApplicationProperty {
 
     public String getWsVendasSenha() {
         return wsVendasSenha;
+    }
+
+    public String getWsCadastrolUrl() {
+        return wsCadastrolUrl;
+    }
+
+    public String getWsCadastroEmail() {
+        return wsCadastroEmail;
+    }
+
+    public String getWsCadastroSenha() {
+        return wsCadastroSenha;
     }
 }
