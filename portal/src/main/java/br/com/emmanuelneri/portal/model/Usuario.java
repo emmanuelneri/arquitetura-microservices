@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.portal.util.Model;
+import br.com.emmanuelneri.interfaces.Model;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
 import javax.persistence.Column;

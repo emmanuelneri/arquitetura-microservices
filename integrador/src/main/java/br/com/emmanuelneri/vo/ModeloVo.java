@@ -1,6 +1,6 @@
-package br.com.emmanuelneri.relatorios.vo;
+package br.com.emmanuelneri.vo;
 
-import br.com.emmanuelneri.relatorios.model.enuns.Marca;
+import br.com.emmanuelneri.enuns.Marca;
 
 import java.io.Serializable;
 

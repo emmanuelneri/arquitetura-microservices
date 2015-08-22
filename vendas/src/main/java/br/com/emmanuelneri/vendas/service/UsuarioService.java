@@ -2,7 +2,7 @@ package br.com.emmanuelneri.vendas.service;
 
 import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.util.GenericService;
-import br.com.emmanuelneri.vendas.util.anotations.ClientWs;
+import br.com.emmanuelneri.anotations.ClientWs;
 
 import javax.inject.Inject;
 import javax.inject.Named;

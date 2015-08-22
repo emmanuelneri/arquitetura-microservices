@@ -4,7 +4,7 @@ import br.com.emmanuelneri.cadastros.model.Modulo;
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
 import br.com.emmanuelneri.cadastros.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.cadastros.util.anotations.UsuarioLogado;
+import br.com.emmanuelneri.anotations.UsuarioLogado;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;

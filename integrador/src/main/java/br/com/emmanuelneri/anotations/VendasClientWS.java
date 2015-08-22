@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.cadastros.util.anotations;
+package br.com.emmanuelneri.anotations;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

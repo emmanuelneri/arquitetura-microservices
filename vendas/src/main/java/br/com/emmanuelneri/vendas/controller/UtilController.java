@@ -1,11 +1,11 @@
 package br.com.emmanuelneri.vendas.controller;
 
+import br.com.emmanuelneri.anotations.UsuarioLogado;
+import br.com.emmanuelneri.interfaces.Constantes;
 import br.com.emmanuelneri.vendas.model.Modulo;
 import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
-import br.com.emmanuelneri.vendas.util.Constantes;
 import br.com.emmanuelneri.vendas.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.Locale;
 
 @Named
 @RequestScoped

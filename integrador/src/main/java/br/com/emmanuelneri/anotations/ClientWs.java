@@ -1,5 +1,4 @@
-package br.com.emmanuelneri.vendas.util.anotations;
-
+package br.com.emmanuelneri.anotations;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;
@@ -11,5 +10,5 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Qualifier
 @Retention(RUNTIME)
 @Target({METHOD, TYPE, FIELD})
-public @interface UsuarioLogado {
+public @interface ClientWs {
 }

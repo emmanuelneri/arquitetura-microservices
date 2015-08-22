@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.util;
 
+import br.com.emmanuelneri.interfaces.Model;
 import org.omnifaces.converter.SelectItemsConverter;
 
 import javax.faces.component.UIComponent;

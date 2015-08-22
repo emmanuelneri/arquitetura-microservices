@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.relatorios.model;
 
-import br.com.emmanuelneri.relatorios.util.Model;
+import br.com.emmanuelneri.interfaces.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

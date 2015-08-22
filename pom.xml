@@ -146,6 +146,12 @@
             <version>${ws-rs.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>br.com.emmanuelneri</groupId>
+            <artifactId>integrador</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <modules>   
@@ -153,6 +159,7 @@
         <module>vendas</module>
         <module>cadastros</module>
         <module>relatorios</module>
+        <module>integrador</module>
     </modules>
 
     <build>

@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.vendas.util;
+package br.com.emmanuelneri.interfaces;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -12,5 +12,4 @@ public interface Constantes {
     DateTimeFormatter DATE_TIME_FORMAT_DEFAULT = DateTimeFormatter.ofPattern(DATE_PATTERN_DEFAULT);
 
     Locale PT_BR = new Locale("pt", "BR");
-
 }

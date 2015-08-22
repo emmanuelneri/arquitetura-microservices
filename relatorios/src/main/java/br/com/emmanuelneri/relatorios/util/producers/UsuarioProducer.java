@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.util.producers;
 
+import br.com.emmanuelneri.anotations.UsuarioLogado;
 import br.com.emmanuelneri.relatorios.model.Usuario;
-import br.com.emmanuelneri.relatorios.util.anotations.UsuarioLogado;
 import org.apache.shiro.SecurityUtils;
 
 import javax.enterprise.inject.Produces;

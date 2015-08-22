@@ -2,11 +2,8 @@ package br.com.emmanuelneri.portal.util.producers;
 
 
 import br.com.emmanuelneri.portal.model.Configuracao;
-import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.ConfiguracaoService;
-import br.com.emmanuelneri.portal.util.annotations.ConfiguracaoAplicacao;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
-import org.apache.shiro.SecurityUtils;
+import br.com.emmanuelneri.anotations.ConfiguracaoAplicacao;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

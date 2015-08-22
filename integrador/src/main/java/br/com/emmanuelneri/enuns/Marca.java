@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.relatorios.model.enuns;
+package br.com.emmanuelneri.enuns;
 
 public enum Marca {
 

@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.vendas.controller;
 
+import br.com.emmanuelneri.anotations.UsuarioLogado;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.Cliente;
 import br.com.emmanuelneri.vendas.model.ItemPedido;
@@ -7,12 +8,11 @@ import br.com.emmanuelneri.vendas.model.Modelo;
 import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.model.Veiculo;
-import br.com.emmanuelneri.vendas.model.enuns.Marca;
+import br.com.emmanuelneri.enuns.Marca;
 import br.com.emmanuelneri.vendas.service.ClienteService;
 import br.com.emmanuelneri.vendas.service.ModeloService;
 import br.com.emmanuelneri.vendas.service.PedidoService;
 import br.com.emmanuelneri.vendas.service.VeiculoService;
-import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;

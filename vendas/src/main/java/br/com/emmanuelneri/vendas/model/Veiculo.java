@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.model;
 
-import br.com.emmanuelneri.vendas.util.Model;
+import br.com.emmanuelneri.interfaces.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

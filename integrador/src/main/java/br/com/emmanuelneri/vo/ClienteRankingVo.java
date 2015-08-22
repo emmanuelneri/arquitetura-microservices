@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.relatorios.vo;
+package br.com.emmanuelneri.vo;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -8,6 +8,8 @@ public final class ClienteRankingVo implements Serializable {
     private ClienteVo cliente;
     private Long quantidadeVeiculo;
     private BigDecimal valorTotal;
+
+
 
     public ClienteVo getCliente() {
         return cliente;

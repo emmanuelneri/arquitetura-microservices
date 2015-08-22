@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.portal.util;
+package br.com.emmanuelneri.interfaces;
 
 import java.io.Serializable;
 

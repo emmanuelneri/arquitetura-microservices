@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.vendas.model;
 
+import br.com.emmanuelneri.interfaces.Model;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.util.Model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

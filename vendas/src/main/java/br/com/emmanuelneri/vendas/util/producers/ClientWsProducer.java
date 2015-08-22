@@ -2,7 +2,7 @@ package br.com.emmanuelneri.vendas.util.producers;
 
 
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
-import br.com.emmanuelneri.vendas.util.anotations.ClientWs;
+import br.com.emmanuelneri.anotations.ClientWs;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
