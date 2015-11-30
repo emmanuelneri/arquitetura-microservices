@@ -130,11 +130,6 @@
             <version>${jwt.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.omnifaces</groupId>
-            <artifactId>omnifaces</artifactId>
-            <version>${omnifaces.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
