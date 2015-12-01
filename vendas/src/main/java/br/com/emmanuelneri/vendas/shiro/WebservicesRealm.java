@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.shiro;
 
-import br.com.emmanuelneri.interfaces.Constantes;
+import br.com.emmanuelneri.integrador.interfaces.Constantes;
 import br.com.emmanuelneri.vendas.model.Usuario;
 import br.com.emmanuelneri.vendas.service.UsuarioService;
 import org.apache.deltaspike.core.api.provider.BeanProvider;

@@ -1,14 +1,14 @@
-package br.com.emmanuelneri.vo;
+package br.com.emmanuelneri.integrador.vo;
 
 import java.io.Serializable;
 
-public class VeiculoVo implements Serializable {
+public class ClienteVo implements Serializable {
 
     private Long id;
 
     private String nome;
 
-    private ModeloVo modelo;
+    private String cpfCnpj;
 
     public Long getId() {
         return id;
@@ -22,11 +22,11 @@ public class VeiculoVo implements Serializable {
         this.nome = nome;
     }
 
-    public ModeloVo getModelo() {
-        return modelo;
+    public String getCpfCnpj() {
+        return cpfCnpj;
     }
 
-    public void setModelo(ModeloVo modelo) {
-        this.modelo = modelo;
+    public void setCpfCnpj(String cpfCnpj) {
+        this.cpfCnpj = cpfCnpj;
     }
 }

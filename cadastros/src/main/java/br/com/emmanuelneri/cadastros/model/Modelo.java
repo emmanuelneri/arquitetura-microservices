@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.cadastros.model;
 
 
-import br.com.emmanuelneri.enuns.Marca;
-import br.com.emmanuelneri.interfaces.Model;
+import br.com.emmanuelneri.integrador.enuns.Marca;
+import br.com.emmanuelneri.integrador.interfaces.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;

@@ -2,7 +2,7 @@ package br.com.emmanuelneri.cadastros.service;
 
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import br.com.emmanuelneri.cadastros.util.GenericService;
-import br.com.emmanuelneri.anotations.PortalClientWS;
+import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
 
 import javax.inject.Inject;
 import javax.inject.Named;

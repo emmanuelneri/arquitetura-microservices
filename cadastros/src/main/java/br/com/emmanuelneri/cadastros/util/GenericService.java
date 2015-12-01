@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.cadastros.util;
 
-import br.com.emmanuelneri.interfaces.Model;
+import br.com.emmanuelneri.integrador.interfaces.Model;
 import com.google.common.collect.Iterables;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

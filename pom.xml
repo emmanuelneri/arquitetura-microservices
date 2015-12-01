@@ -7,7 +7,7 @@
     <groupId>br.com.emmanuelneri</groupId>
     <artifactId>arquitetura-microservices</artifactId>
     <packaging>pom</packaging>
-    <name>Arquitetura Microservices - Com Replicação de Base</name>
+    <name>Arquitetura Microservices - Sem replicação e com integrador</name>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -146,20 +146,14 @@
             <version>${ws-rs.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <dependency>
-            <groupId>br.com.emmanuelneri</groupId>
-            <artifactId>integrador</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
-    <modules>   
+    <modules>
         <module>portal</module>
+        <module>integrador</module>
         <module>vendas</module>
         <module>cadastros</module>
         <module>relatorios</module>
-        <module>integrador</module>
     </modules>
 
     <build>

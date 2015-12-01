@@ -1,11 +1,11 @@
 package br.com.emmanuelneri.portal.controller;
 
-import br.com.emmanuelneri.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.anotations.ConfiguracaoAplicacao;
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
 import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.anotations.ConfiguracaoAplicacao;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;

@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.interfaces.Model;
+import br.com.emmanuelneri.integrador.interfaces.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

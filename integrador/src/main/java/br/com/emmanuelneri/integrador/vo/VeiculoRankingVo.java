@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.vo;
+package br.com.emmanuelneri.integrador.vo;
 
 import java.io.Serializable;
 

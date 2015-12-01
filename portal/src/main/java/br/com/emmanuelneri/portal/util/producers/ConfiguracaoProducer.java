@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.portal.util.producers;
 
 
+import br.com.emmanuelneri.integrador.anotations.ConfiguracaoAplicacao;
 import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.service.ConfiguracaoService;
-import br.com.emmanuelneri.anotations.ConfiguracaoAplicacao;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

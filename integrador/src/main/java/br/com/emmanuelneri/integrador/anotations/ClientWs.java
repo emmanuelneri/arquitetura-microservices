@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.anotations;
+package br.com.emmanuelneri.integrador.anotations;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

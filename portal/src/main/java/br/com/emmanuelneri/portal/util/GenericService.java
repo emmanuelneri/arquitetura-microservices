@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.portal.util;
 
-import br.com.emmanuelneri.interfaces.Model;
+import br.com.emmanuelneri.integrador.interfaces.Model;
 import com.google.common.collect.Iterables;
 import org.hibernate.Criteria;
 import org.hibernate.Session;

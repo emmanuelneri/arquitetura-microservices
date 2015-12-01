@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.relatorios.controller;
 
-import br.com.emmanuelneri.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
 import br.com.emmanuelneri.relatorios.model.Modulo;
 import br.com.emmanuelneri.relatorios.model.Usuario;
 import br.com.emmanuelneri.relatorios.util.ApplicationProperty;

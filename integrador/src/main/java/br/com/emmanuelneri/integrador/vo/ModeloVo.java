@@ -1,6 +1,6 @@
-package br.com.emmanuelneri.vo;
+package br.com.emmanuelneri.integrador.vo;
 
-import br.com.emmanuelneri.enuns.Marca;
+import br.com.emmanuelneri.integrador.enuns.Marca;
 
 import java.io.Serializable;
 

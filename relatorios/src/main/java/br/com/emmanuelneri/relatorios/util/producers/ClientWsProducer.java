@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.relatorios.util.producers;
 
 
-import br.com.emmanuelneri.anotations.PortalClientWS;
-import br.com.emmanuelneri.anotations.VendasClientWS;
+import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
+import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
 import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
 
 import javax.enterprise.inject.Produces;

@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.relatorios.service;
 
-import br.com.emmanuelneri.anotations.PortalClientWS;
+import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
 import br.com.emmanuelneri.relatorios.model.Usuario;
 import br.com.emmanuelneri.relatorios.util.GenericService;
 

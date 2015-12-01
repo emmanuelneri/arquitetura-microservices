@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.relatorios.service;
 
-import br.com.emmanuelneri.anotations.VendasClientWS;
-import br.com.emmanuelneri.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vo.VeiculoRankingVo;
+import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
+import br.com.emmanuelneri.integrador.vo.ClienteRankingVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoRankingVo;
 
 import javax.inject.Inject;
 import javax.inject.Named;

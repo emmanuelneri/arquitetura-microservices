@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.interfaces;
+package br.com.emmanuelneri.integrador.interfaces;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;

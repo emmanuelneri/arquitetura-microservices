@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.portal.shiro;
 
+import br.com.emmanuelneri.integrador.interfaces.Constantes;
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.interfaces.Constantes;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

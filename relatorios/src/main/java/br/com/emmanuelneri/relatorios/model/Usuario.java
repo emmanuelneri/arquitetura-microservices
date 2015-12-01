@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.model;
 
 
-import br.com.emmanuelneri.interfaces.Model;
+import br.com.emmanuelneri.integrador.interfaces.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
