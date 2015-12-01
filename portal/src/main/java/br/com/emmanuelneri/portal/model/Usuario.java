@@ -1,51 +1,21 @@
 package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.autenticacao.UsuarioGenerico;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.List;
 
 @Entity
-@Table(uniqueConstraints = {
-        @UniqueConstraint(name = "usuario_uk", columnNames ={"email"})
-})
-@NamedQueries(value = {
-        @NamedQuery(name = "Usuario.findByEmail", query = "select u from Usuario u where u.email = :email"),
-        @NamedQuery(name = "Usuario.findCompletoByEmail", query = "select u from Usuario u left join fetch u.modulos m where u.email = :email"),
-})
-public class Usuario implements Model<Long> {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Version
-    private long version;
-
-    @NotNull
-    @Column(length = 100)
-    private String email;
+public class Usuario extends UsuarioGenerico {
 
     @NotNull
     private String senha;
-
-    @NotNull
-    private String nome;
 
     @ManyToMany
     @JoinTable(name="usuario_modulo",
