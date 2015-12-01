@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.cadastros.util;
+package br.com.emmanuelneri.integrador.service;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
 import com.google.common.collect.Iterables;

@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.relatorios.service;
 
 import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
+import br.com.emmanuelneri.integrador.service.GenericService;
 import br.com.emmanuelneri.relatorios.model.Usuario;
-import br.com.emmanuelneri.relatorios.util.GenericService;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import javax.ws.rs.client.WebTarget;
 
 @Named
-public class UsuarioService extends GenericService<Usuario> {
+public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Inject
     @PortalClientWS

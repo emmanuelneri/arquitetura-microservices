@@ -1,8 +1,8 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.relatorios.shiro.UsuarioPortalToken;
 import br.com.emmanuelneri.relatorios.model.Usuario;
 import br.com.emmanuelneri.relatorios.service.UsuarioService;
+import br.com.emmanuelneri.relatorios.shiro.UsuarioPortalToken;
 import com.auth0.jwt.JWTVerifyException;
 import com.google.common.base.Strings;
 import org.apache.shiro.SecurityUtils;

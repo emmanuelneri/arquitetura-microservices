@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.vendas.service;
 
 import br.com.emmanuelneri.integrador.anotations.ClientWs;
+import br.com.emmanuelneri.integrador.service.GenericService;
 import br.com.emmanuelneri.vendas.model.Usuario;
-import br.com.emmanuelneri.vendas.util.GenericService;
 
 import javax.inject.Inject;
 import javax.inject.Named;

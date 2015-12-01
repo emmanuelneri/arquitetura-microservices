@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.cadastros.service;
 
 import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.util.GenericService;
 import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
+import br.com.emmanuelneri.integrador.service.GenericService;
 
 import javax.inject.Inject;
 import javax.inject.Named;

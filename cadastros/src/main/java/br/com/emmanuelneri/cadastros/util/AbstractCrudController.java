@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.cadastros.util;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.service.GenericService;
 import org.omnifaces.util.Messages;
 
 import java.io.Serializable;

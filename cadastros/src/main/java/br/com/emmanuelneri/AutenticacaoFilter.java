@@ -1,10 +1,10 @@
 package br.com.emmanuelneri;
 
-import com.auth0.jwt.JWTVerifyException;
-import com.google.common.base.Strings;
-import br.com.emmanuelneri.cadastros.shiro.UsuarioPortalToken;
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import br.com.emmanuelneri.cadastros.service.UsuarioService;
+import br.com.emmanuelneri.cadastros.shiro.UsuarioPortalToken;
+import com.auth0.jwt.JWTVerifyException;
+import com.google.common.base.Strings;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
