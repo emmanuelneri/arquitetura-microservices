@@ -42,4 +42,7 @@ public abstract class ModuloGenerico implements Model<Long> {
         this.chave = chave;
     }
 
+    public String getChave() {
+        return chave;
+    }
 }

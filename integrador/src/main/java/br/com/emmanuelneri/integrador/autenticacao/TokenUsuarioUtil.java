@@ -1,7 +1,5 @@
-package br.com.emmanuelneri.portal.util;
+package br.com.emmanuelneri.integrador.autenticacao;
 
-import br.com.emmanuelneri.portal.model.Modulo;
-import br.com.emmanuelneri.portal.model.Usuario;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
@@ -15,7 +13,7 @@ import java.util.Map;
 
 public final class TokenUsuarioUtil {
 
-    public static String createToken(Usuario usuarioMenu, Modulo moduloMenu) {
+    public static String createToken(UsuarioGenerico usuarioMenu, ModuloGenerico moduloMenu) {
         final Map<String, Object> mapValores = new HashMap<>();
         mapValores.put("email", usuarioMenu.getEmail());
         mapValores.put("id", usuarioMenu.getId());

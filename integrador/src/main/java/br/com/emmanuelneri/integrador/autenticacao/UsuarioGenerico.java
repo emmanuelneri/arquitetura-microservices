@@ -48,4 +48,11 @@ public abstract class UsuarioGenerico implements Model<Long> {
         this.nome = (String) tokenMap.get("nome");
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
 }
