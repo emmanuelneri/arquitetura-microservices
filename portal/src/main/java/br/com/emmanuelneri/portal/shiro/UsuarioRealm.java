@@ -26,8 +26,7 @@ public class UsuarioRealm extends AuthorizingRealm {
     }
 
     public static PrincipalCollection createPrincipalCollection(Usuario usuario) {
-        return new SimplePrincipalCollection(
-                Arrays.asList(usuario.getEmail(), usuario.getId(), usuario), REALM_NAME);
+        return new SimplePrincipalCollection(Arrays.asList(usuario.getEmail(), usuario.getId(), usuario), REALM_NAME);
     }
 
     UsuarioService getUsuarioService() {
@@ -51,12 +50,10 @@ public class UsuarioRealm extends AuthorizingRealm {
     }
 
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(
-            AuthenticationToken authToken) throws AuthenticationException {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authToken;
 
-        Usuario usuario = getUsuarioService()
-                .findCompletoByEmail(token.getUsername());
+        final Usuario usuario = getUsuarioService().findCompletoByEmail(token.getUsername());
         if (usuario != null) {
             PrincipalCollection pc = createPrincipalCollection(usuario);
 

@@ -1,70 +1,35 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.vendas.model.Usuario;
+import br.com.emmanuelneri.integrador.autenticacao.AutenticacaoGenericoFilter;
+import br.com.emmanuelneri.integrador.autenticacao.UsuarioGenerico;
+import br.com.emmanuelneri.integrador.autenticacao.UsuarioPortalGenericoToken;
 import br.com.emmanuelneri.vendas.service.UsuarioService;
 import br.com.emmanuelneri.vendas.shiro.UsuarioPortalToken;
 import com.auth0.jwt.JWTVerifyException;
-import com.google.common.base.Strings;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 
 import javax.inject.Inject;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 
-public class AutenticacaoFilter implements Filter {
+public class AutenticacaoFilter  extends AutenticacaoGenericoFilter {
 
     @Inject
     private UsuarioService usuarioService;
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        try {
-            final String token = servletRequest.getParameter("token");
-
-            if(!Strings.isNullOrEmpty(token)) {
-                final UsuarioPortalToken usuarioPortalToken = new UsuarioPortalToken(token);
-
-                try {
-                    final Usuario usuario = usuarioService.atualizarUsuario(usuarioPortalToken.getUsuario().getEmail());
-                    usuarioPortalToken.setUsuario(usuario);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-
-                Subject subject = SecurityUtils.getSubject();
-                subject.login(usuarioPortalToken);
-                sendRedirect(servletResponse);
-            }
-
-        } catch (NoSuchAlgorithmException | InvalidKeyException | IOException | SignatureException | JWTVerifyException ex) {
-            ex.printStackTrace();
-        }
-
-        filterChain.doFilter(servletRequest,servletResponse);
-    }
-
-    private void sendRedirect(ServletResponse servletResponse) throws IOException {
-        final HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-        httpResponse.sendRedirect("/pedidos/home");
+    public UsuarioPortalGenericoToken criarUsuario(String token) throws NoSuchAlgorithmException, SignatureException, JWTVerifyException, InvalidKeyException, IOException {
+        return new UsuarioPortalToken(token);
     }
 
     @Override
-    public void destroy() {
-
+    public UsuarioGenerico atualizarUsuario(String email) {
+        return usuarioService.atualizarUsuario(email);
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
+    public String getUrlHome() {
+        return "/pedidos/home";
     }
 }
