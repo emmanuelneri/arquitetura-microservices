@@ -1,19 +1,18 @@
 package br.com.emmanuelneri.vendas.controller;
 
+import br.com.emmanuelneri.cadastros.model.Cliente;
+import br.com.emmanuelneri.cadastros.model.Modelo;
+import br.com.emmanuelneri.cadastros.model.Veiculo;
+import br.com.emmanuelneri.cadastros.model.enuns.Marca;
+import br.com.emmanuelneri.cadastros.service.ClienteService;
+import br.com.emmanuelneri.cadastros.service.ModeloService;
+import br.com.emmanuelneri.cadastros.service.VeiculoService;
+import br.com.emmanuelneri.portal.model.Usuario;
+import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.ItemPedido;
 import br.com.emmanuelneri.vendas.model.Pedido;
-import br.com.emmanuelneri.vendas.service.ClienteService;
-import br.com.emmanuelneri.vendas.service.MarcaService;
-import br.com.emmanuelneri.vendas.service.ModeloService;
 import br.com.emmanuelneri.vendas.service.PedidoService;
-import br.com.emmanuelneri.vendas.service.VeiculoService;
-import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
-import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
-import br.com.emmanuelneri.vendas.vo.MarcaVo;
-import br.com.emmanuelneri.vendas.vo.ModeloVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -28,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,15 +38,15 @@ import java.util.Map;
 })
 public class PedidoController implements Serializable {
 
-    private List<ClienteVo> clientes;
-    private List<MarcaVo> marcas;
-    private Map<MarcaVo, Collection<ModeloVo>> modeloPorMarca;
-    private Map<ModeloVo, Collection<VeiculoVo>> veiculosPorModelo;
+    private List<Cliente> clientes;
+    private List<Marca> marcas;
+    private Map<Marca, Collection<Modelo>> modeloPorMarca;
+    private Map<Modelo, Collection<Veiculo>> veiculosPorModelo;
 
     private Pedido pedido;
-    private MarcaVo marca;
-    private ModeloVo modelo;
-    private VeiculoVo veiculo;
+    private Marca marca;
+    private Modelo modelo;
+    private Veiculo veiculo;
 
     private BigDecimal valorUnitario;
     private int quantidade = 0;
@@ -57,7 +55,7 @@ public class PedidoController implements Serializable {
 
     @Inject
     @UsuarioLogado
-    private UsuarioVO usuario;
+    private Usuario usuario;
 
     @Inject
     private PedidoService pedidoService;
@@ -71,9 +69,6 @@ public class PedidoController implements Serializable {
     @Inject
     private VeiculoService veiculoService;
 
-    @Inject
-    private MarcaService marcaService;
-
     @PostConstruct
     public void init() {
         inicializarCombos();
@@ -81,7 +76,7 @@ public class PedidoController implements Serializable {
 
     @URLAction(mappingId = "cadastro-pedido", onPostback = false)
     public void initCadastro() {
-        pedido = new Pedido(usuario.getId());
+        pedido = new Pedido(usuario);
         inicializarItem();
     }
 
@@ -130,27 +125,27 @@ public class PedidoController implements Serializable {
     }
 
     private void inicializarCombos() {
+        marcas = Arrays.asList(Marca.values());
         clientes = clienteService.findAll();
-        marcas = marcaService.findAll();
         modeloPorMarca = modeloService.findModelosPorMarca();
         veiculosPorModelo = veiculoService.findVeiculosPorModelo();
     }
 
-    public Collection<ModeloVo> getModelos() {
+    public Collection<Modelo> getModelos() {
         if(marca != null) {
             return modeloPorMarca.get(marca);
         }
         return Collections.emptyList();
     }
 
-    public Collection<VeiculoVo> getVeiculos() {
+    public Collection<Veiculo> getVeiculos() {
         if(modelo != null) {
             return veiculosPorModelo.get(modelo);
         }
         return Collections.emptyList();
     }
 
-    public List<MarcaVo> getMarcas() {
+    public List<Marca> getMarcas() {
         return marcas;
     }
 
@@ -170,31 +165,31 @@ public class PedidoController implements Serializable {
         this.pedido = pedido;
     }
 
-    public List<ClienteVo> getClientes() {
+    public List<Cliente> getClientes() {
         return clientes;
     }
 
-    public MarcaVo getMarca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(MarcaVo marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
     }
 
-    public ModeloVo getModelo() {
+    public Modelo getModelo() {
         return modelo;
     }
 
-    public void setModelo(ModeloVo modelo) {
+    public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
 
-    public VeiculoVo getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(VeiculoVo veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 

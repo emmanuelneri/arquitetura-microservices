@@ -19,16 +19,16 @@
         <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">#{utilController.configuracao.nomeProjeto}</a>
+                    <a class="navbar-brand" href="#">#{portalUtilController.configuracao.nomeProjeto}</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <ui:repeat value="#{utilController.usuario.modulosMenu}" var="modulo">
-                            <li><h:commandLink value="#{modulo.nome}" action="#{utilController.redirectAplicacao(modulo)}"/></li>
+                        <ui:repeat value="#{portalUtilController.usuario.modulosMenu}" var="modulo">
+                            <li><h:commandLink value="#{modulo.nome}" action="#{portalUtilController.redirectAplicacao(modulo)}"/></li>
                         </ui:repeat>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">#{utilController.usuario.email}</a></li>
+                        <li><a href="#">#{portalUtilController.usuario.email}</a></li>
                         <li><a href="#">Sair</a></li>
                     </ul>
                 </div>

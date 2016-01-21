@@ -1,11 +1,12 @@
 package br.com.emmanuelneri.vendas.service;
 
+import br.com.emmanuelneri.cadastros.service.ClienteService;
+import br.com.emmanuelneri.cadastros.service.VeiculoService;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.vendas.util.GenericService;
 import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
 import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
 import javax.inject.Inject;
@@ -52,25 +53,7 @@ public class PedidoService extends GenericService<Pedido, Long> {
         final List<Pedido> pedidos = getEntityManager().createNamedQuery("Pedido.findPedidoCompletoById", Pedido.class)
                 .setParameter("id", id).getResultList();
 
-        final Pedido pedido = getResultOrNull(pedidos);
-        if(pedido != null) {
-            carregarVosDoPedido(pedido);
-        }
-
-        return pedido;
-    }
-
-    public List<Pedido> findAllCompleto() {
-        final List<Pedido> pedidos = findAll();
-        pedidos.stream().forEach(this::carregarVosDoPedido);
-        return pedidos;
-    }
-
-    private void carregarVosDoPedido(Pedido pedido) {
-        pedido.setCliente(clienteService.findById(pedido.getIdCliente()));
-
-        pedido.getItens().stream().forEach(itemPedido
-                -> itemPedido.setVeiculo(veiculoService.findById(itemPedido.getIdVeiculo())));
+        return getResultOrNull(pedidos);
     }
 
     public List<ClienteRankingVo> findTopClientes() {

@@ -1,16 +1,15 @@
 package br.com.emmanuelneri.vendas.model;
 
+import br.com.emmanuelneri.cadastros.model.Veiculo;
 import br.com.emmanuelneri.vendas.util.Model;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Transient;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -33,27 +32,19 @@ public class ItemPedido implements Model<Long> {
     private BigDecimal valorTotal;
 
     @NotNull
-    @Column(name = "id_veiculo")
-    private Long idVeiculo;
-
-    @Transient
-    private VeiculoVo veiculo;
+    @ManyToOne
+    @JoinColumn(name = "id_veiculo")
+    private Veiculo veiculo;
 
     protected ItemPedido() {
 
     }
 
-    public ItemPedido(BigDecimal valorUnitario, int quantidade, VeiculoVo veiculo) {
+    public ItemPedido(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
         this.valorUnitario = valorUnitario;
         this.quantidade = quantidade;
         this.valorTotal = valorUnitario.multiply(BigDecimal.valueOf(quantidade));
         this.veiculo = veiculo;
-    }
-
-    @PrePersist
-    @PreUpdate
-    protected void atualizarIdVeiculo() {
-        this.idVeiculo = veiculo.getId();
     }
 
     @Override
@@ -73,16 +64,12 @@ public class ItemPedido implements Model<Long> {
         return quantidade;
     }
 
-    public VeiculoVo getVeiculo() {
+    public Veiculo getVeiculo() {
         return veiculo;
     }
 
-    public void setVeiculo(VeiculoVo veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
-    }
-
-    public Long getIdVeiculo() {
-        return idVeiculo;
     }
 
     @Override

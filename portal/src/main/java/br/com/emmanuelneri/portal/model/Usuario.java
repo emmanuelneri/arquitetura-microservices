@@ -19,7 +19,11 @@ import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(uniqueConstraints = {
@@ -53,6 +57,22 @@ public class Usuario implements Model<Long> {
             joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
             inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
     private List<Modulo> modulos = Collections.singletonList(Modulo.PORTAL);
+
+    public Usuario() {
+    }
+
+    @SuppressWarnings("unchecked")
+    public Usuario(Map<String, Object> tokenMap) {
+        this.id = Long.valueOf((Integer) tokenMap.get("id"));
+        this.email = (String) tokenMap.get("email");
+        this.nome = (String) tokenMap.get("nome");
+        this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
+    }
+
+    private List<Modulo> getModulosToken(List<Map<String, String>> listaMapModulos) {
+        return listaMapModulos.stream().map(mapModulo -> new Modulo(mapModulo.get("nome"),
+                mapModulo.get("chave"), mapModulo.get("url"))).collect(Collectors.toList());
+    }
 
     @Override
     public Long getId() {
@@ -95,5 +115,9 @@ public class Usuario implements Model<Long> {
 
     public long getVersion() {
         return version;
+    }
+
+    public Set<String> getRoles() {
+        return new HashSet<>();
     }
 }

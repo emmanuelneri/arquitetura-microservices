@@ -1,17 +1,21 @@
 package br.com.emmanuelneri.vendas.vo;
 
-public final class VeiculoRankingVo {
+import br.com.emmanuelneri.cadastros.model.Veiculo;
 
-    private final Long idVeiculo;
+import java.io.Serializable;
+
+public final class VeiculoRankingVo implements Serializable {
+
+    private final Veiculo veiculo;
     private final Long quantidade;
 
-    public VeiculoRankingVo(Long idVeiculo, Long quantidade) {
-        this.idVeiculo = idVeiculo;
+    public VeiculoRankingVo(Veiculo veiculo, Long quantidade) {
+        this.veiculo = veiculo;
         this.quantidade = quantidade;
     }
 
-    public Long getIdVeiculo() {
-        return idVeiculo;
+    public Veiculo getVeiculo() {
+        return veiculo;
     }
 
     public Long getQuantidade() {

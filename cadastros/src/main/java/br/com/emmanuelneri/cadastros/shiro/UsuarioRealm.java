@@ -1,6 +1,8 @@
 package br.com.emmanuelneri.cadastros.shiro;
 
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
+import br.com.emmanuelneri.portal.model.Usuario;
+import br.com.emmanuelneri.portal.shiro.UsuarioPortalToken;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -32,7 +34,7 @@ public class UsuarioRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
-        return new SimpleAuthorizationInfo(((UsuarioVO) principal.getPrimaryPrincipal()).getRoles());
+        return new SimpleAuthorizationInfo(((Usuario) principal.getPrimaryPrincipal()).getRoles());
     }
 
     ApplicationProperty getAplicationProperty() {

@@ -1,5 +1,7 @@
 package br.com.emmanuelneri.vendas.shiro;
 
+import br.com.emmanuelneri.portal.model.Usuario;
+import br.com.emmanuelneri.portal.shiro.UsuarioPortalToken;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
@@ -32,7 +34,7 @@ public class UsuarioRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
-        return new SimpleAuthorizationInfo(((UsuarioVO) principal.getPrimaryPrincipal()).getRoles());
+        return new SimpleAuthorizationInfo(((Usuario) principal.getPrimaryPrincipal()).getRoles());
     }
 
     ApplicationProperty getAplicationProperty() {

@@ -1,7 +1,5 @@
 package br.com.emmanuelneri.cadastros.model.enuns;
 
-import br.com.emmanuelneri.cadastros.vo.MarcaVo;
-
 public enum Marca {
 
     AUDI("Audi"),
@@ -24,7 +22,4 @@ public enum Marca {
         return descricao;
     }
 
-    public static MarcaVo marcaToVo(String descricao) {
-        return new MarcaVo(descricao);
-    }
 }

@@ -12,10 +12,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
+import java.io.Serializable;
 
 @Named
 @RequestScoped
-public class UtilController {
+public class PortalUtilController implements Serializable {
 
     @Inject
     @UsuarioLogado

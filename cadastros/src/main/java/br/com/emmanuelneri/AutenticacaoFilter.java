@@ -1,6 +1,6 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.cadastros.shiro.UsuarioPortalToken;
+import br.com.emmanuelneri.portal.shiro.UsuarioPortalToken;
 import com.auth0.jwt.JWTVerifyException;
 import com.google.common.base.Strings;
 import org.apache.shiro.SecurityUtils;
