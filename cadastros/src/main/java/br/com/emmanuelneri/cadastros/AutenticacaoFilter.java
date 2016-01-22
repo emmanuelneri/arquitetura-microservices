@@ -1,4 +1,4 @@
-package br.com.emmanuelneri;
+package br.com.emmanuelneri.cadastros;
 
 import br.com.emmanuelneri.portal.shiro.UsuarioPortalToken;
 import com.auth0.jwt.JWTVerifyException;

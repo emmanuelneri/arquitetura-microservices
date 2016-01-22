@@ -1,4 +1,4 @@
-package br.com.emmanuelneri;
+package br.com.emmanuelneri.relatorios;
 
 import br.com.emmanuelneri.portal.shiro.UsuarioPortalToken;
 import com.auth0.jwt.JWTVerifyException;
@@ -41,7 +41,7 @@ public class AutenticacaoFilter implements Filter {
 
     private void sendRedirect(ServletResponse servletResponse) throws IOException {
         final HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-        httpResponse.sendRedirect("/pedidos/home");
+        httpResponse.sendRedirect("/relatorios/home");
     }
 
     @Override

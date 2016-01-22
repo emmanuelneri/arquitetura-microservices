@@ -19,12 +19,14 @@
             <groupId>br.com.emmanuelneri</groupId>
             <artifactId>cadastros</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
         </dependency>
 
         <dependency>
             <groupId>br.com.emmanuelneri</groupId>
             <artifactId>vendas</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
         </dependency>
 
         <dependency>
