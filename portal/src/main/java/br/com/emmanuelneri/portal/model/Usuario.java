@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
 import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.portal.util.Model;
 import org.apache.shiro.crypto.hash.Sha256Hash;
@@ -21,6 +22,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(uniqueConstraints = {
@@ -56,7 +58,8 @@ public class Usuario implements Model<Long> {
     private List<Modulo> modulos = Collections.singletonList(Modulo.PORTAL);
 
     public UsuarioVO toVo() {
-        return new UsuarioVO(getId(), getEmail(), getNome());
+       final List<ModuloVO> moduloVos = getModulos().stream().map(Modulo::toVo).collect(Collectors.toList());
+        return new UsuarioVO(getId(), getEmail(), getNome(), moduloVos);
     }
 
     @Override
