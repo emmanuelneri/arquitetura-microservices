@@ -65,11 +65,11 @@
 # Estilos arquiteturais
   - microservices-replicacao-base: Arquitetura de microserviços replicando os dados entre os modúlos via serviços Rest, dessa forma cada aplicação possui os dados que precisa em sua própria base.
   
-  - microservices-sem-replicacao-base: Arquitetura de microserviços sem replicação dados, dessa forma quando uma aplicação precisa de algum dado de outra aplicação acessa um serviço Rest.
+  - microservices-sincrono-rest: Arquitetura de microserviços sem replicação dados, dessa forma quando uma aplicação precisa de algum dado de outra aplicação acessa um serviço Rest.
   
-  - microservices-sem-replicacao-com-integrador: Arquitetura de microserviços sem recplicação de dados e com um projeto integrador com as classes comuns entre todos os módulo, dessa forma é gerado um pequeno acomplamento devido o projeto integrador no entanto há o ganho com a reutilização dessas classes/interfaces comuns.
+  - microservices-assincrono-mensagens: // TODO
   
-  - microservices-servicos-ejb: Em análise se pode ser considerado microservices
+  - microservices-sincrono-ejb: Em análise se pode ser considerado microservices
   
    
   
