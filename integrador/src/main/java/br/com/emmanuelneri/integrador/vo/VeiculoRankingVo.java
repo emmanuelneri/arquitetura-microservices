@@ -5,6 +5,7 @@ import java.io.Serializable;
 public final class VeiculoRankingVo implements Serializable {
 
     private VeiculoVo veiculo;
+    private Long idVeiculo;
     private Long quantidade;
 
     public VeiculoRankingVo(VeiculoVo veiculo, Long quantidade) {
@@ -12,8 +13,17 @@ public final class VeiculoRankingVo implements Serializable {
         this.quantidade = quantidade;
     }
 
+    public VeiculoRankingVo(Long idVeiculo, Long quantidade) {
+        this.idVeiculo = idVeiculo;
+        this.quantidade = quantidade;
+    }
+
     public VeiculoVo getVeiculo() {
         return veiculo;
+    }
+
+    public Long getIdVeiculo() {
+        return idVeiculo;
     }
 
     public Long getQuantidade() {
