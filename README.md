@@ -62,8 +62,9 @@
   
   4 - relatorios: É a aplicação responsável por emitir os relatórios referente aos dados de cadastros e pedidos
   
-# Estilos arquiteturais
-  - microservices-replicacao-base: Arquitetura de microserviços replicando os dados entre os modúlos via serviços Rest, dessa forma cada aplicação possui os dados que precisa em sua própria base.
+# Branchs separadas por diferentes implementações de microservices
+
+  - microservices-assincrono-replicacao-base: Arquitetura de microserviços replicando os dados entre os modúlos via serviços Rest, dessa forma cada aplicação possui os dados que precisa em sua própria base.
   
   - microservices-sincrono-rest: Arquitetura de microserviços sem replicação dados, dessa forma quando uma aplicação precisa de algum dado de outra aplicação acessa um serviço Rest.
   
