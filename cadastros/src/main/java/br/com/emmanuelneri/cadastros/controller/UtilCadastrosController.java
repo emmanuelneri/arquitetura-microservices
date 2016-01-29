@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.cadastros.controller;
 
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
-import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.anotations.UsuarioVoLogado;
 import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
 import br.com.emmanuelneri.integrador.vo.ModuloVO;
 import br.com.emmanuelneri.integrador.vo.UsuarioVO;
@@ -16,7 +16,7 @@ import java.io.IOException;
 public class UtilCadastrosController {
 
     @Inject
-    @UsuarioLogado
+    @UsuarioVoLogado
     private UsuarioVO usuario;
 
     @Inject

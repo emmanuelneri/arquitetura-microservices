@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.controller;
 
-import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.anotations.UsuarioVoLogado;
 import br.com.emmanuelneri.integrador.enuns.Marca;
 import br.com.emmanuelneri.integrador.vo.ClienteVo;
 import br.com.emmanuelneri.integrador.vo.ModeloVo;
@@ -54,7 +54,7 @@ public class PedidoController implements Serializable {
     private Long idPedido;
 
     @Inject
-    @UsuarioLogado
+    @UsuarioVoLogado
     private UsuarioVO usuario;
 
     @Inject

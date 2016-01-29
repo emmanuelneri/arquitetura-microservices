@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.integrador.vo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class UsuarioVO {
+public class UsuarioVO implements Serializable {
 
     private final Long id;
     private final String email;
