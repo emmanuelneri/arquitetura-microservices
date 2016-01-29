@@ -18,8 +18,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -88,12 +86,6 @@ public class Pedido implements Model<Long> {
         this.valorTotal = this.valorTotal.subtract(itemPedido.getValorTotal());
     }
 
-    @PrePersist
-    @PreUpdate
-    protected void atualizarIdCliente() {
-        this.idCliente = cliente.getId();
-    }
-
     @Override
     public Long getId() {
         return id;
@@ -129,6 +121,7 @@ public class Pedido implements Model<Long> {
 
     public void setCliente(ClienteVo cliente) {
         this.cliente = cliente;
+        this.idCliente = cliente.getId();
     }
 
     public Long getIdUsuario() {
