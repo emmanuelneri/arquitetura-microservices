@@ -22,6 +22,12 @@ public class UsuarioVO {
         this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
     }
 
+    public UsuarioVO(Long id, String email, String nome) {
+        this.id = id;
+        this.email = email;
+        this.nome = nome;
+    }
+
     public UsuarioVO(String email) {
         this.email = email;
         this.nome = email;

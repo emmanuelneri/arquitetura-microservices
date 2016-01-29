@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.portal.util;
 
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.portal.shiro.ModuloVO;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
@@ -34,8 +34,7 @@ public final class TokenUsuarioUtil {
     }
 
     private static List<ModuloVO> transformModuloToVo(List<Modulo> modelos) {
-        return modelos.stream().map(modulo -> new ModuloVO(modulo.getNome(),
-                modulo.getChave(), modulo.getUrl())).collect(Collectors.toList());
+        return modelos.stream().map(Modulo::toVo).collect(Collectors.toList());
     }
 
 }

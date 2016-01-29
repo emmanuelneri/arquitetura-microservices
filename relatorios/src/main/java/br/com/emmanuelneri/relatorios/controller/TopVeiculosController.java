@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.controller;
 
 import br.com.emmanuelneri.integrador.vo.VeiculoRankingVo;
-import br.com.emmanuelneri.relatorios.service.PedidoService;
+import br.com.emmanuelneri.relatorios.service.ConsultaWsPedidoService;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -22,11 +22,11 @@ public class TopVeiculosController implements Serializable {
     private List<VeiculoRankingVo> veiculos;
 
     @Inject
-    private PedidoService pedidoService;
+    private ConsultaWsPedidoService consultaWsPedidoService;
 
     @URLAction(mappingId = "top-veiculos", onPostback = false)
     public void init() {
-        veiculos = pedidoService.findTopVeiculos();
+        veiculos = consultaWsPedidoService.findTopVeiculos();
     }
 
     public List<VeiculoRankingVo> getVeiculos() {

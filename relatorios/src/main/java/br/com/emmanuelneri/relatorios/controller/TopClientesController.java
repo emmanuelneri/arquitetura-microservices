@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.controller;
 
 import br.com.emmanuelneri.integrador.vo.ClienteRankingVo;
-import br.com.emmanuelneri.relatorios.service.PedidoService;
+import br.com.emmanuelneri.relatorios.service.ConsultaWsPedidoService;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -22,11 +22,11 @@ public class TopClientesController implements Serializable {
     private List<ClienteRankingVo> clientes;
 
     @Inject
-    private PedidoService pedidoService;
+    private ConsultaWsPedidoService consultaWsPedidoService;
 
     @URLAction(mappingId = "top-clientes", onPostback = false)
     public void init() {
-        clientes = pedidoService.findTopClientes();
+        clientes = consultaWsPedidoService.findTopClientes();
     }
 
     public List<ClienteRankingVo> getClientes() {

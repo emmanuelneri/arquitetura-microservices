@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.portal.util.Model;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
@@ -53,6 +54,10 @@ public class Usuario implements Model<Long> {
             joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
             inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
     private List<Modulo> modulos = Collections.singletonList(Modulo.PORTAL);
+
+    public UsuarioVO toVo() {
+        return new UsuarioVO(getId(), getEmail(), getNome());
+    }
 
     @Override
     public Long getId() {

@@ -5,6 +5,7 @@ import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
+import org.omnifaces.util.Faces;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -27,6 +28,11 @@ public final class TokenUsuarioUtil {
 
     public static Map<String, Object> getTokenMap(String token) throws SignatureException, NoSuchAlgorithmException, JWTVerifyException, InvalidKeyException, IOException {
         return new JWTVerifier("secret").verify(token);
+    }
+
+    public static void redirectAplicacao(UsuarioVO usuario, ModuloVO modulo) throws IOException {
+        final String token = TokenUsuarioUtil.createToken(usuario, modulo);
+        Faces.redirect(modulo.getUrl() + "?token=%s&", token);
     }
 
 }

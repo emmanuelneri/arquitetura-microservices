@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Named
-public class VeiculoService extends GenericWsService<VeiculoVo> {
+public class ConsultaWsVeiculoService extends GenericWsService<VeiculoVo> {
 
     public Map<Long, VeiculoVo> findVeiculosPorId() {
         return findVeiculos().stream().collect(Collectors.toMap(VeiculoVo::getId, Function.identity()));

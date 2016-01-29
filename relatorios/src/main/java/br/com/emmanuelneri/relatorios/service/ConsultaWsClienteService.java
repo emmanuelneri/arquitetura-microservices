@@ -10,7 +10,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Named
-public class ClienteService extends GenericWsService<ClienteVo> {
+public class ConsultaWsClienteService extends GenericWsService<ClienteVo> {
 
     public Map<Long, ClienteVo> findClientesPorId() {
         return findClientes().stream().collect(Collectors.toMap(ClienteVo::getId, Function.identity()));

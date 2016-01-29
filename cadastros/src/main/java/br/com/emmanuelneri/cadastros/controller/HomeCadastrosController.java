@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.relatorios.controller;
+package br.com.emmanuelneri.cadastros.controller;
 
 
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
@@ -12,6 +12,6 @@ import javax.inject.Named;
 @URLMappings(mappings = {
         @URLMapping(id = "home", viewId = "/pages/index.xhtml", pattern = "/home")
 })
-public class HomeController {
+public class HomeCadastrosController {
 
 }

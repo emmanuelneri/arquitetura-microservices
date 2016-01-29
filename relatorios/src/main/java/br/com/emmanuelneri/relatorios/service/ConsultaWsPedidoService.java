@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Named
-public class PedidoService implements Serializable {
+public class ConsultaWsPedidoService implements Serializable {
 
     @Inject
     @VendasClientWs
@@ -27,13 +27,13 @@ public class PedidoService implements Serializable {
     private WebTarget clientCadastrosWS;
 
     @Inject
-    private ClienteService clienteService;
+    private ConsultaWsClienteService consultaWsClienteService;
 
     @Inject
-    private VeiculoService veiculoService;
+    private ConsultaWsVeiculoService consultaWsVeiculoService;
 
     public List<ClienteRankingVo> findTopClientes() {
-        final Map<Long, ClienteVo> clientesPorId = clienteService.findClientesPorId();
+        final Map<Long, ClienteVo> clientesPorId = consultaWsClienteService.findClientesPorId();
 
         final List<ClienteRankingVo> clienteRankingVos = clientVendasWS.path("/pedido/buscar/topClientes")
                 .request().get(new GenericType<List<ClienteRankingVo>>() {});
@@ -45,8 +45,7 @@ public class PedidoService implements Serializable {
     }
 
     public List<VeiculoRankingVo> findTopVeiculos() {
-       final Map<Long, VeiculoVo> veiculosPorId = veiculoService.findVeiculosPorId();
-
+       final Map<Long, VeiculoVo> veiculosPorId = consultaWsVeiculoService.findVeiculosPorId();
 
         final List<VeiculoRankingVo> veiculoRankingVos = clientVendasWS.path("/pedido/buscar/topVeiculos")
                 .request().get(new GenericType<List<VeiculoRankingVo>>() {});
