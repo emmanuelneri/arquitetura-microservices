@@ -1,10 +1,10 @@
 package br.com.emmanuelneri.relatorios.util.producers;
 
 
+import br.com.emmanuelneri.integrador.anotations.CadastroClientWs;
+import br.com.emmanuelneri.integrador.anotations.PortalClientWs;
+import br.com.emmanuelneri.integrador.anotations.VendasClientWs;
 import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
-import br.com.emmanuelneri.relatorios.util.anotations.CadastroClientWs;
-import br.com.emmanuelneri.relatorios.util.anotations.PortalClientWS;
-import br.com.emmanuelneri.relatorios.util.anotations.VendasClientWS;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
@@ -20,7 +20,7 @@ public final class ClientWsProducer {
 
     @Named("portalClientWS")
     @Produces
-    @PortalClientWS
+    @PortalClientWs
     public WebTarget getWebTarget() {
         final Client client = ClientBuilder.newClient();
         return client.target(configuracao.getWsPortalUrl())
@@ -30,7 +30,7 @@ public final class ClientWsProducer {
 
     @Named("vendasClientWS")
     @Produces
-    @VendasClientWS
+    @VendasClientWs
     public WebTarget getClientVendas() {
         final Client client = ClientBuilder.newClient();
         return client.target(configuracao.getWsVendasUrl())

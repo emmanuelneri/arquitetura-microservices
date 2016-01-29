@@ -1,12 +1,11 @@
 package br.com.emmanuelneri.vendas.service;
 
+import br.com.emmanuelneri.integrador.service.GenericService;
+import br.com.emmanuelneri.integrador.vo.ClienteRankingVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoRankingVo;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.util.GenericService;
-import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
 import javax.inject.Inject;
 import javax.inject.Named;

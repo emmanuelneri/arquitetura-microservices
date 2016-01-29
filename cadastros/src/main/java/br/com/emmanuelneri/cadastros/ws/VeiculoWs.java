@@ -2,7 +2,7 @@ package br.com.emmanuelneri.cadastros.ws;
 
 import br.com.emmanuelneri.cadastros.model.Veiculo;
 import br.com.emmanuelneri.cadastros.service.VeiculoService;
-import br.com.emmanuelneri.cadastros.vo.VeiculoVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

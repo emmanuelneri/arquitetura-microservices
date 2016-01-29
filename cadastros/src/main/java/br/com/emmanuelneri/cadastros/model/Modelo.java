@@ -1,10 +1,9 @@
 package br.com.emmanuelneri.cadastros.model;
 
 
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
-import br.com.emmanuelneri.cadastros.util.Model;
-import br.com.emmanuelneri.cadastros.vo.MarcaVo;
-import br.com.emmanuelneri.cadastros.vo.ModeloVo;
+import br.com.emmanuelneri.integrador.enuns.Marca;
+import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -52,7 +51,7 @@ public class Modelo implements Model<Long> {
     }
 
     public ModeloVo toVO() {
-        return new ModeloVo(this.getId(), this.getNome(),Marca.marcaToVo(this.getMarca().getDescricao()));
+        return new ModeloVo(this.getId(), this.getNome(), this.getMarca());
     }
 
     @Override

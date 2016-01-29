@@ -1,11 +1,11 @@
 package br.com.emmanuelneri.vendas.controller;
 
-import br.com.emmanuelneri.vendas.shiro.ModuloVO;
-import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
+import br.com.emmanuelneri.integrador.interfaces.Constantes;
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
-import br.com.emmanuelneri.vendas.util.Constantes;
-import br.com.emmanuelneri.vendas.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;

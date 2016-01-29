@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.vendas.model;
 
-import br.com.emmanuelneri.vendas.util.Model;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
+import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

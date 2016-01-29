@@ -1,9 +1,8 @@
 package br.com.emmanuelneri.cadastros.ws;
 
 import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
 import br.com.emmanuelneri.cadastros.service.ModeloService;
-import br.com.emmanuelneri.cadastros.vo.ModeloVo;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -30,6 +29,6 @@ public class ModeloWs {
 
     private List<ModeloVo> transformarClientesParaVo(List<Modelo> modelos) {
         return modelos.stream().map(modelo ->
-                new ModeloVo(modelo.getId(), modelo.getNome(), Marca.marcaToVo(modelo.getMarca().getDescricao()))).collect(Collectors.toList());
+                new ModeloVo(modelo.getId(), modelo.getNome(), modelo.getMarca())).collect(Collectors.toList());
     }
 }

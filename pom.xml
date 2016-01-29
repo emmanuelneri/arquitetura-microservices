@@ -157,6 +157,7 @@
 
     <modules>   
         <module>portal</module>
+        <module>integrador</module>
         <module>vendas</module>
         <module>cadastros</module>
         <module>relatorios</module>

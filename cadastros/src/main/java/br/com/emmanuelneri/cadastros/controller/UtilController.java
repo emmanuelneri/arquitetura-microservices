@@ -1,10 +1,10 @@
 package br.com.emmanuelneri.cadastros.controller;
 
-import br.com.emmanuelneri.cadastros.shiro.ModuloVO;
-import br.com.emmanuelneri.cadastros.shiro.UsuarioVO;
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
-import br.com.emmanuelneri.cadastros.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.cadastros.util.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;

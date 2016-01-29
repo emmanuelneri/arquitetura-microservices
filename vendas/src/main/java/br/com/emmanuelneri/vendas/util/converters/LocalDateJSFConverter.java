@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.util.converters;
 
-import br.com.emmanuelneri.vendas.util.Constantes;
+import br.com.emmanuelneri.integrador.interfaces.Constantes;
 import com.google.common.base.Strings;
 
 import javax.faces.component.UIComponent;

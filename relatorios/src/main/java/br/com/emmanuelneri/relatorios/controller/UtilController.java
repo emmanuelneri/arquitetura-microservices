@@ -1,10 +1,10 @@
 package br.com.emmanuelneri.relatorios.controller;
 
-import br.com.emmanuelneri.relatorios.shiro.ModuloVO;
-import br.com.emmanuelneri.relatorios.shiro.UsuarioVO;
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
-import br.com.emmanuelneri.relatorios.util.TokenUsuarioUtil;
-import br.com.emmanuelneri.relatorios.util.anotations.UsuarioLogado;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;

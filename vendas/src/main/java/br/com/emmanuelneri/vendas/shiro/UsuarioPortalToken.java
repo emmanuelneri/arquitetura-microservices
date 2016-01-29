@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.vendas.shiro;
 
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
 import org.apache.shiro.authc.AuthenticationToken;

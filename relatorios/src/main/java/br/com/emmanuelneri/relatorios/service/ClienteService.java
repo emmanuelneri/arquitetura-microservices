@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.service;
 
-import br.com.emmanuelneri.relatorios.util.GenericWsService;
-import br.com.emmanuelneri.relatorios.vo.ClienteVo;
+import br.com.emmanuelneri.integrador.service.GenericWsService;
+import br.com.emmanuelneri.integrador.vo.ClienteVo;
 
 import javax.inject.Named;
 import java.util.List;

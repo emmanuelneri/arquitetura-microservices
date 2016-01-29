@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.vendas.util.producers;
 
 
+import br.com.emmanuelneri.integrador.anotations.CadastroClientWs;
+import br.com.emmanuelneri.integrador.anotations.PortalClientWs;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
-import br.com.emmanuelneri.vendas.util.anotations.CadastroClientWs;
-import br.com.emmanuelneri.vendas.util.anotations.PortalClientWs;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;

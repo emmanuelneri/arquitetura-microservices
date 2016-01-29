@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.vendas.model;
 
+import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.ClienteVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.util.Model;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -30,8 +30,8 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id"),
-        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.vendas.vo.ClienteRankingVo(p.idCliente, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.itens i where p.situacaoPedido <> 'CANCELADO' group by p.idCliente order by sum(i.valorTotal) desc"),
-        @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.vendas.vo.VeiculoRankingVo(i.idVeiculo, count(i.quantidade)) from Pedido p join p.itens i  where p.situacaoPedido <> 'CANCELADO' group by i.idVeiculo order by count(i.quantidade) desc")
+        @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.integrador.vo.ClienteRankingVo(p.idCliente, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.itens i where p.situacaoPedido <> 'CANCELADO' group by p.idCliente order by sum(i.valorTotal) desc"),
+        @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.integrador.vo.VeiculoRankingVo(i.idVeiculo, count(i.quantidade)) from Pedido p join p.itens i  where p.situacaoPedido <> 'CANCELADO' group by i.idVeiculo order by count(i.quantidade) desc")
 })
 public class Pedido implements Model<Long> {
 

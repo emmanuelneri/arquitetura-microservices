@@ -1,7 +1,8 @@
 package br.com.emmanuelneri.vendas.service;
 
-import br.com.emmanuelneri.vendas.util.GenericWsService;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
+import br.com.emmanuelneri.integrador.service.GenericWsService;
+import br.com.emmanuelneri.integrador.vo.ClienteVo;
+
 import javax.inject.Named;
 import java.util.List;
 

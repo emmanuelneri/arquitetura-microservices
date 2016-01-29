@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.vendas.shiro;
 
-import br.com.emmanuelneri.vendas.util.Constantes;
+import br.com.emmanuelneri.integrador.interfaces.Constantes;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;

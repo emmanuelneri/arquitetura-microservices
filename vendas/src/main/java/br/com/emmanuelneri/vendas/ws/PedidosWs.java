@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.vendas.ws;
 
+import br.com.emmanuelneri.integrador.vo.ClienteRankingVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoRankingVo;
 import br.com.emmanuelneri.vendas.service.PedidoService;
-import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;

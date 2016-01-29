@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.cadastros.shiro;
 
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

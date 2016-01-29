@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.vendas.service;
 
-import br.com.emmanuelneri.vendas.util.GenericWsService;
-import br.com.emmanuelneri.vendas.vo.ModeloVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
+import br.com.emmanuelneri.integrador.service.GenericWsService;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 import com.google.common.collect.Multimaps;
 
 import javax.inject.Named;

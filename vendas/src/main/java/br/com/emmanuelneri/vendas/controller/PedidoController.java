@@ -1,19 +1,18 @@
 package br.com.emmanuelneri.vendas.controller;
 
+import br.com.emmanuelneri.integrador.anotations.UsuarioLogado;
+import br.com.emmanuelneri.integrador.enuns.Marca;
+import br.com.emmanuelneri.integrador.vo.ClienteVo;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.ItemPedido;
 import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.service.ClienteService;
-import br.com.emmanuelneri.vendas.service.MarcaService;
 import br.com.emmanuelneri.vendas.service.ModeloService;
 import br.com.emmanuelneri.vendas.service.PedidoService;
 import br.com.emmanuelneri.vendas.service.VeiculoService;
-import br.com.emmanuelneri.vendas.shiro.UsuarioVO;
-import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogado;
-import br.com.emmanuelneri.vendas.vo.ClienteVo;
-import br.com.emmanuelneri.vendas.vo.MarcaVo;
-import br.com.emmanuelneri.vendas.vo.ModeloVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoVo;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -28,7 +27,6 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,12 +39,12 @@ import java.util.Map;
 public class PedidoController implements Serializable {
 
     private List<ClienteVo> clientes;
-    private List<MarcaVo> marcas;
-    private Map<MarcaVo, Collection<ModeloVo>> modeloPorMarca;
+    private List<Marca> marcas;
+    private Map<Marca, Collection<ModeloVo>> modeloPorMarca;
     private Map<ModeloVo, Collection<VeiculoVo>> veiculosPorModelo;
 
     private Pedido pedido;
-    private MarcaVo marca;
+    private Marca marca;
     private ModeloVo modelo;
     private VeiculoVo veiculo;
 
@@ -70,9 +68,6 @@ public class PedidoController implements Serializable {
 
     @Inject
     private VeiculoService veiculoService;
-
-    @Inject
-    private MarcaService marcaService;
 
     @PostConstruct
     public void init() {
@@ -131,7 +126,7 @@ public class PedidoController implements Serializable {
 
     private void inicializarCombos() {
         clientes = clienteService.findAll();
-        marcas = marcaService.findAll();
+        marcas = Arrays.asList(Marca.values());
         modeloPorMarca = modeloService.findModelosPorMarca();
         veiculosPorModelo = veiculoService.findVeiculosPorModelo();
     }
@@ -150,7 +145,7 @@ public class PedidoController implements Serializable {
         return Collections.emptyList();
     }
 
-    public List<MarcaVo> getMarcas() {
+    public List<Marca> getMarcas() {
         return marcas;
     }
 
@@ -174,11 +169,11 @@ public class PedidoController implements Serializable {
         return clientes;
     }
 
-    public MarcaVo getMarca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(MarcaVo marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
     }
 
