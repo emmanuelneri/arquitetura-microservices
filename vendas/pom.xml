@@ -140,11 +140,6 @@
             <artifactId>omnifaces</artifactId>
             <version>${omnifaces.version}</version>
         </dependency>
-        <dependency>
-            <groupId>br.com.emmanuelneri</groupId>
-            <artifactId>relatorios</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
