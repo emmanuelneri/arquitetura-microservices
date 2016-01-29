@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.vendas.shiro;
+package br.com.emmanuelneri.integrador.autenticacao;
 
 import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import com.auth0.jwt.JWTVerifier;
@@ -43,9 +43,5 @@ public final class UsuarioPortalToken implements AuthenticationToken {
 
     public String getChaveAplicacao() {
         return chaveAplicacao;
-    }
-
-    public void setUsuario(UsuarioVO usuario) {
-        this.usuario = usuario;
     }
 }

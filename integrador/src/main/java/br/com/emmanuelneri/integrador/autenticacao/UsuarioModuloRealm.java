@@ -1,9 +1,7 @@
-package br.com.emmanuelneri.relatorios.shiro;
+package br.com.emmanuelneri.integrador.autenticacao;
 
-import br.com.emmanuelneri.integrador.autenticacao.UsuarioPortalToken;
+import br.com.emmanuelneri.integrador.properties.AbstractApplicationProperty;
 import br.com.emmanuelneri.integrador.vo.UsuarioVO;
-import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
-import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -15,9 +13,9 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 
-public class UsuarioRealm extends AuthorizingRealm {
+public abstract class UsuarioModuloRealm extends AuthorizingRealm {
 
-    public UsuarioRealm() {
+    public UsuarioModuloRealm() {
         setAuthenticationTokenClass(UsuarioPortalToken.class);
     }
 
@@ -37,8 +35,6 @@ public class UsuarioRealm extends AuthorizingRealm {
         return new SimpleAuthorizationInfo(((UsuarioVO) principal.getPrimaryPrincipal()).getRoles());
     }
 
-    ApplicationProperty getAplicationProperty() {
-        return BeanProvider.getContextualReference(ApplicationProperty.class, false);
-    }
+    protected abstract AbstractApplicationProperty getAplicationProperty();
 
 }
