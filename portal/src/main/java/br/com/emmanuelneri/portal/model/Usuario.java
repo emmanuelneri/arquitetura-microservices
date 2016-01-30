@@ -1,5 +1,7 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
+import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.portal.util.Model;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
@@ -68,6 +70,12 @@ public class Usuario implements Model<Long> {
         this.nome = (String) tokenMap.get("nome");
         this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
     }
+
+    public UsuarioVO toVo() {
+        final List<ModuloVO> moduloVos = getModulos().stream().map(Modulo::toVo).collect(Collectors.toList());
+        return new UsuarioVO(getId(), getEmail(), getNome(), moduloVos);
+    }
+
 
     private List<Modulo> getModulosToken(List<Map<String, String>> listaMapModulos) {
         return listaMapModulos.stream().map(mapModulo -> new Modulo(mapModulo.get("nome"),

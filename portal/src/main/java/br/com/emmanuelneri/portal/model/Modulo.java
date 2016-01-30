@@ -1,5 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
+import br.com.emmanuelneri.integrador.vo.ModuloVO;
 import br.com.emmanuelneri.portal.util.Model;
 
 import javax.persistence.Column;
@@ -50,6 +51,10 @@ public class Modulo implements Model<Long> {
         this.nome = nome;
         this.chave = chave;
         this.url = url;
+    }
+
+    public ModuloVO toVo() {
+        return new ModuloVO(getNome(), getChave(), getUrl());
     }
 
     @Override

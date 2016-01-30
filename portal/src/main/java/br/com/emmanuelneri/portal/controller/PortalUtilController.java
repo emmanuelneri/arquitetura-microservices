@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.portal.controller;
 
+import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
 import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.portal.util.TokenUsuarioUtil;
 import br.com.emmanuelneri.portal.util.annotations.ConfiguracaoAplicacao;
 import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
 import org.omnifaces.util.Faces;
@@ -27,7 +27,7 @@ public class PortalUtilController implements Serializable {
     private Configuracao configuracao;
 
     public void redirectAplicacao(Modulo moduloMenu) throws IOException {
-        final String token = TokenUsuarioUtil.createToken(usuario, moduloMenu);
+        final String token = TokenUsuarioUtil.createToken(usuario.toVo(), moduloMenu.toVo());
         Faces.redirect(moduloMenu.getUrl() + "?token=%s&", token);
     }
 
