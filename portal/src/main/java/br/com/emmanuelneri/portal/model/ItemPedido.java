@@ -1,7 +1,6 @@
-package br.com.emmanuelneri.vendas.model;
+package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.cadastros.model.Veiculo;
-import br.com.emmanuelneri.vendas.util.Model;
+import br.com.emmanuelneri.portal.util.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

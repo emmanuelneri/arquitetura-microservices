@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.cadastros.model.enuns;
+package br.com.emmanuelneri.portal.model.enuns;
 
 public enum Marca {
 

@@ -1,5 +1,7 @@
 package br.com.emmanuelneri.cadastros.util;
 
+import br.com.emmanuelneri.portal.util.GenericService;
+import br.com.emmanuelneri.portal.util.Model;
 import org.omnifaces.util.Messages;
 
 import java.io.Serializable;
@@ -17,7 +19,7 @@ public abstract class AbstractCrudController<T extends Model> implements Seriali
 
     @SuppressWarnings("unchecked")
     public void salvar() {
-        getService().salvarEAtulizarModulo(getObjeto());
+        getService().save(getObjeto());
         buscar();
         inicializarObjeto();
         Messages.addInfo(null, getNomeCadastro() + " salvo com sucesso!");

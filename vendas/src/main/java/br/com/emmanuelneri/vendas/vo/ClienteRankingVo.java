@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.vo;
 
-import br.com.emmanuelneri.cadastros.model.Cliente;
+import br.com.emmanuelneri.portal.model.Cliente;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

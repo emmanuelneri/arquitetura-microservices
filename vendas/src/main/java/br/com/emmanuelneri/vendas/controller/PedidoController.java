@@ -1,17 +1,17 @@
 package br.com.emmanuelneri.vendas.controller;
 
-import br.com.emmanuelneri.cadastros.model.Cliente;
-import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.model.Veiculo;
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
 import br.com.emmanuelneri.cadastros.service.ClienteService;
 import br.com.emmanuelneri.cadastros.service.ModeloService;
 import br.com.emmanuelneri.cadastros.service.VeiculoService;
+import br.com.emmanuelneri.portal.model.Cliente;
+import br.com.emmanuelneri.portal.model.ItemPedido;
+import br.com.emmanuelneri.portal.model.Modelo;
+import br.com.emmanuelneri.portal.model.Pedido;
 import br.com.emmanuelneri.portal.model.Usuario;
+import br.com.emmanuelneri.portal.model.Veiculo;
+import br.com.emmanuelneri.portal.model.enuns.Marca;
 import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
-import br.com.emmanuelneri.vendas.model.ItemPedido;
-import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.service.PedidoService;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;

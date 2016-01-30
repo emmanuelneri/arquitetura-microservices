@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.controller;
 
-import br.com.emmanuelneri.vendas.model.Pedido;
+import br.com.emmanuelneri.portal.model.Pedido;
 import br.com.emmanuelneri.vendas.service.PedidoService;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;

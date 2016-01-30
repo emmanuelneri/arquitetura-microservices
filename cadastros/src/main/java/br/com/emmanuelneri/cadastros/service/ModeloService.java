@@ -1,15 +1,15 @@
 package br.com.emmanuelneri.cadastros.service;
 
-import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
-import br.com.emmanuelneri.cadastros.util.GenericService;
+import br.com.emmanuelneri.portal.model.Modelo;
+import br.com.emmanuelneri.portal.model.enuns.Marca;
+import br.com.emmanuelneri.portal.util.GenericService;
 import com.google.common.collect.Multimaps;
 
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import java.util.Collection;
 import java.util.Map;
 
-@Named
+@Stateless
 public class ModeloService extends GenericService<Modelo, Long> {
 
     public Map<Marca, Collection<Modelo>> findModelosPorMarca() {

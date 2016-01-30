@@ -3,9 +3,9 @@ package br.com.emmanuelneri.portal.service;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.util.GenericService;
 
-import javax.inject.Named;
+import javax.ejb.Stateless;
 
-@Named
-public class ModuloService extends GenericService<Modulo> {
+@Stateless
+public class ModuloService extends GenericService<Modulo, Long> {
 
 }

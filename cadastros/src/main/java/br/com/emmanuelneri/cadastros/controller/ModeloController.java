@@ -1,10 +1,10 @@
 package br.com.emmanuelneri.cadastros.controller;
 
-import br.com.emmanuelneri.cadastros.model.Modelo;
-import br.com.emmanuelneri.cadastros.model.enuns.Marca;
 import br.com.emmanuelneri.cadastros.service.ModeloService;
 import br.com.emmanuelneri.cadastros.util.AbstractCrudController;
-import br.com.emmanuelneri.cadastros.util.GenericService;
+import br.com.emmanuelneri.portal.model.Modelo;
+import br.com.emmanuelneri.portal.model.enuns.Marca;
+import br.com.emmanuelneri.portal.util.GenericService;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
 

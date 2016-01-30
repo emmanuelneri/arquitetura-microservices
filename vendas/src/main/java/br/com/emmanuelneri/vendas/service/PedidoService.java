@@ -2,20 +2,20 @@ package br.com.emmanuelneri.vendas.service;
 
 import br.com.emmanuelneri.cadastros.service.ClienteService;
 import br.com.emmanuelneri.cadastros.service.VeiculoService;
+import br.com.emmanuelneri.portal.model.Pedido;
+import br.com.emmanuelneri.portal.model.enuns.SituacaoPedido;
+import br.com.emmanuelneri.portal.util.GenericService;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
-import br.com.emmanuelneri.vendas.model.Pedido;
-import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.util.GenericService;
 import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
 import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 
-@Named
+@Stateless
 public class PedidoService extends GenericService<Pedido, Long> {
 
     @Inject

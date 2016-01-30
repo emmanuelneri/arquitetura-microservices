@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.vendas.vo;
 
-import br.com.emmanuelneri.cadastros.model.Veiculo;
+import br.com.emmanuelneri.portal.model.Veiculo;
 
 import java.io.Serializable;
 

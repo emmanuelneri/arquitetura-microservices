@@ -1,10 +1,7 @@
-package br.com.emmanuelneri.vendas.model;
+package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.cadastros.model.Cliente;
-import br.com.emmanuelneri.cadastros.model.Veiculo;
-import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.util.Model;
+import br.com.emmanuelneri.portal.model.enuns.SituacaoPedido;
+import br.com.emmanuelneri.portal.util.Model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

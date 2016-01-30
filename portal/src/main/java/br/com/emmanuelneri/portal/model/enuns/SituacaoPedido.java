@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.vendas.model.enuns;
+package br.com.emmanuelneri.portal.model.enuns;
 
 public enum SituacaoPedido {
 

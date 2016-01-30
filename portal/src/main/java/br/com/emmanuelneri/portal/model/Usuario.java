@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.portal.model;
 
-import br.com.emmanuelneri.integrador.vo.ModuloVO;
-import br.com.emmanuelneri.integrador.vo.UsuarioVO;
 import br.com.emmanuelneri.portal.util.Model;
+import br.com.emmanuelneri.portal.vo.ModuloVO;
+import br.com.emmanuelneri.portal.vo.UsuarioVO;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
 import javax.persistence.Column;

@@ -1,11 +1,11 @@
 package br.com.emmanuelneri.cadastros.service;
 
 
-import br.com.emmanuelneri.cadastros.model.Cliente;
-import br.com.emmanuelneri.cadastros.util.GenericService;
+import br.com.emmanuelneri.portal.model.Cliente;
+import br.com.emmanuelneri.portal.util.GenericService;
 
-import javax.inject.Named;
+import javax.ejb.Stateless;
 
-@Named
+@Stateless
 public class ClienteService extends GenericService<Cliente, Long> {
 }

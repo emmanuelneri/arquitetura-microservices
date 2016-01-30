@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.portal.shiro;
 
-import br.com.emmanuelneri.integrador.autenticacao.TokenUsuarioUtil;
 import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.UsuarioService;
+import br.com.emmanuelneri.portal.util.TokenUsuarioUtil;
 import com.auth0.jwt.JWTVerifyException;
 import org.apache.deltaspike.core.api.provider.BeanProvider;
 import org.apache.shiro.authc.AuthenticationException;
