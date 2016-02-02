@@ -1,8 +1,8 @@
 package br.com.emmanuelneri.relatorios.controller;
 
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
 import br.com.emmanuelneri.relatorios.util.ApplicationProperty;
+import br.com.emmanuelneri.relatorios.util.anotations.UsuarioLogadoRelatorios;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class RelatoriosUtilController implements Serializable {
 
     @Inject
-    @UsuarioLogado
+    @UsuarioLogadoRelatorios
     private Usuario usuario;
 
     @Inject

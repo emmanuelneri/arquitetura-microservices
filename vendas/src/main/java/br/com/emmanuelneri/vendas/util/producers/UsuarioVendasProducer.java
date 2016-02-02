@@ -2,18 +2,20 @@ package br.com.emmanuelneri.vendas.util.producers;
 
 
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
+import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogadoVendas;
 import org.apache.shiro.SecurityUtils;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
-public final class UsuarioProducer {
+@Dependent
+public final class UsuarioVendasProducer {
 
-    @Named("usuarioLogado")
+    @Named("usuarioLogadoVendas")
     @Produces
-    @UsuarioLogado
-    public Usuario getUsuarioLogado() {
+    @UsuarioLogadoVendas
+    public Usuario getUsuarioVendasLogado() {
         return SecurityUtils.getSubject().getPrincipals().oneByType(Usuario.class);
     }
 

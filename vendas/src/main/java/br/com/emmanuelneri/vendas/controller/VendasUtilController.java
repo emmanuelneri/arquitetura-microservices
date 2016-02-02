@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.vendas.controller;
 
 import br.com.emmanuelneri.portal.model.Usuario;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
+import br.com.emmanuelneri.portal.util.annotations.UsuarioLogadoPortal;
 import br.com.emmanuelneri.vendas.util.ApplicationProperty;
 import br.com.emmanuelneri.vendas.util.Constantes;
 
@@ -18,7 +18,7 @@ import java.text.DecimalFormatSymbols;
 public class VendasUtilController implements Serializable {
 
     @Inject
-    @UsuarioLogado
+    @UsuarioLogadoPortal
     private Usuario usuario;
 
     @Inject

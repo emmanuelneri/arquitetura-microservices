@@ -5,10 +5,12 @@ import br.com.emmanuelneri.portal.model.Configuracao;
 import br.com.emmanuelneri.portal.service.ConfiguracaoService;
 import br.com.emmanuelneri.portal.util.annotations.ConfiguracaoAplicacao;
 
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+@Dependent
 public final class ConfiguracaoProducer {
 
     @Inject
@@ -17,7 +19,7 @@ public final class ConfiguracaoProducer {
     @Named("configuracaoAplicacao")
     @Produces
     @ConfiguracaoAplicacao
-    public Configuracao getUsuarioLogado() {
+    public Configuracao getConfiguracao() {
         return configuracaoService.findConfiguracao();
     }
 

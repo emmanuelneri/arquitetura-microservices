@@ -10,9 +10,9 @@ import br.com.emmanuelneri.portal.model.Pedido;
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.model.Veiculo;
 import br.com.emmanuelneri.portal.model.enuns.Marca;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.service.PedidoService;
+import br.com.emmanuelneri.vendas.util.anotations.UsuarioLogadoVendas;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;
@@ -54,7 +54,7 @@ public class PedidoController implements Serializable {
     private Long idPedido;
 
     @Inject
-    @UsuarioLogado
+    @UsuarioLogadoVendas
     private Usuario usuario;
 
     @Inject

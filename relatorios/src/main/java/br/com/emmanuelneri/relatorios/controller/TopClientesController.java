@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.relatorios.controller;
 
+import br.com.emmanuelneri.portal.vo.ClienteRankingVo;
 import br.com.emmanuelneri.vendas.service.PedidoService;
-import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
 import com.ocpsoft.pretty.faces.annotation.URLAction;
 import com.ocpsoft.pretty.faces.annotation.URLMapping;
 import com.ocpsoft.pretty.faces.annotation.URLMappings;

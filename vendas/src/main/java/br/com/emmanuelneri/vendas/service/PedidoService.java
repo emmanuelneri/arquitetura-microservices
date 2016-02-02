@@ -5,9 +5,9 @@ import br.com.emmanuelneri.cadastros.service.VeiculoService;
 import br.com.emmanuelneri.portal.model.Pedido;
 import br.com.emmanuelneri.portal.model.enuns.SituacaoPedido;
 import br.com.emmanuelneri.portal.util.GenericService;
+import br.com.emmanuelneri.portal.vo.ClienteRankingVo;
+import br.com.emmanuelneri.portal.vo.VeiculoRankingVo;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
-import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

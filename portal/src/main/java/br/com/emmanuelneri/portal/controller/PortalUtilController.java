@@ -5,7 +5,7 @@ import br.com.emmanuelneri.portal.model.Modulo;
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.util.TokenUsuarioUtil;
 import br.com.emmanuelneri.portal.util.annotations.ConfiguracaoAplicacao;
-import br.com.emmanuelneri.portal.util.annotations.UsuarioLogado;
+import br.com.emmanuelneri.portal.util.annotations.UsuarioLogadoPortal;
 import org.omnifaces.util.Faces;
 
 import javax.enterprise.context.RequestScoped;
@@ -19,7 +19,7 @@ import java.io.Serializable;
 public class PortalUtilController implements Serializable {
 
     @Inject
-    @UsuarioLogado
+    @UsuarioLogadoPortal
     private Usuario usuario;
 
     @Inject

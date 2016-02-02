@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.vendas.vo;
+package br.com.emmanuelneri.portal.vo;
 
 import br.com.emmanuelneri.portal.model.Cliente;
 
