@@ -1,7 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
 import br.com.emmanuelneri.portal.util.Model;
-import br.com.emmanuelneri.portal.vo.ModuloVO;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ import java.util.Objects;
 })
 public class Modulo implements Model<Long> {
 
-    public static final Modulo PORTAL = new Modulo(1L, "Portal", "P0RT4LL", "http://localhost:8080/portal/token/");
+    public static final Modulo PORTAL = new Modulo(1L, "Portal", "http://localhost:8080/portal/token/");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,31 +29,16 @@ public class Modulo implements Model<Long> {
     private String nome;
 
     @NotNull
-    private String chave;
-
-    @NotNull
     @Column(length = 255)
     private String url;
 
     protected Modulo() {
-
     }
 
-    private Modulo(Long id, String nome, String chave, String url) {
+    private Modulo(Long id, String nome, String url) {
         this.id = id;
         this.nome = nome;
-        this.chave = chave;
         this.url = url;
-    }
-
-    public Modulo(String nome, String chave, String url) {
-        this.nome = nome;
-        this.chave = chave;
-        this.url = url;
-    }
-
-    public ModuloVO toVo() {
-        return new ModuloVO(getNome(), getChave(), getUrl());
     }
 
     @Override
@@ -68,10 +52,6 @@ public class Modulo implements Model<Long> {
 
     public String getUrl() {
         return url;
-    }
-
-    public String getChave() {
-        return chave;
     }
 
     @Override

@@ -1,8 +1,6 @@
 package br.com.emmanuelneri.portal.model;
 
 import br.com.emmanuelneri.portal.util.Model;
-import br.com.emmanuelneri.portal.vo.ModuloVO;
-import br.com.emmanuelneri.portal.vo.UsuarioVO;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
 import javax.persistence.Column;
@@ -25,7 +23,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(uniqueConstraints = {
@@ -65,21 +62,8 @@ public class Usuario implements Model<Long> {
 
     @SuppressWarnings("unchecked")
     public Usuario(Map<String, Object> tokenMap) {
-        this.id = Long.valueOf((Integer) tokenMap.get("id"));
-        this.email = (String) tokenMap.get("email");
-        this.nome = (String) tokenMap.get("nome");
-        this.modulos = getModulosToken((List<Map<String, String>>) tokenMap.get("modulosUsuario"));
-    }
-
-    public UsuarioVO toVo() {
-        final List<ModuloVO> moduloVos = getModulos().stream().map(Modulo::toVo).collect(Collectors.toList());
-        return new UsuarioVO(getId(), getEmail(), getNome(), moduloVos);
-    }
-
-
-    private List<Modulo> getModulosToken(List<Map<String, String>> listaMapModulos) {
-        return listaMapModulos.stream().map(mapModulo -> new Modulo(mapModulo.get("nome"),
-                mapModulo.get("chave"), mapModulo.get("url"))).collect(Collectors.toList());
+        this.email = (String) tokenMap.get("login");
+        this.nome = (String) tokenMap.get("senha");
     }
 
     @Override

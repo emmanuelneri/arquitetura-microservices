@@ -57,7 +57,7 @@
 
     <filter>
         <filter-name>AutenticacaoFilter</filter-name>
-        <filter-class>br.com.emmanuelneri.autenticacao.AutenticacaoFilter</filter-class>
+        <filter-class>br.com.emmanuelneri.portal.autenticacao.AutenticacaoFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AutenticacaoFilter</filter-name>

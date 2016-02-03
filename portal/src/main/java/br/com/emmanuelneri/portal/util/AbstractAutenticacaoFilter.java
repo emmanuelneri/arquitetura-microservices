@@ -1,6 +1,7 @@
-package br.com.emmanuelneri.autenticacao;
+package br.com.emmanuelneri.portal.util;
 
 import br.com.emmanuelneri.portal.service.UsuarioService;
+import com.auth0.jwt.JWTVerifyException;
 import com.google.common.base.Strings;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -15,8 +16,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SignatureException;
+import java.util.HashMap;
+import java.util.Map;
 
-public class AutenticacaoFilter implements Filter {
+public abstract class AbstractAutenticacaoFilter implements Filter {
 
     @Inject
     private UsuarioService usuarioService;
@@ -26,8 +32,18 @@ public class AutenticacaoFilter implements Filter {
         final String token = servletRequest.getParameter("token");
 
         if(!Strings.isNullOrEmpty(token)) {
+            Map<String, Object> tokenMap = new HashMap<>();
+            try {
+                tokenMap = TokenUsuarioUtil.getTokenMap(token);
+            } catch (SignatureException | NoSuchAlgorithmException | JWTVerifyException | InvalidKeyException e) {
+                e.printStackTrace();
+            }
+
+            final String login = (String) tokenMap.get("login");
+            final String senha = (String) tokenMap.get("senha");
+
             Subject subject = SecurityUtils.getSubject();
-            subject.login(new UsernamePasswordToken(token, token, false, "token"));
+            subject.login(new UsernamePasswordToken(login, senha));
             sendRedirect(servletResponse);
         }
 
@@ -36,8 +52,10 @@ public class AutenticacaoFilter implements Filter {
 
     private void sendRedirect(ServletResponse servletResponse) throws IOException {
         final HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-        httpResponse.sendRedirect("/portal/home");
+        httpResponse.sendRedirect(getUrlRedirect());
     }
+
+    protected abstract String getUrlRedirect();
 
     @Override
     public void destroy() {

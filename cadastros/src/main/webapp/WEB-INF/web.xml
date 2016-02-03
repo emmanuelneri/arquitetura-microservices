@@ -9,7 +9,7 @@
     </context-param>
     <context-param>
         <param-name>com.ocpsoft.pretty.BASE_PACKAGES</param-name>
-        <param-value>br.com.emmanuelneri.autenticacao, br.com.emmanuelneri.cadastros.controller</param-value>
+        <param-value>br.com.emmanuelneri.portal.autenticacao, br.com.emmanuelneri.cadastros.controller</param-value>
     </context-param>
 
     <listener>
@@ -41,7 +41,7 @@
 
     <filter>
         <filter-name>AutenticacaoFilter</filter-name>
-        <filter-class>br.com.emmanuelneri.cadastros.AutenticacaoFilter</filter-class>
+        <filter-class>br.com.emmanuelneri.cadastros.autenticacao.AutenticacaoFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AutenticacaoFilter</filter-name>

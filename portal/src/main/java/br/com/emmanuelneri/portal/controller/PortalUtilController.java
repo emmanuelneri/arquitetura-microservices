@@ -27,7 +27,7 @@ public class PortalUtilController implements Serializable {
     private Configuracao configuracao;
 
     public void redirectAplicacao(Modulo moduloMenu) throws IOException {
-        final String token = TokenUsuarioUtil.createToken(usuario.toVo(), moduloMenu.toVo());
+        final String token = TokenUsuarioUtil.createToken(usuario);
         Faces.redirect(moduloMenu.getUrl() + "?token=%s&", token);
     }
 

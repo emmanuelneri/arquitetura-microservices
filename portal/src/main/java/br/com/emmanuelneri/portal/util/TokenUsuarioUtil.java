@@ -1,7 +1,7 @@
 package br.com.emmanuelneri.portal.util;
 
-import br.com.emmanuelneri.portal.vo.ModuloVO;
-import br.com.emmanuelneri.portal.vo.UsuarioVO;
+import br.com.emmanuelneri.portal.model.Modulo;
+import br.com.emmanuelneri.portal.model.Usuario;
 import com.auth0.jwt.JWTSigner;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.JWTVerifyException;
@@ -16,13 +16,10 @@ import java.util.Map;
 
 public final class TokenUsuarioUtil {
 
-    public static String createToken(UsuarioVO usuarioMenu, ModuloVO moduloMenu) {
+    public static String createToken(Usuario usuario) {
         HashMap mapValores = new HashMap();
-        mapValores.put("email", usuarioMenu.getEmail());
-        mapValores.put("id", usuarioMenu.getId());
-        mapValores.put("nome", usuarioMenu.getNome());
-        mapValores.put("chaveAplicacao", moduloMenu.getChave());
-        mapValores.put("modulosUsuario", usuarioMenu.getModulos());
+        mapValores.put("login", usuario.getEmail());
+        mapValores.put("senha", usuario.getSenha());
         return (new JWTSigner("secret")).sign(mapValores);
     }
 
@@ -30,9 +27,9 @@ public final class TokenUsuarioUtil {
         return (new JWTVerifier("secret")).verify(token);
     }
 
-    public static void redirectAplicacao(UsuarioVO usuario, ModuloVO modulo) throws IOException {
-        String token = createToken(usuario, modulo);
-        Faces.redirect(modulo.getUrl() + "?token=%s&", new String[]{token});
+    public static void redirectAplicacao(Usuario usuario, Modulo modulo) throws IOException {
+        String token = createToken(usuario);
+        Faces.redirect(modulo.getUrl() + "?token=%s&", token);
     }
 
 }
