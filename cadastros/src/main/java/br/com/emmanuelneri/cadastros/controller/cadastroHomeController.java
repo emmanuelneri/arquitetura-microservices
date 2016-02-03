@@ -13,5 +13,4 @@ import javax.inject.Named;
         @URLMapping(id = "home", viewId = "/pages/index.xhtml", pattern = "/home")
 })
 public class CadastroHomeController {
-
 }
