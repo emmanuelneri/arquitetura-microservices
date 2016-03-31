@@ -40,6 +40,18 @@ public class ApplicationProperty {
     @ConfigProperty(name = "ws.vendas.senha")
     private String wsVendasSenha;
 
+    @Inject
+    @ConfigProperty(name = "ws.relatorios.url")
+    private String wsRelatoriosUrl;
+
+    @Inject
+    @ConfigProperty(name = "ws.relatorios.email")
+    private String wsRelatoriosEmail;
+
+    @Inject
+    @ConfigProperty(name = "ws.relatorios.senha")
+    private String wsRelatoriosSenha;
+
     public String getNomeProjeto() {
         return nomeProjeto;
     }
@@ -70,5 +82,17 @@ public class ApplicationProperty {
 
     public String getWsVendasUrl() {
         return wsVendasUrl;
+    }
+
+    public String getWsRelatoriosUrl() {
+        return wsRelatoriosUrl;
+    }
+
+    public String getWsRelatoriosEmail() {
+        return wsRelatoriosEmail;
+    }
+
+    public String getWsRelatoriosSenha() {
+        return wsRelatoriosSenha;
     }
 }

@@ -1,19 +1,26 @@
 package br.com.emmanuelneri.vendas.service;
 
+import br.com.emmanuelneri.integrador.anotations.RelatoriosClientWS;
 import br.com.emmanuelneri.integrador.service.GenericService;
 import br.com.emmanuelneri.vendas.exception.ValidationException;
 import br.com.emmanuelneri.vendas.model.Pedido;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
-import br.com.emmanuelneri.vendas.vo.ClienteRankingVo;
-import br.com.emmanuelneri.vendas.vo.VeiculoRankingVo;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import java.time.LocalDate;
 import java.util.List;
 
 @Named
 public class PedidoService extends GenericService<Pedido, Long> {
+
+    @Inject
+    @RelatoriosClientWS
+    private WebTarget clienteRelatorioWS;
 
     @Transactional
     public void salvar(Pedido pedido) throws ValidationException {
@@ -31,6 +38,12 @@ public class PedidoService extends GenericService<Pedido, Long> {
         }
 
         save(pedido);
+        enviarPedido(pedido);
+    }
+
+    private void enviarPedido(Pedido pedido) {
+        clienteRelatorioWS.path("/pedidos/pedido/atualizar").queryParam("pedido", pedido)
+                .request().put(Entity.entity(pedido, MediaType.APPLICATION_JSON));
     }
 
     @Transactional
@@ -46,13 +59,5 @@ public class PedidoService extends GenericService<Pedido, Long> {
                 .setParameter("id", id).getResultList();
 
         return getResultOrNull(pedidos);
-    }
-
-    public List<ClienteRankingVo> findTopClientes() {
-        return getEntityManager().createNamedQuery("Pedido.findTopClientes", ClienteRankingVo.class).getResultList();
-    }
-
-    public List<VeiculoRankingVo> findTopVeiculos() {
-        return getEntityManager().createNamedQuery("Pedido.findTopVeiculo", VeiculoRankingVo.class).getResultList();
     }
 }

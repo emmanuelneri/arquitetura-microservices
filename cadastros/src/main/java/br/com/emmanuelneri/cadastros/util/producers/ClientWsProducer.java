@@ -3,6 +3,7 @@ package br.com.emmanuelneri.cadastros.util.producers;
 
 import br.com.emmanuelneri.cadastros.util.ApplicationProperty;
 import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
+import br.com.emmanuelneri.integrador.anotations.RelatoriosClientWS;
 import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
 
 import javax.enterprise.inject.Produces;
@@ -27,7 +28,7 @@ public final class ClientWsProducer {
                 .queryParam("senha", configuracao.getWsPortalSenha());
     }
 
-    @Named("clientWs")
+    @Named("vendasClientWS")
     @Produces
     @VendasClientWS
     public WebTarget getClientVendas() {
@@ -35,6 +36,16 @@ public final class ClientWsProducer {
         return client.target(configuracao.getWsVendasUrl())
                 .queryParam("email", configuracao.getWsVendasEmail())
                 .queryParam("senha", configuracao.getWsVendasSenha());
+    }
+
+    @Named("relatoriosClientWS")
+    @Produces
+    @RelatoriosClientWS
+    public WebTarget getClientRelatorios() {
+        final Client client = ClientBuilder.newClient();
+        return client.target(configuracao.getWsRelatoriosUrl())
+                .queryParam("email", configuracao.getWsRelatoriosEmail())
+                .queryParam("senha", configuracao.getWsRelatoriosSenha());
     }
 
 }

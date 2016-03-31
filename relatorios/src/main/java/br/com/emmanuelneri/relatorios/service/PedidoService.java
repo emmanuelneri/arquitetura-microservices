@@ -1,29 +1,22 @@
 package br.com.emmanuelneri.relatorios.service;
 
-import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
-import br.com.emmanuelneri.integrador.vo.ClienteRankingVo;
-import br.com.emmanuelneri.integrador.vo.VeiculoRankingVo;
+import br.com.emmanuelneri.integrador.service.GenericService;
+import br.com.emmanuelneri.relatorios.model.Pedido;
+import br.com.emmanuelneri.relatorios.vo.ClienteRankingVo;
+import br.com.emmanuelneri.relatorios.vo.VeiculoRankingVo;
 
-import javax.inject.Inject;
 import javax.inject.Named;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.GenericType;
-import java.io.Serializable;
 import java.util.List;
 
 @Named
-public class PedidoService implements Serializable {
-
-    @Inject
-    @VendasClientWS
-    private WebTarget clientVendasWS;
+public class PedidoService extends GenericService<Pedido, Long> {
 
     public List<ClienteRankingVo> findTopClientes() {
-        return clientVendasWS.path("/pedido/buscar/topClientes").request().get(new GenericType<List<ClienteRankingVo>>(){});
+        return getEntityManager().createNamedQuery("Pedido.findTopClientes", ClienteRankingVo.class).getResultList();
     }
 
     public List<VeiculoRankingVo> findTopVeiculos() {
-        return clientVendasWS.path("/pedido/buscar/topVeiculos").request().get(new GenericType<List<VeiculoRankingVo>>() {});
+        return getEntityManager().createNamedQuery("Pedido.findTopVeiculo", VeiculoRankingVo.class).getResultList();
     }
 
 }
