@@ -5,6 +5,7 @@ import br.com.emmanuelneri.cadastros.model.Cliente;
 import br.com.emmanuelneri.integrador.anotations.RelatoriosClientWS;
 import br.com.emmanuelneri.integrador.anotations.VendasClientWS;
 import br.com.emmanuelneri.integrador.service.GenericService;
+import org.omnifaces.util.Json;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,10 +24,16 @@ public class ClienteService extends GenericService<Cliente, Long> {
     @RelatoriosClientWS
     private WebTarget clienteRelatorioWS;
 
+    @Inject
+    private FilaService filaService;
+
     @Override
     protected void atualizarModulo(Cliente cliente) {
-        enviarCliente(clientVendasWS, cliente);
-        enviarCliente(clienteRelatorioWS, cliente);
+//        enviarCliente(clientVendasWS, cliente);
+//        enviarCliente(clienteRelatorioWS, cliente);
+
+        filaService.send(Json.encode(cliente));
+
     }
 
     private void enviarCliente(WebTarget client, Cliente cliente) {
