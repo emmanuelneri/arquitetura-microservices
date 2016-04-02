@@ -55,4 +55,8 @@ public abstract class UsuarioGenerico implements Model<Long> {
     public String getNome() {
         return nome;
     }
+
+    public long getVersion() {
+        return version;
+    }
 }

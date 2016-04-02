@@ -3,6 +3,7 @@ package br.com.emmanuelneri.cadastros.model;
 
 import br.com.emmanuelneri.integrador.enuns.Marca;
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -27,6 +28,14 @@ public class Modelo implements Model<Long> {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Marca marca;
+
+    public ModeloVo toVo() {
+        final ModeloVo modeloVo = new ModeloVo();
+        modeloVo.setId(this.id);
+        modeloVo.setNome(this.nome);
+        modeloVo.setMarca(marca);
+        return modeloVo;
+    }
 
     @Override
     public Long getId() {

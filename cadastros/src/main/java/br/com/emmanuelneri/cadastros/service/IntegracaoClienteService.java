@@ -29,8 +29,8 @@ public class IntegracaoClienteService {
     }
 
     private void enviar(WebTarget client, Cliente cliente) {
-        client.path("/cadastros/clientes/atualizar").queryParam("cliente", cliente)
-                .request().put(Entity.entity(cliente, MediaType.APPLICATION_JSON));
+        client.path("/cadastros/clientes/atualizar").queryParam("cliente", cliente.toVo())
+                .request().put(Entity.entity(cliente.toVo(), MediaType.APPLICATION_JSON));
     }
 
 }

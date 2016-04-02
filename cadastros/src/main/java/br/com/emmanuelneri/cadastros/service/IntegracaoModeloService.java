@@ -29,7 +29,7 @@ public class IntegracaoModeloService {
     }
 
     private void enviar(WebTarget client, Modelo modelo) {
-        client.path("/cadastros/modelos/atualizar").queryParam("modelo", modelo)
-                .request().put(Entity.entity(modelo, MediaType.APPLICATION_JSON));
+        client.path("/cadastros/modelos/atualizar").queryParam("modelo", modelo.toVo())
+                .request().put(Entity.entity(modelo.toVo(), MediaType.APPLICATION_JSON));
     }
 }

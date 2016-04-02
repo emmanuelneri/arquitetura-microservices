@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.cadastros.model;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,14 @@ public class Veiculo implements Model<Long> {
     @ManyToOne
     @JoinColumn(name = "id_modelo")
     private Modelo modelo;
+
+    public VeiculoVo toVo() {
+        final VeiculoVo veiculoVo = new VeiculoVo();
+        veiculoVo.setId(this.id);
+        veiculoVo.setNome(this.nome);
+        veiculoVo.setModelo(modelo.toVo());
+        return veiculoVo;
+    }
 
     @Override
     public Long getId() {

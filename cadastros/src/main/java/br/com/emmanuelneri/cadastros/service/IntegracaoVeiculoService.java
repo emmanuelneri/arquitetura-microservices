@@ -29,7 +29,7 @@ public class IntegracaoVeiculoService {
     }
 
     private void enviar(WebTarget client, Veiculo veiculo) {
-        client.path("/cadastros/veiculos/atualizar").queryParam("veiculo", veiculo)
-                .request().put(Entity.entity(veiculo, MediaType.APPLICATION_JSON));
+        client.path("/cadastros/veiculos/atualizar").queryParam("veiculo", veiculo.toVo())
+                .request().put(Entity.entity(veiculo.toVo(), MediaType.APPLICATION_JSON));
     }
 }

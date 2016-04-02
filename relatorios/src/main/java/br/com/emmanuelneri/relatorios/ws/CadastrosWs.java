@@ -1,9 +1,9 @@
 package br.com.emmanuelneri.relatorios.ws;
 
 
-import br.com.emmanuelneri.relatorios.model.Cliente;
-import br.com.emmanuelneri.relatorios.model.Modelo;
-import br.com.emmanuelneri.relatorios.model.Veiculo;
+import br.com.emmanuelneri.integrador.vo.ClienteVo;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 import br.com.emmanuelneri.relatorios.service.ClienteService;
 import br.com.emmanuelneri.relatorios.service.ModeloService;
 import br.com.emmanuelneri.relatorios.service.VeiculoService;
@@ -29,19 +29,19 @@ public class CadastrosWs {
 
     @PUT
     @Path("clientes/atualizar")
-    public void atualizarCliente(Cliente cliente) {
+    public void atualizarCliente(ClienteVo cliente) {
         clienteService.save(cliente);
     }
 
     @PUT
     @Path("modelos/atualizar")
-    public void atualizarModelo(Modelo modelo) {
+    public void atualizarModelo(ModeloVo modelo) {
         modeloService.save(modelo);
     }
 
     @PUT
     @Path("modelos/atualizar")
-    public void atualizarModelo(Veiculo veiculo) {
+    public void atualizarModelo(VeiculoVo veiculo) {
         veiculoService.save(veiculo);
     }
 
