@@ -4,8 +4,6 @@ import br.com.emmanuelneri.integrador.interfaces.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,7 +15,6 @@ import java.util.Objects;
 public class ItemPedido implements Model<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private int quantidade;
@@ -39,10 +36,11 @@ public class ItemPedido implements Model<Long> {
 
     }
 
-    public ItemPedido(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
-        this.valorUnitario = valorUnitario;
+    public ItemPedido(Long id, int quantidade, BigDecimal valorUnitario, BigDecimal valorTotal, Veiculo veiculo) {
+        this.id = id;
         this.quantidade = quantidade;
-        this.valorTotal = valorUnitario.multiply(BigDecimal.valueOf(quantidade));
+        this.valorUnitario = valorUnitario;
+        this.valorTotal = valorTotal;
         this.veiculo = veiculo;
     }
 

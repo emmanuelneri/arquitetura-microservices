@@ -3,8 +3,6 @@ package br.com.emmanuelneri.relatorios.model;
 import br.com.emmanuelneri.integrador.interfaces.Model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,7 +13,6 @@ import javax.validation.constraints.Size;
 public class Veiculo implements Model<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -30,6 +27,10 @@ public class Veiculo implements Model<Long> {
     @Override
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

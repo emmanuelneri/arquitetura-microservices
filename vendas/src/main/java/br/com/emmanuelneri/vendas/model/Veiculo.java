@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.vendas.model;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.VeiculoVo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,5 +47,13 @@ public class Veiculo implements Model<Long> {
 
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
+    }
+
+    public VeiculoVo toVo() {
+        final VeiculoVo veiculoVo = new VeiculoVo();
+        veiculoVo.setId(this.id);
+        veiculoVo.setNome(this.nome);
+        veiculoVo.setModelo(modelo.toVo());
+        return veiculoVo;
     }
 }

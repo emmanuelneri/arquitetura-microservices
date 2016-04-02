@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.vendas.model;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.ItemPedidoVo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,6 +45,16 @@ public class ItemPedido implements Model<Long> {
         this.quantidade = quantidade;
         this.valorTotal = valorUnitario.multiply(BigDecimal.valueOf(quantidade));
         this.veiculo = veiculo;
+    }
+
+    public ItemPedidoVo toVo() {
+        final ItemPedidoVo itemPedidoVo = new ItemPedidoVo();
+        itemPedidoVo.setId(this.id);
+        itemPedidoVo.setQuantidade(this.quantidade);
+        itemPedidoVo.setValorTotal(this.valorTotal);
+        itemPedidoVo.setValorUnitario(this.valorUnitario);
+        itemPedidoVo.setVeiculo(veiculo.toVo());
+        return itemPedidoVo;
     }
 
     @Override

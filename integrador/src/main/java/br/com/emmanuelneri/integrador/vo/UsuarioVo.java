@@ -2,11 +2,11 @@ package br.com.emmanuelneri.integrador.vo;
 
 import java.io.Serializable;
 
-public class VeiculoVo implements Serializable {
+public class UsuarioVo implements Serializable {
 
     private Long id;
     private String nome;
-    private ModeloVo modelo;
+    private String email;
 
     public Long getId() {
         return id;
@@ -24,11 +24,11 @@ public class VeiculoVo implements Serializable {
         this.nome = nome;
     }
 
-    public ModeloVo getModelo() {
-        return modelo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setModelo(ModeloVo modelo) {
-        this.modelo = modelo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

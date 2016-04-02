@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.vendas.model;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.PedidoVo;
 import br.com.emmanuelneri.vendas.model.enuns.SituacaoPedido;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @NamedQueries({
@@ -79,6 +81,19 @@ public class Pedido implements Model<Long> {
     public void removerItem(ItemPedido itemPedido) {
         this.itens.remove(itemPedido);
         this.valorTotal = this.valorTotal.subtract(itemPedido.getValorTotal());
+    }
+
+    public PedidoVo toVo() {
+        final PedidoVo pedidoVo = new PedidoVo();
+        pedidoVo.setId(this.id);
+        pedidoVo.setDataCriacao(this.dataCriacao);
+        pedidoVo.setDataFinalizacao(this.dataFinalizacao);
+        pedidoVo.setValorTotal(this.valorTotal);
+        pedidoVo.setCliente(this.cliente.toVo());
+        pedidoVo.setUsuario(this.usuario.toVo());
+        pedidoVo.setItens(this.itens.stream().map(ItemPedido::toVo).collect(Collectors.toList()));
+        pedidoVo.setSituacaoPedido(this.situacaoPedido.getDescricao());
+        return pedidoVo;
     }
 
     @Override

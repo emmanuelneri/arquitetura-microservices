@@ -3,6 +3,7 @@ package br.com.emmanuelneri.vendas.model;
 
 import br.com.emmanuelneri.integrador.enuns.Marca;
 import br.com.emmanuelneri.integrador.interfaces.Model;
+import br.com.emmanuelneri.integrador.vo.ModeloVo;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -47,6 +48,14 @@ public class Modelo implements Model<Long> {
 
     public void setMarca(Marca marca) {
         this.marca = marca;
+    }
+
+    public ModeloVo toVo() {
+        final ModeloVo modeloVo = new ModeloVo();
+        modeloVo.setId(this.id);
+        modeloVo.setNome(this.nome);
+        modeloVo.setMarca(marca);
+        return modeloVo;
     }
 
     @Override

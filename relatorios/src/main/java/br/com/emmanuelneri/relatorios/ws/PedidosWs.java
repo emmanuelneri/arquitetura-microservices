@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.relatorios.ws;
 
-import br.com.emmanuelneri.relatorios.model.Pedido;
+import br.com.emmanuelneri.integrador.vo.PedidoVo;
 import br.com.emmanuelneri.relatorios.service.PedidoService;
 
 import javax.inject.Inject;
@@ -18,7 +18,7 @@ public class PedidosWs {
 
     @PUT
     @Path("pedido/atualizar")
-    public void atualizarPedidos(Pedido pedido) {
-        pedidoService.save(pedido);
+    public void atualizarPedidos(PedidoVo pedidoVo) {
+        pedidoService.salvar(pedidoVo);
     }
 }

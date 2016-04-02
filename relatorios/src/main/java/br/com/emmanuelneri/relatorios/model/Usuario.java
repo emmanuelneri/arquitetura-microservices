@@ -18,21 +18,24 @@ import java.util.Set;
 public class Usuario extends UsuarioGenerico {
 
     @ManyToMany
-    @JoinTable(name="usuario_modulo",
-            joinColumns= @JoinColumn(name="id_usuario", referencedColumnName="id"),
-            inverseJoinColumns= @JoinColumn(name="id_modulo", referencedColumnName="id"))
+    @JoinTable(name = "usuario_modulo",
+            joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_modulo", referencedColumnName = "id"))
     @OrderBy(value = "id")
     private List<Modulo> modulos = new ArrayList<>();
 
-    protected Usuario() {
+    public Usuario() {
     }
 
     public Usuario(Map<String, Object> tokenMap) {
         super(tokenMap);
     }
 
-    public String getNome() {
-        return nome;
+
+    public List<Modulo> getModulosMenu() {
+        List<Modulo> modulosMenu = modulos;
+        modulosMenu.remove(Modulo.RELATORIOS);
+        return modulos;
     }
 
     @Override
@@ -40,25 +43,27 @@ public class Usuario extends UsuarioGenerico {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Modulo> getModulos() {
+        return modulos;
     }
 
-    public long getVersion() {
-        return version;
+    public void setModulos(List<Modulo> modulos) {
+        this.modulos = modulos;
     }
 
     public Set<String> getRoles() {
         return new HashSet<>();
     }
 
-    public List<Modulo> getModulos() {
-        return modulos;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public List<Modulo> getModulosMenu() {
-        List<Modulo> modulosMenu = modulos;
-        modulosMenu.remove(Modulo.RELATORIOS);
-        return modulos;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

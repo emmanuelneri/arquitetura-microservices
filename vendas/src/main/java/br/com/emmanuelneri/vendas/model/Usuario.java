@@ -2,6 +2,7 @@ package br.com.emmanuelneri.vendas.model;
 
 
 import br.com.emmanuelneri.integrador.autenticacao.UsuarioGenerico;
+import br.com.emmanuelneri.integrador.vo.UsuarioVo;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -60,5 +61,13 @@ public class Usuario extends UsuarioGenerico {
         List<Modulo> modulosMenu = modulos;
         modulosMenu.remove(Modulo.VENDAS);
         return modulos;
+    }
+
+    public UsuarioVo toVo() {
+        final UsuarioVo usuarioVo = new UsuarioVo();
+        usuarioVo.setId(this.id);
+        usuarioVo.setNome(this.nome);
+        usuarioVo.setEmail(this.email);
+        return usuarioVo;
     }
 }

@@ -1,16 +1,11 @@
 package br.com.emmanuelneri.relatorios.model;
 
 import br.com.emmanuelneri.integrador.interfaces.Model;
-import br.com.emmanuelneri.relatorios.model.enuns.SituacaoPedido;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,13 +21,13 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Pedido.findPedidoCompletoById", query = "select p from Pedido p JOIN FETCH p.itens where p.id = :id"),
+        @NamedQuery(name = "Pedido.deleteItens", query = "delete from Pedido p where p.id = :id"),
         @NamedQuery(name = "Pedido.findTopClientes", query = "select new br.com.emmanuelneri.relatorios.vo.ClienteRankingVo(c, count(i.quantidade), sum(i.valorTotal)) from Pedido p join p.cliente c join p.itens i where p.situacaoPedido <> 'CANCELADO' group by c order by sum(i.valorTotal) desc"),
         @NamedQuery(name = "Pedido.findTopVeiculo", query = "select new br.com.emmanuelneri.relatorios.vo.VeiculoRankingVo(v, count(i.quantidade)) from Pedido p join p.itens i join i.veiculo v where p.situacaoPedido <> 'CANCELADO' group by v order by count(i.quantidade) desc")
 })
 public class Pedido implements Model<Long> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
@@ -62,30 +57,15 @@ public class Pedido implements Model<Long> {
     private List<ItemPedido> itens = new ArrayList<>();
 
     @NotNull
-    @Enumerated(EnumType.STRING)
-    private SituacaoPedido situacaoPedido = SituacaoPedido.ABERTO;
-
-    public Pedido() {
-    }
-
-    public Pedido(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public void adicionarItem(BigDecimal valorUnitario, int quantidade, Veiculo veiculo) {
-        final ItemPedido itemPedido = new ItemPedido(valorUnitario, quantidade, veiculo);
-        this.itens.add(itemPedido);
-        this.valorTotal = this.valorTotal.add(itemPedido.getValorTotal());
-    }
-
-    public void removerItem(ItemPedido itemPedido) {
-        this.itens.remove(itemPedido);
-        this.valorTotal = this.valorTotal.subtract(itemPedido.getValorTotal());
-    }
+    private String situacaoPedido;
 
     @Override
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getDataCriacao() {
@@ -136,15 +116,12 @@ public class Pedido implements Model<Long> {
         this.itens = itens;
     }
 
-    public SituacaoPedido getSituacaoPedido() {
+    public String getSituacaoPedido() {
         return situacaoPedido;
     }
 
-    public void setSituacaoPedido(SituacaoPedido situacaoPedido) {
+    public void setSituacaoPedido(String situacaoPedido) {
         this.situacaoPedido = situacaoPedido;
     }
 
-    public boolean isPedidoEditavel() {
-        return getSituacaoPedido() == SituacaoPedido.ABERTO;
-    }
 }
