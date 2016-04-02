@@ -21,7 +21,7 @@ public class UsuarioService extends GenericService<Usuario, Long> {
         final Usuario usuarioPortal = webTarget.path("/usuario/buscar/").path(email).request().get(Usuario.class);
         final Usuario usuarioBanco = findById(usuarioPortal.getId());
 
-        if(usuarioBanco != null && usuarioBanco.getVersion() == usuarioPortal.getVersion()) {
+        if (usuarioBanco != null && usuarioBanco.getVersion() == usuarioPortal.getVersion()) {
             return usuarioBanco;
         }
 
