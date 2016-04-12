@@ -8,9 +8,7 @@ public final class VeiculoRankingVo implements Serializable {
     private Long idVeiculo;
     private Long quantidade;
 
-    public VeiculoRankingVo(VeiculoVo veiculo, Long quantidade) {
-        this.veiculo = veiculo;
-        this.quantidade = quantidade;
+    public VeiculoRankingVo() {
     }
 
     public VeiculoRankingVo(Long idVeiculo, Long quantidade) {

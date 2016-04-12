@@ -10,10 +10,7 @@ public final class ClienteRankingVo implements Serializable {
     private Long quantidadeVeiculo;
     private BigDecimal valorTotal;
 
-    public ClienteRankingVo(ClienteVo cliente, Long quantidadeVeiculo, BigDecimal valorTotal) {
-        this.cliente = cliente;
-        this.quantidadeVeiculo = quantidadeVeiculo;
-        this.valorTotal = valorTotal;
+    public ClienteRankingVo() {
     }
 
     public ClienteRankingVo(Long idCliente, Long quantidadeVeiculo, BigDecimal valorTotal) {
