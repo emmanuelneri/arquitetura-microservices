@@ -1,12 +1,14 @@
 package br.com.emmanuelneri.integrador.vo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UsuarioVo implements Serializable {
 
     private Long id;
     private String nome;
     private String email;
+    private List<ModuloVo> modulos;
 
     public Long getId() {
         return id;
@@ -30,5 +32,13 @@ public class UsuarioVo implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<ModuloVo> getModulos() {
+        return modulos;
+    }
+
+    public void setModulos(List<ModuloVo> modulos) {
+        this.modulos = modulos;
     }
 }

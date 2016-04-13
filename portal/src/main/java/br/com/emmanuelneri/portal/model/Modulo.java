@@ -1,6 +1,7 @@
 package br.com.emmanuelneri.portal.model;
 
 import br.com.emmanuelneri.integrador.autenticacao.ModuloGenerico;
+import br.com.emmanuelneri.integrador.vo.ModuloVo;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -13,13 +14,22 @@ import java.util.Objects;
 })
 public class Modulo extends ModuloGenerico {
 
-    public static final Modulo PORTAL = new Modulo(1L, "Portal", "P0RT4LL", "http://localhost:8080/portal/token/");
+    public static final Modulo PORTAL = new Modulo(1L, "Portal", "http://localhost:8080/portal/token/", "P0RT4LL");
 
     protected Modulo() {
     }
 
     public Modulo(Long id, String nome, String url, String chave) {
         super(id, nome, url, chave);
+    }
+
+    public ModuloVo toVo() {
+        final ModuloVo moduloVo = new ModuloVo();
+        moduloVo.setId(this.id);
+        moduloVo.setNome(this.nome);
+        moduloVo.setChave(this.chave);
+        moduloVo.setUrl(this.url);
+        return moduloVo;
     }
 
     @Override

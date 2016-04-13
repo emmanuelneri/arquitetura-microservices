@@ -3,12 +3,15 @@ package br.com.emmanuelneri.relatorios.service;
 import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
 import br.com.emmanuelneri.integrador.service.GenericService;
 import br.com.emmanuelneri.integrador.vo.UsuarioVo;
+import br.com.emmanuelneri.relatorios.model.Modulo;
 import br.com.emmanuelneri.relatorios.model.Usuario;
+import com.google.common.base.Strings;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import javax.ws.rs.client.WebTarget;
+import java.util.stream.Collectors;
 
 @Named
 public class UsuarioService extends GenericService<Usuario, Long> {
@@ -19,16 +22,8 @@ public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Transactional
     public Usuario atualizarUsuario(String email) {
-        final Usuario usuarioPortal = webTarget.path("/usuario/buscar/").path(email).request().get(Usuario.class);
-        final Usuario usuarioBanco = findByEmail(usuarioPortal.getEmail());
-
-        if (usuarioBanco != null && usuarioBanco.getVersion() == usuarioPortal.getVersion()) {
-            return usuarioBanco;
-        }
-
-        save(usuarioPortal);
-
-        return usuarioPortal;
+        final UsuarioVo usuarioVo = webTarget.path("/usuario/buscar/").path(email).request().get(UsuarioVo.class);
+        return findUsuarioOuCriaNovo(usuarioVo);
     }
 
     public Usuario findByEmail(String email) {
@@ -37,16 +32,30 @@ public class UsuarioService extends GenericService<Usuario, Long> {
                 .getResultList());
     }
 
+    @Transactional
     public Usuario findUsuarioOuCriaNovo(UsuarioVo usuarioVo) {
         Usuario usuario = findById(usuarioVo.getId());
 
         if (usuario == null) {
             usuario = new Usuario();
             usuario.setId(usuarioVo.getId());
-            usuario.setNome(usuarioVo.getNome());
-            usuario.setEmail(usuarioVo.getEmail());
-            getEntityManager().persist(usuario);
         }
+
+        if(!Strings.isNullOrEmpty(usuarioVo.getNome())) {
+            usuario.setNome(usuarioVo.getNome());
+        }
+
+        if(!Strings.isNullOrEmpty(usuarioVo.getEmail())) {
+            usuario.setEmail(usuarioVo.getEmail());
+        }
+
+        if(usuarioVo.getModulos() != null) {
+            usuario.setModulos(usuarioVo.getModulos().stream()
+                    .map(vo -> new Modulo(vo.getId(), vo.getNome(), vo.getUrl(), vo.getChave())).collect(Collectors.toList()));
+        }
+
+        save(usuario);
+
         return usuario;
     }
 }

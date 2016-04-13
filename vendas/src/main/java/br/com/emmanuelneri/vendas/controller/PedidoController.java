@@ -95,12 +95,15 @@ public class PedidoController implements Serializable {
     }
 
     public void salvar() {
+        long start = System.currentTimeMillis();
         try {
             pedidoService.salvar(pedido);
             Messages.addInfo(null, "Pedido salvo com sucesso!");
         } catch (ValidationException vex) {
             Messages.addError(null, vex.getMessage());
         }
+        System.out.println(System.currentTimeMillis() - start);
+        System.out.println("--------------");
     }
 
     public void finalizar() {

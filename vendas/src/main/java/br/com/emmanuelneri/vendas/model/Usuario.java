@@ -25,7 +25,7 @@ public class Usuario extends UsuarioGenerico {
     @OrderBy(value = "id")
     private List<Modulo> modulos = new ArrayList<>();
 
-    protected Usuario() {
+    public Usuario() {
     }
 
     public Usuario(Map<String, Object> tokenMap) {
@@ -69,5 +69,21 @@ public class Usuario extends UsuarioGenerico {
         usuarioVo.setNome(this.nome);
         usuarioVo.setEmail(this.email);
         return usuarioVo;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setModulos(List<Modulo> modulos) {
+        this.modulos = modulos;
     }
 }

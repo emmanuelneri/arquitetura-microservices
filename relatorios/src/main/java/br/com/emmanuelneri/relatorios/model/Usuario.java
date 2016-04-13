@@ -3,6 +3,7 @@ package br.com.emmanuelneri.relatorios.model;
 
 import br.com.emmanuelneri.integrador.autenticacao.UsuarioGenerico;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -17,7 +18,7 @@ import java.util.Set;
 @Entity
 public class Usuario extends UsuarioGenerico {
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "usuario_modulo",
             joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "id_modulo", referencedColumnName = "id"))

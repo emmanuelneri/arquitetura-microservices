@@ -2,7 +2,6 @@ package br.com.emmanuelneri.portal.ws;
 
 import br.com.emmanuelneri.portal.model.Usuario;
 import br.com.emmanuelneri.portal.service.UsuarioService;
-import br.com.emmanuelneri.portal.ws.json.UsuarioJson;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -25,8 +24,7 @@ public class UsuarioWs {
     @Path("buscar/{emailUsuarioLogado}")
     public Response buscarUsuario(@PathParam("emailUsuarioLogado") String email) {
         final Usuario usuario = usuarioService.findCompletoByEmail(email);
-        return Response.ok(new UsuarioJson(usuario)).build();
+        return Response.ok(usuario.toVO()).build();
     }
-
 
 }

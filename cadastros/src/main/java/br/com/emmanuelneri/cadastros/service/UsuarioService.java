@@ -1,13 +1,17 @@
 package br.com.emmanuelneri.cadastros.service;
 
+import br.com.emmanuelneri.cadastros.model.Modulo;
 import br.com.emmanuelneri.cadastros.model.Usuario;
 import br.com.emmanuelneri.integrador.anotations.PortalClientWS;
 import br.com.emmanuelneri.integrador.service.GenericService;
+import br.com.emmanuelneri.integrador.vo.UsuarioVo;
+import com.google.common.base.Strings;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import javax.ws.rs.client.WebTarget;
+import java.util.stream.Collectors;
 
 @Named
 public class UsuarioService extends GenericService<Usuario, Long> {
@@ -18,15 +22,33 @@ public class UsuarioService extends GenericService<Usuario, Long> {
 
     @Transactional
     public Usuario atualizarUsuario(String email) {
-        final Usuario usuarioPortal = webTarget.path("/usuario/buscar/").path(email).request().get(Usuario.class);
-        final Usuario usuarioBanco = findById(usuarioPortal.getId());
+        final UsuarioVo usuarioVo = webTarget.path("/usuario/buscar/").path(email).request().get(UsuarioVo.class);
+        return findUsuarioOuCriaNovo(usuarioVo);
+    }
 
-        if (usuarioBanco != null && usuarioBanco.getVersion() == usuarioPortal.getVersion()) {
-            return usuarioBanco;
+    private Usuario findUsuarioOuCriaNovo(UsuarioVo usuarioVo) {
+        Usuario usuario = findById(usuarioVo.getId());
+
+        if (usuario == null) {
+            usuario = new Usuario();
+            usuario.setId(usuarioVo.getId());
         }
 
-        save(usuarioPortal);
+        if(!Strings.isNullOrEmpty(usuarioVo.getNome())) {
+            usuario.setNome(usuarioVo.getNome());
+        }
 
-        return usuarioPortal;
+        if(!Strings.isNullOrEmpty(usuarioVo.getEmail())) {
+            usuario.setEmail(usuarioVo.getEmail());
+        }
+
+        if(usuarioVo.getModulos() != null) {
+            usuario.setModulos(usuarioVo.getModulos().stream()
+                    .map(vo -> new Modulo(vo.getId(), vo.getNome(), vo.getUrl(), vo.getChave())).collect(Collectors.toList()));
+        }
+
+        save(usuario);
+
+        return usuario;
     }
 }

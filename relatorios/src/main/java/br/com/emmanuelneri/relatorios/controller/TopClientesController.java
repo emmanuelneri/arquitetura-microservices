@@ -26,7 +26,10 @@ public class TopClientesController implements Serializable {
 
     @URLAction(mappingId = "top-clientes", onPostback = false)
     public void init() {
+        long start = System.currentTimeMillis();
         clientes = pedidoService.findTopClientes();
+        System.out.println(System.currentTimeMillis() - start);
+        System.out.println("--------------");
     }
 
     public List<ClienteRankingVo> getClientes() {

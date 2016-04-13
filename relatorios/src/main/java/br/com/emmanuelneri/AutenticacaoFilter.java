@@ -13,7 +13,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
 
-public class AutenticacaoFilter  extends AutenticacaoGenericoFilter {
+public class AutenticacaoFilter extends AutenticacaoGenericoFilter {
 
     @Inject
     private UsuarioService usuarioService;
