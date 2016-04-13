@@ -1,5 +1,10 @@
-insert into usuario (id, email, nome, version) values (1, 'teste@gmail.com', 'Usuario 1', 1);
-insert into usuario (id, email, nome, version) values (2, 'ws@gmail.com', 'WS', 1);
+insert into modulo (id, nome, url, chave) values (1, 'Portal', 'http://localhost:8080/portal/token/', 'P0RT4LL');
+insert into modulo (id, nome, url, chave) values (2, 'Cadastros', 'http://localhost:8080/cadastros/auth/', 'C4D4$TR0S');
+insert into modulo (id, nome, url, chave) values (3, 'Pedidos', 'http://localhost:8080/pedidos/auth/', 'SACRSC1234');
+insert into modulo (id, nome, url, chave) values (4, 'Relatórios', 'http://localhost:8080/relatorios/auth/', 'R3L4T0R10$');
+
+insert into usuario (id, email, nome, version) values (2, 'ws@gmail.com', 'WS', 0);
+insert into usuario (id, email, nome, version) values (3, 'teste@gmail.com', 'Usuario 1', 0);
 
 INSERT INTO cliente (id, cpf_cnpj, nome) VALUES (1, '9020930209320', 'Cliente 1');
 INSERT INTO cliente (id, cpf_cnpj, nome) VALUES (2, '0909278738738', 'Cliente 2');
@@ -67,35 +72,35 @@ INSERT INTO veiculo (id, nome, id_modelo) VALUES (33, 'Optima', 22);
 INSERT INTO veiculo (id, nome, id_modelo) VALUES (34, 'Cadenza', 23);
 
 
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (1, '2015-05-31', '2015-05-31', 'FINALIZADO', 140000.00, 1, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (2, '2015-04-10', '2015-04-10', 'FINALIZADO', 75000.00, 1, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (3, '2015-05-31', '2015-05-31', 'FINALIZADO', 60000.00, 2, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (4, '2015-05-20', '2015-05-22', 'FINALIZADO', 75000.00, 3, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (5, '2015-01-10', '2015-01-12', 'FINALIZADO', 75000.00, 3, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (6, '2015-02-15', '2015-01-15', 'FINALIZADO', 16000.00, 3, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (7, '2015-04-20', '2015-04-30', 'FINALIZADO', 500000.00, 4, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (8, '2015-04-20', '2015-04-30', 'FINALIZADO', 514000.00, 5, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (9, '2015-03-31', null, 'CANCELADO', 140000.00, 1, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (10, '2015-03-31', '2015-03-31', 'FINALIZADO', 180000.00, 1, 1);
-INSERT INTO public.pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (11, '2015-03-31', null, 'ABERTO', 40000.00, 1, 1);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (1, '2015-05-31', '2015-05-31', 'FINALIZADO', 140000.00, 1, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (2, '2015-04-10', '2015-04-10', 'FINALIZADO', 75000.00, 1, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (3, '2015-05-31', '2015-05-31', 'FINALIZADO', 60000.00, 2, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (4, '2015-05-20', '2015-05-22', 'FINALIZADO', 75000.00, 3, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (5, '2015-01-10', '2015-01-12', 'FINALIZADO', 75000.00, 3, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (6, '2015-02-15', '2015-01-15', 'FINALIZADO', 16000.00, 3, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (7, '2015-04-20', '2015-04-30', 'FINALIZADO', 500000.00, 4, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (8, '2015-04-20', '2015-04-30', 'FINALIZADO', 514000.00, 5, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (9, '2015-03-31', null, 'CANCELADO', 140000.00, 1, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (10, '2015-03-31', '2015-03-31', 'FINALIZADO', 180000.00, 1, 3);
+INSERT INTO pedido (id, data_criacao, data_finalizacao, situacaopedido, valor_total, id_cliente, id_usuario) VALUES (11, '2015-03-31', null, 'ABERTO', 40000.00, 1, 1);
 
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (1, 1, 140000.00, 140000.00, 1, 1);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (2, 1, 75000.00, 75000.00, 2, 2);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (3, 1, 60000.00, 60000.00, 3, 3);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (4, 1, 75000.00, 75000.00, 1, 4);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (5, 1, 75000.00, 75000.00, 1, 5);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (6, 1, 16000.00, 16000.00, 4, 6);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (7, 1, 110000.00, 110000.00, 5, 7);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (8, 2, 60000.00, 1200000.00, 6, 7);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (9, 1, 130000.00, 130000.00, 7, 7);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (10, 2, 70000.00, 140000.00, 8, 7);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (11, 1, 90000.00, 90000.00, 9, 8);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (12, 1, 130000.00, 130000.00, 10, 8);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (13, 1, 95000.00, 95000.00, 11, 8);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (14, 1, 55000.00, 55000.00, 12, 8);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (15, 2, 48000.00, 144000.00, 13, 8);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (16, 1, 140000.00, 140000.00, 14, 9);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (17, 1, 180000.00, 180000.00, 15, 10);
-INSERT INTO public.item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (18, 1, 40000.00, 40000.00, 16, 11);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (1, 1, 140000.00, 140000.00, 1, 1);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (2, 1, 75000.00, 75000.00, 2, 2);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (3, 1, 60000.00, 60000.00, 3, 3);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (4, 1, 75000.00, 75000.00, 1, 4);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (5, 1, 75000.00, 75000.00, 1, 5);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (6, 1, 16000.00, 16000.00, 4, 6);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (7, 1, 110000.00, 110000.00, 5, 7);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (8, 2, 60000.00, 1200000.00, 6, 7);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (9, 1, 130000.00, 130000.00, 7, 7);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (10, 2, 70000.00, 140000.00, 8, 7);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (11, 1, 90000.00, 90000.00, 9, 8);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (12, 1, 130000.00, 130000.00, 10, 8);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (13, 1, 95000.00, 95000.00, 11, 8);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (14, 1, 55000.00, 55000.00, 12, 8);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (15, 2, 48000.00, 144000.00, 13, 8);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (16, 1, 140000.00, 140000.00, 14, 9);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (17, 1, 180000.00, 180000.00, 15, 10);
+INSERT INTO item_pedido (id, quantidade, valor_total, valor_unitario, id_veiculo, id_pedido) VALUES (18, 1, 40000.00, 40000.00, 16, 11);
 
 

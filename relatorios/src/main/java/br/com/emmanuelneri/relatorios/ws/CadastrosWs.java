@@ -40,7 +40,7 @@ public class CadastrosWs {
     }
 
     @PUT
-    @Path("modelos/atualizar")
+    @Path("veiculos/atualizar")
     public void atualizarModelo(VeiculoVo veiculo) {
         veiculoService.save(veiculo);
     }

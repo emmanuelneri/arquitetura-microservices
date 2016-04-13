@@ -41,7 +41,7 @@ public class PedidoService extends GenericService<Pedido, Long> {
         pedido.setDataFinalizacao(pedidoVo.getDataFinalizacao());
         pedido.setValorTotal(pedidoVo.getValorTotal());
 
-        final Cliente cliente = clienteService.findClienteOuCriaNovo(pedidoVo.getCliente());
+        final Cliente cliente = clienteService.save(pedidoVo.getCliente());
         pedido.setCliente(cliente);
 
         final Usuario usuario = usuarioService.findUsuarioOuCriaNovo(pedidoVo.getUsuario());
@@ -64,7 +64,7 @@ public class PedidoService extends GenericService<Pedido, Long> {
 
         final List<ItemPedido> itemPedidos = new ArrayList<>();
         for (ItemPedidoVo vo : itensVo) {
-            final Veiculo veiculo = veiculoService.findVeiculoOuCriaNovo(vo.getVeiculo());
+            final Veiculo veiculo = veiculoService.save(vo.getVeiculo());
             final ItemPedido itemPedido = new ItemPedido(vo.getId(), vo.getQuantidade(), vo.getValorUnitario(), vo.getValorTotal(), veiculo);
             itemPedidos.add(itemPedido);
         }
