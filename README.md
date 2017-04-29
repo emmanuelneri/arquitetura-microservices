@@ -1,7 +1,7 @@
-#Arquitetura
+# Arquitetura
 ![alt tag](https://github.com/emmanuelneri/arquitetura-microservices/blob/master/arquitetura-microservices.png)
 
-#Requisitos
+# Requisitos
 - Postgres 9.3+
 - Wildfly 8.0.2.Final
 - Java 8
